@@ -1,0 +1,3027 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="artifact-type" content="tool">
+<meta name="design-style" content="sticker">
+<title>日本語クイズ — SMK ZAINAB &amp; AMAN 先生</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..900;1,9..40,400..900&family=Klee+One:wght@600&display=swap" rel="stylesheet">
+<style>
+:root {
+  color-scheme: light;
+
+  /* Page and surfaces -- Light Sakura */
+  --background: #fff6fa;
+  --surface-container-low: #ffffff;
+  --surface-container: #fdecf4;
+  --surface-container-high: #f9dbe9;
+
+  /* Ink */
+  --on-surface: #2e1a28;
+  --on-surface-variant: #614559;
+
+  /* Rules */
+  --outline: #98758c;
+  --outline-variant: #ecc9da;
+
+  /* Accents */
+  --primary: #c2207f;
+  --on-primary: #ffffff;
+  --primary-container: #fbc2dc;
+  --on-primary-container: #2e1a28;
+  --secondary: #7c52aa;
+  --on-secondary: #ffffff;
+  --tertiary: #0096cc;
+  --error: #c53030;
+  --on-error: #ffffff;
+  --error-container: #fde8e8;
+
+  /* Semantic */
+  --positive: #15803d;
+  --positive-container: #dcfce7;
+  --warning: #b45309;
+  --warning-container: #fef3c7;
+  --focus: #c2207f;
+
+  /* Data series */
+  --data-1: #c2207f;
+  --data-2: #7c52aa;
+  --data-3: #0096cc;
+  --data-4: #d96a00;
+  --data-context: #d6bfd0;
+
+  /* Sakura & Mascot Tokens */
+  --sakura-bark: #6d474f;
+  --sakura-bark-dark: #4f3138;
+  --sakura-petal-1: #ffb7d5;
+  --sakura-petal-2: #ffd9ea;
+  --sakura-petal-3: #f48fb1;
+  --sakura-petal-core: #c2207f;
+  --sakura-leaf: #7cb342;
+
+  --team-kyushu: #c53030;
+  --team-kyushu-bg: #fff0f0;
+  --team-honshu: #c2207f;
+  --team-honshu-bg: #fff0f7;
+  --team-shikoku: #b45309;
+  --team-shikoku-bg: #fff9e6;
+  --team-hokkaido: #15803d;
+  --team-hokkaido-bg: #edfdf2;
+
+  --mascot-black: #221f26;
+  --mascot-white: #ffffff;
+  --mascot-cream: #fff4df;
+  --mascot-red: #e03131;
+  --mascot-gold: #f59f00;
+  --mascot-yellow: #ffd43b;
+  --mascot-orange: #f76707;
+  --mascot-blue: #1971c2;
+  --mascot-green: #2b8a3e;
+  --mascot-melon: #74b816;
+  --mascot-melon-rind: #d8f5a2;
+  --mascot-pink: #ff85b3;
+
+  /* Fonts */
+  --font-headline: 'DM Sans', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+  --font-label: 'DM Sans', sans-serif;
+  --font-jp: 'Klee One', cursive, sans-serif;
+
+  /* Type Scale */
+  --display-size: clamp(1.85rem, 1.3rem + 2.1vw, 2.75rem);
+  --headline-size: clamp(1.2rem, 1.05rem + 0.55vw, 1.5rem);
+  --subhead-size: clamp(1.05rem, 0.98rem + 0.25vw, 1.2rem);
+  --body-size: clamp(0.95rem, 0.92rem + 0.15vw, 1.02rem);
+  --label-size: 0.75rem;
+  --jp-question-size: clamp(1.22rem, 1rem + 1vw, 1.6rem);
+  --jp-option-size: clamp(1.06rem, 0.96rem + 0.55vw, 1.26rem);
+
+  /* Shape */
+  --rounded: 1.125rem;
+  --rounded-lg: 1.75rem;
+  --rounded-full: 9999px;
+
+  /* Spacing scale */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2.25rem;
+  --space-2xl: 3.5rem;
+  --space-3xl: 5rem;
+
+  /* Effects */
+  --shadow-pink: 0 4px 16px rgb(194 32 127 / 0.14);
+  --shadow-pink-deep: 0 10px 26px rgb(194 32 127 / 0.26);
+  --shadow-grape: 0 4px 16px rgb(124 82 170 / 0.15);
+  --shadow-sky: 0 4px 16px rgb(0 150 204 / 0.15);
+  --pop-scale: scale(1.03);
+  --lift: translateY(-4px);
+  --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-micro: 120ms;
+  --dur-short: 220ms;
+  --dur-long: 420ms;
+}
+
+/* Base reset */
+*, *::before, *::after { box-sizing: border-box; }
+html, body { overflow-x: clip; margin: 0; padding: 0; }
+header { position: static !important; }
+
+body {
+  background: var(--background);
+  color: var(--on-surface);
+  font-family: var(--font-body);
+  font-size: var(--body-size);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+button, input, select, textarea {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
+
+/* Japanese Typography: Klee One SemiBold 600 */
+.jp, [lang="ja"] {
+  font-family: var(--font-jp);
+  font-weight: 600;
+  letter-spacing: 0;
+  text-transform: none;
+  line-height: 1.75;
+}
+
+ruby {
+  ruby-position: over;
+  ruby-align: center;
+}
+rt {
+  font-family: var(--font-jp);
+  font-weight: 600;
+  font-size: 0.56em;
+  color: var(--on-surface-variant);
+  letter-spacing: 0;
+  line-height: 1.1;
+  user-select: none;
+}
+body.furigana-off rt {
+  display: none;
+}
+
+.page-shell {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: var(--space-md);
+  display: grid;
+  gap: var(--space-md);
+}
+.page-shell * { min-width: 0; }
+
+/* Hide main shell header/nav during active quiz for zero-scroll phone experience */
+body.in-quiz .page-shell {
+  padding: var(--space-xs) var(--space-sm);
+  gap: var(--space-xs);
+  max-width: 780px;
+}
+body.in-quiz .hero-header,
+body.in-quiz .main-nav,
+body.in-quiz .audio-bar-desktop,
+body.in-quiz .page-footer {
+  display: none;
+}
+
+/* Hero Top Box */
+.hero-header {
+  background: linear-gradient(135deg, var(--surface-container-low) 0%, var(--surface-container) 100%);
+  border-radius: var(--rounded-lg);
+  box-shadow: var(--shadow-pink);
+  padding: var(--space-lg);
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 0.9fr);
+  align-items: center;
+  gap: var(--space-md);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-brand {
+  display: grid;
+  gap: var(--space-sm);
+  justify-items: start;
+  z-index: 2;
+}
+
+.hero-title {
+  margin: 0;
+  font-family: var(--font-jp);
+  font-weight: 600;
+  font-size: clamp(2.2rem, 1.5rem + 3vw, 3.4rem);
+  line-height: 1.15;
+  color: var(--on-surface);
+  letter-spacing: 0.02em;
+}
+.hero-title .accent-char {
+  color: var(--primary);
+}
+
+.hero-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  align-items: center;
+}
+
+.school-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  background: var(--primary);
+  color: var(--on-primary);
+  font-family: var(--font-headline);
+  font-weight: 800;
+  font-size: clamp(1rem, 0.9rem + 0.6vw, 1.25rem);
+  padding: var(--space-xs) var(--space-md);
+  border-radius: var(--rounded-full);
+  box-shadow: var(--shadow-pink);
+  letter-spacing: 0.03em;
+}
+
+.sensei-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  background: var(--surface-container-low);
+  color: var(--secondary);
+  border: 2px solid var(--secondary);
+  font-family: var(--font-headline);
+  font-weight: 800;
+  font-size: clamp(1rem, 0.9rem + 0.6vw, 1.25rem);
+  padding: var(--space-xs) var(--space-md);
+  border-radius: var(--rounded-full);
+  box-shadow: var(--shadow-grape);
+}
+.sensei-badge .jp {
+  font-size: 1.05em;
+  line-height: 1.2;
+}
+
+.hero-subtitle {
+  margin: 0;
+  font-size: var(--body-size);
+  color: var(--on-surface-variant);
+  max-width: 52ch;
+}
+
+.hero-controls-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  align-items: center;
+  margin-top: var(--space-xs);
+}
+
+.hero-tree-wrap {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  z-index: 1;
+}
+.sakura-tree-svg {
+  width: 100%;
+  max-width: 280px;
+  height: auto;
+  display: block;
+}
+
+/* Audio & Furigana Control Bar */
+.audio-bar-desktop {
+  background: var(--surface-container-low);
+  border-radius: var(--rounded);
+  box-shadow: var(--shadow-grape);
+  padding: var(--space-sm) var(--space-md);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-sm);
+}
+
+.audio-left {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.audio-label {
+  font-size: var(--label-size);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--on-surface-variant);
+}
+
+.audio-right {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.volume-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  background: var(--surface-container);
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--rounded-full);
+}
+.volume-slider {
+  width: 88px;
+  accent-color: var(--primary);
+  cursor: pointer;
+}
+
+/* Pill Buttons & Controls */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xs);
+  min-height: 44px;
+  padding: var(--space-sm) var(--space-lg);
+  border-radius: var(--rounded-full);
+  border: none;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform var(--dur-short) var(--ease-bounce), box-shadow var(--dur-short) var(--ease-out), background-color var(--dur-micro) var(--ease-out);
+  text-align: center;
+}
+.btn:hover:not(:disabled) { transform: var(--pop-scale); }
+.btn:active:not(:disabled) { transform: scale(0.97); }
+.btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.btn-primary {
+  background: var(--primary);
+  color: var(--on-primary);
+  box-shadow: var(--shadow-pink);
+}
+.btn-primary:hover:not(:disabled) { box-shadow: var(--shadow-pink-deep); }
+
+.btn-secondary {
+  background: var(--secondary);
+  color: var(--on-secondary);
+  box-shadow: var(--shadow-grape);
+}
+
+.btn-soft {
+  background: var(--surface-container);
+  color: var(--on-surface);
+  border: 2px solid var(--outline-variant);
+}
+.btn-soft:hover:not(:disabled) {
+  background: var(--surface-container-high);
+}
+
+.btn-sm {
+  min-height: 38px;
+  padding: var(--space-xs) var(--space-md);
+  font-size: 0.875rem;
+}
+
+.furigana-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  min-height: 44px;
+  padding: var(--space-xs) var(--space-md);
+  border-radius: var(--rounded-full);
+  border: 2px solid var(--primary);
+  background: var(--surface-container-low);
+  color: var(--primary);
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform var(--dur-short) var(--ease-bounce), background-color var(--dur-short) var(--ease-out);
+}
+.furigana-toggle[aria-pressed="true"] {
+  background: var(--primary-container);
+  color: var(--on-primary-container);
+}
+.furigana-toggle:hover { transform: var(--pop-scale); }
+
+/* Navigation Pills */
+.main-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  background: var(--surface-container-high);
+  padding: var(--space-xs);
+  border-radius: var(--rounded-full);
+}
+
+.nav-pill {
+  flex: 1 1 140px;
+  min-height: 44px;
+  border: none;
+  border-radius: var(--rounded-full);
+  background: transparent;
+  color: var(--on-surface-variant);
+  font-weight: 700;
+  padding: var(--space-sm) var(--space-md);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xs);
+  transition: transform var(--dur-short) var(--ease-bounce), background-color var(--dur-short) var(--ease-out), color var(--dur-short) var(--ease-out), box-shadow var(--dur-short) var(--ease-out);
+}
+.nav-pill:hover { transform: var(--pop-scale); color: var(--on-surface); }
+.nav-pill[aria-selected="true"] {
+  background: var(--surface-container-low);
+  color: var(--primary);
+  box-shadow: var(--shadow-pink);
+}
+
+/* Panels & Cards */
+.view-section { display: none; }
+.view-section.active { display: grid; gap: var(--space-lg); }
+
+.card {
+  background: var(--surface-container-low);
+  border-radius: var(--rounded);
+  box-shadow: var(--shadow-pink);
+  padding: var(--space-lg);
+}
+.card-sky { box-shadow: var(--shadow-sky); }
+.card-grape { box-shadow: var(--shadow-grape); }
+
+.section-heading {
+  margin: 0 0 var(--space-xs) 0;
+  font-family: var(--font-headline);
+  font-weight: 800;
+  font-size: var(--headline-size);
+  letter-spacing: -0.02em;
+  color: var(--on-surface);
+}
+.section-heading em {
+  font-style: normal;
+  color: var(--primary);
+}
+.section-sub {
+  margin: 0 0 var(--space-md) 0;
+  color: var(--on-surface-variant);
+  font-size: var(--body-size);
+}
+
+/* Form Elements */
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr));
+  gap: var(--space-md);
+}
+
+.field-group {
+  display: grid;
+  gap: var(--space-xs);
+  align-content: start;
+}
+
+.field-label {
+  font-size: var(--label-size);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--on-surface-variant);
+}
+.field-label .private-tag {
+  background: var(--surface-container-high);
+  color: var(--secondary);
+  padding: 2px 8px;
+  border-radius: var(--rounded-full);
+  font-size: 0.68rem;
+  margin-left: var(--space-xs);
+}
+
+.pill-input, .pill-select {
+  width: 100%;
+  min-height: 44px;
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--rounded-full);
+  border: 2px solid var(--outline);
+  background: var(--surface-container);
+  color: var(--on-surface);
+  font-weight: 500;
+  transition: box-shadow var(--dur-micro) var(--ease-out), background-color var(--dur-micro) var(--ease-out);
+}
+.pill-select {
+  padding-right: var(--space-xl);
+  cursor: pointer;
+}
+.pill-input:focus, .pill-select:focus {
+  outline: none;
+  background: var(--surface-container-low);
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--primary-container);
+}
+
+/* 4 Mascot Island Teams */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
+  gap: var(--space-md);
+}
+
+.team-card {
+  border: 3px solid transparent;
+  background: var(--surface-container-low);
+  border-radius: var(--rounded);
+  padding: var(--space-md);
+  cursor: pointer;
+  display: grid;
+  justify-items: center;
+  text-align: center;
+  gap: var(--space-xs);
+  box-shadow: var(--shadow-pink);
+  transition: transform var(--dur-short) var(--ease-bounce), box-shadow var(--dur-short) var(--ease-out), background-color var(--dur-short) var(--ease-out);
+}
+.team-card:nth-child(2) { box-shadow: var(--shadow-grape); }
+.team-card:nth-child(3) { box-shadow: var(--shadow-sky); }
+.team-card:nth-child(4) { box-shadow: var(--shadow-pink); }
+
+.team-card:hover { transform: var(--lift); }
+.team-card[aria-pressed="true"] {
+  border-color: var(--primary);
+  background: var(--surface-container);
+  box-shadow: var(--shadow-pink-deep);
+  transform: var(--lift);
+}
+
+.team-mascot-box {
+  width: 108px;
+  height: 112px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.team-mascot-box svg {
+  width: 100%;
+  height: 100%;
+}
+
+.team-island {
+  font-weight: 800;
+  font-size: 1.05rem;
+  color: var(--on-surface);
+}
+.team-mascot-name {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+.team-tag {
+  font-size: var(--label-size);
+  font-weight: 700;
+  padding: 2px 10px;
+  border-radius: var(--rounded-full);
+  background: var(--primary-container);
+  color: var(--on-primary-container);
+}
+
+/* Quiz Mode Selector */
+.mode-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(210px, 100%), 1fr));
+  gap: var(--space-md);
+}
+
+.mode-card {
+  border: 3px solid var(--outline-variant);
+  background: var(--surface-container-low);
+  border-radius: var(--rounded);
+  padding: var(--space-md);
+  cursor: pointer;
+  text-align: left;
+  display: grid;
+  gap: var(--space-xs);
+  transition: transform var(--dur-short) var(--ease-bounce), box-shadow var(--dur-short) var(--ease-out), background-color var(--dur-short) var(--ease-out);
+}
+.mode-card:hover { transform: var(--lift); box-shadow: var(--shadow-grape); }
+.mode-card[aria-pressed="true"] {
+  border-color: var(--secondary);
+  background: var(--surface-container);
+  box-shadow: var(--shadow-grape);
+}
+.mode-title {
+  font-weight: 800;
+  font-size: 1.08rem;
+  color: var(--on-surface);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-xs);
+}
+.mode-desc {
+  font-size: 0.875rem;
+  color: var(--on-surface-variant);
+}
+
+.inline-msg {
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--rounded);
+  font-weight: 600;
+  font-size: 0.9rem;
+  display: none;
+}
+.inline-msg.show { display: block; }
+.inline-msg.error { background: var(--error-container); color: var(--error); }
+.inline-msg.success { background: var(--positive-container); color: var(--positive); }
+.inline-msg.info { background: var(--surface-container); color: var(--secondary); }
+
+/* =========================================================
+   QUIZ ARENA — OPTIMIZED ZERO-SCROLL ON SMARTPHONE
+   ========================================================= */
+.arena-shell {
+  display: grid;
+  grid-template-rows: auto auto 1fr auto;
+  gap: var(--space-sm);
+  min-height: calc(100dvh - 16px);
+  align-content: start;
+}
+
+.arena-hud {
+  background: var(--surface-container-low);
+  border-radius: var(--rounded-full);
+  box-shadow: var(--shadow-pink);
+  padding: var(--space-xs) var(--space-sm);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-xs);
+  flex-wrap: wrap;
+}
+
+.hud-pills {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  flex-wrap: wrap;
+}
+
+.hud-stat {
+  background: var(--surface-container);
+  color: var(--on-surface);
+  padding: 4px 10px;
+  border-radius: var(--rounded-full);
+  font-weight: 800;
+  font-size: 0.85rem;
+  font-variant-numeric: tabular-nums;
+}
+.hud-stat.highlight {
+  background: var(--primary-container);
+  color: var(--on-primary-container);
+}
+
+.hud-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.icon-pill-btn {
+  min-width: 38px;
+  min-height: 38px;
+  padding: 4px 10px;
+  border-radius: var(--rounded-full);
+  border: 2px solid var(--outline-variant);
+  background: var(--surface-container-low);
+  color: var(--on-surface);
+  font-weight: 700;
+  font-size: 0.8rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+.icon-pill-btn[aria-pressed="true"] {
+  background: var(--primary-container);
+  border-color: var(--primary);
+  color: var(--on-primary-container);
+}
+
+.progress-track {
+  width: 100%;
+  height: 10px;
+  background: var(--surface-container-high);
+  border-radius: var(--rounded-full);
+  overflow: hidden;
+}
+.progress-fill {
+  height: 100%;
+  width: 10%;
+  background: var(--primary);
+  border-radius: var(--rounded-full);
+  transition: width var(--dur-short) var(--ease-out);
+}
+
+.arena-question-card {
+  background: var(--surface-container-low);
+  border-radius: var(--rounded);
+  box-shadow: var(--shadow-pink);
+  padding: var(--space-md);
+  display: grid;
+  gap: var(--space-xs);
+}
+
+.q-meta-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-xs);
+}
+.q-cat-pill {
+  font-size: var(--label-size);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 2px 10px;
+  border-radius: var(--rounded-full);
+  background: var(--surface-container);
+  color: var(--secondary);
+}
+.q-player-pill {
+  font-size: var(--label-size);
+  font-weight: 700;
+  color: var(--on-surface-variant);
+}
+
+.q-prompt {
+  margin: 0;
+  font-weight: 700;
+  font-size: clamp(1rem, 0.92rem + 0.5vw, 1.18rem);
+  color: var(--on-surface);
+  line-height: 1.45;
+}
+.q-prompt .jp {
+  font-size: var(--jp-question-size);
+  display: inline-block;
+  margin-top: 2px;
+}
+
+.options-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-sm);
+}
+
+.opt-btn {
+  min-height: 52px;
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--rounded);
+  border: 2px solid var(--outline-variant);
+  background: var(--surface-container-low);
+  color: var(--on-surface);
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  box-shadow: var(--shadow-grape);
+  transition: transform var(--dur-short) var(--ease-bounce), background-color var(--dur-micro) var(--ease-out), box-shadow var(--dur-micro) var(--ease-out);
+}
+.opt-btn:hover:not(:disabled) {
+  transform: var(--pop-scale);
+  background: var(--surface-container);
+}
+.opt-btn:disabled { cursor: default; }
+
+.opt-key {
+  flex: 0 0 auto;
+  width: 28px;
+  height: 28px;
+  border-radius: var(--rounded-full);
+  background: var(--surface-container-high);
+  color: var(--on-surface);
+  font-weight: 800;
+  font-size: 0.82rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.opt-text {
+  font-weight: 600;
+  line-height: 1.45;
+  overflow-wrap: break-word;
+}
+.opt-text .jp {
+  font-size: var(--jp-option-size);
+  line-height: 1.55;
+}
+
+.opt-btn.is-correct {
+  background: var(--positive-container);
+  border-color: var(--positive);
+  color: var(--on-surface);
+}
+.opt-btn.is-correct .opt-key {
+  background: var(--positive);
+  color: var(--on-primary);
+}
+.opt-btn.is-wrong {
+  background: var(--error-container);
+  border-color: var(--error);
+  color: var(--on-surface);
+}
+.opt-btn.is-wrong .opt-key {
+  background: var(--error);
+  color: var(--on-error);
+}
+
+/* Reserved compact feedback + next bar so nothing shifts or needs scroll */
+.arena-feedback-bar {
+  background: var(--surface-container-low);
+  border-radius: var(--rounded);
+  box-shadow: var(--shadow-sky);
+  padding: var(--space-sm) var(--space-md);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: var(--space-sm);
+  min-height: 74px;
+}
+.arena-feedback-bar.state-correct {
+  background: var(--positive-container);
+}
+.arena-feedback-bar.state-wrong {
+  background: var(--error-container);
+}
+
+.feedback-copy {
+  display: grid;
+  gap: 2px;
+}
+.feedback-title {
+  font-weight: 800;
+  font-size: 0.92rem;
+  color: var(--on-surface);
+}
+.feedback-note {
+  font-size: 0.82rem;
+  color: var(--on-surface-variant);
+  line-height: 1.35;
+}
+
+/* Result Summary Card */
+.result-card {
+  background: var(--surface-container-low);
+  border-radius: var(--rounded-lg);
+  box-shadow: var(--shadow-pink-deep);
+  padding: var(--space-xl);
+  display: grid;
+  gap: var(--space-md);
+  justify-items: center;
+  text-align: center;
+}
+.result-stats-row {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-sm);
+  width: 100%;
+  max-width: 540px;
+}
+.stat-tile {
+  background: var(--surface-container);
+  border-radius: var(--rounded);
+  padding: var(--space-md);
+  display: grid;
+  gap: 2px;
+}
+.stat-label {
+  font-size: var(--label-size);
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--on-surface-variant);
+}
+.stat-val {
+  font-weight: 900;
+  font-size: clamp(1.35rem, 1rem + 1.2vw, 1.85rem);
+  color: var(--primary);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Leaderboard & Tables */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  align-items: end;
+}
+.filter-bar .field-group {
+  flex: 1 1 160px;
+}
+
+.team-standings-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(180px, 100%), 1fr));
+  gap: var(--space-sm);
+}
+.team-score-pill {
+  background: var(--surface-container);
+  border-radius: var(--rounded);
+  padding: var(--space-sm) var(--space-md);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-sm);
+}
+.team-score-name {
+  font-weight: 800;
+  font-size: 0.92rem;
+}
+.team-score-pts {
+  font-weight: 900;
+  font-size: 1.15rem;
+  color: var(--primary);
+  font-variant-numeric: tabular-nums;
+}
+
+.table-scroll {
+  width: 100%;
+  overflow-x: auto;
+  border-radius: var(--rounded);
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  font-variant-numeric: tabular-nums;
+}
+.data-table th {
+  background: var(--surface-container);
+  color: var(--on-surface-variant);
+  font-size: var(--label-size);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-align: left;
+  padding: var(--space-sm) var(--space-md);
+  white-space: nowrap;
+}
+.data-table td {
+  padding: var(--space-sm) var(--space-md);
+  color: var(--on-surface);
+  white-space: nowrap;
+}
+.data-table tbody tr:nth-child(even) {
+  background: var(--surface-container);
+}
+
+.rank-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 28px;
+  height: 28px;
+  border-radius: var(--rounded-full);
+  background: var(--surface-container-high);
+  font-weight: 800;
+  font-size: 0.85rem;
+}
+.rank-badge.top-1 { background: var(--primary); color: var(--on-primary); }
+.rank-badge.top-2 { background: var(--secondary); color: var(--on-secondary); }
+.rank-badge.top-3 { background: var(--primary-container); color: var(--on-primary-container); }
+
+.empty-state {
+  text-align: center;
+  padding: var(--space-xl) var(--space-md);
+  color: var(--on-surface-variant);
+  display: grid;
+  gap: var(--space-sm);
+  justify-items: center;
+}
+
+/* Teacher Lock & Panel */
+.pin-gate {
+  max-width: 420px;
+  margin: 0 auto;
+  display: grid;
+  gap: var(--space-md);
+  text-align: center;
+}
+
+.code-block {
+  background: var(--surface-container);
+  border-radius: var(--rounded);
+  padding: var(--space-md);
+  font-family: monospace;
+  font-size: 0.8rem;
+  overflow-x: auto;
+  white-space: pre;
+  color: var(--on-surface);
+}
+
+.page-footer {
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--on-surface-variant);
+  padding: var(--space-sm) 0 var(--space-lg);
+}
+
+/* Mobile Responsive */
+@media (max-width: 640px) {
+  .page-shell {
+    padding: var(--space-sm);
+    gap: var(--space-sm);
+  }
+  .hero-header {
+    grid-template-columns: 1fr;
+    padding: var(--space-md);
+  }
+  .hero-tree-wrap {
+    justify-content: center;
+  }
+  .sakura-tree-svg {
+    max-width: 210px;
+  }
+  .card {
+    padding: var(--space-md);
+  }
+  /* Arena ultra-compact zero-scroll on phones */
+  .options-grid {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+  .opt-btn {
+    min-height: 44px;
+    padding: 6px 12px;
+  }
+  .arena-question-card {
+    padding: 10px 12px;
+  }
+  .arena-feedback-bar {
+    grid-template-columns: 1fr;
+    padding: 8px 12px;
+    min-height: 86px;
+    gap: 6px;
+  }
+  .arena-feedback-bar .btn {
+    width: 100%;
+    min-height: 42px;
+  }
+  .result-stats-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+</style>
+</head>
+<body>
+<div class="page-shell">
+
+  <!-- TOP HERO HEADER -->
+  <header class="hero-header">
+    <div class="hero-brand">
+      <h1 class="hero-title" lang="ja">
+        日<span class="accent-char">本</span>語<span class="accent-char">ク</span>イズ
+      </h1>
+      <div class="hero-badges">
+        <span class="school-badge">SMK ZAINAB</span>
+        <span class="sensei-badge">AMAN <span class="jp" lang="ja">先生</span></span>
+      </div>
+      <p class="hero-subtitle">
+        Latih tubi Bahasa Jepun Menengah Rendah (Tingkatan 1–3) berasaskan buku teks KSSM. Pilih pasukan pulau Jepun anda, kumpul markah kombo, dan cabar kedudukan Top 10!
+      </p>
+      <div class="hero-controls-row">
+        <button type="button" id="btn-furigana-main" class="furigana-toggle" aria-pressed="true" onclick="toggleFurigana()">
+          <span>あ</span>
+          <span id="furigana-label-main">Furigana: ON</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Right-side Beautiful Sakura Tree Illustration -->
+    <div class="hero-tree-wrap">
+      <svg class="sakura-tree-svg" viewBox="0 0 280 230" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <!-- Soft Ground Mound -->
+        <ellipse cx="148" cy="212" rx="102" ry="12" fill="var(--primary-container)" opacity="0.7"/>
+        <!-- Trunk & Branches -->
+        <path d="M140 212 C138 175 130 148 134 118 C118 98 92 88 74 78" stroke="var(--sakura-bark)" stroke-width="14" stroke-linecap="round"/>
+        <path d="M138 212 C148 178 158 145 154 112 C170 92 195 82 214 68" stroke="var(--sakura-bark)" stroke-width="12" stroke-linecap="round"/>
+        <path d="M142 135 C142 105 144 82 146 54" stroke="var(--sakura-bark-dark)" stroke-width="9" stroke-linecap="round"/>
+        <path d="M126 112 C104 110 86 116 68 112" stroke="var(--sakura-bark)" stroke-width="6" stroke-linecap="round"/>
+        <path d="M160 105 C184 102 206 108 224 102" stroke="var(--sakura-bark)" stroke-width="6" stroke-linecap="round"/>
+        <!-- Back Blossom Clouds -->
+        <circle cx="95" cy="72" r="38" fill="var(--sakura-petal-3)" opacity="0.85"/>
+        <circle cx="196" cy="70" r="36" fill="var(--sakura-petal-3)" opacity="0.85"/>
+        <circle cx="146" cy="48" r="42" fill="var(--sakura-petal-3)" opacity="0.9"/>
+        <!-- Mid Blossom Clouds -->
+        <circle cx="64" cy="96" r="30" fill="var(--sakura-petal-1)"/>
+        <circle cx="115" cy="56" r="34" fill="var(--sakura-petal-1)"/>
+        <circle cx="176" cy="54" r="34" fill="var(--sakura-petal-1)"/>
+        <circle cx="222" cy="92" r="30" fill="var(--sakura-petal-1)"/>
+        <circle cx="145" cy="82" r="36" fill="var(--sakura-petal-1)"/>
+        <!-- Highlight Blossom Clusters -->
+        <circle cx="78" cy="84" r="22" fill="var(--sakura-petal-2)"/>
+        <circle cx="132" cy="42" r="24" fill="var(--sakura-petal-2)"/>
+        <circle cx="164" cy="44" r="20" fill="var(--sakura-petal-2)"/>
+        <circle cx="206" cy="82" r="22" fill="var(--sakura-petal-2)"/>
+        <circle cx="114" cy="86" r="20" fill="var(--sakura-petal-2)"/>
+        <!-- Individual Sakura Flowers -->
+        <g transform="translate(88 64)">
+          <circle cx="0" cy="-6" r="4.5" fill="var(--mascot-white)"/>
+          <circle cx="5.7" cy="-1.8" r="4.5" fill="var(--mascot-white)"/>
+          <circle cx="3.5" cy="4.8" r="4.5" fill="var(--mascot-white)"/>
+          <circle cx="-3.5" cy="4.8" r="4.5" fill="var(--mascot-white)"/>
+          <circle cx="-5.7" cy="-1.8" r="4.5" fill="var(--mascot-white)"/>
+          <circle cx="0" cy="0" r="2.2" fill="var(--sakura-petal-core)"/>
+        </g>
+        <g transform="translate(152 36)">
+          <circle cx="0" cy="-6" r="4.5" fill="var(--mascot-white)"/>
+          <circle cx="5.7" cy="-1.8" r="4.5" fill="var(--mascot-white)"/>
+          <circle cx="3.5" cy="4.8" r="4.5" fill="var(--mascot-white)"/>
+          <circle cx="-3.5" cy="4.8" r="4.5" fill="var(--mascot-white)"/>
+          <circle cx="-5.7" cy="-1.8" r="4.5" fill="var(--mascot-white)"/>
+          <circle cx="0" cy="0" r="2.2" fill="var(--sakura-petal-core)"/>
+        </g>
+        <g transform="translate(198 74)">
+          <circle cx="0" cy="-5.5" r="4" fill="var(--mascot-white)"/>
+          <circle cx="5.2" cy="-1.6" r="4" fill="var(--mascot-white)"/>
+          <circle cx="3.2" cy="4.4" r="4" fill="var(--mascot-white)"/>
+          <circle cx="-3.2" cy="4.4" r="4" fill="var(--mascot-white)"/>
+          <circle cx="-5.2" cy="-1.6" r="4" fill="var(--mascot-white)"/>
+          <circle cx="0" cy="0" r="2" fill="var(--sakura-petal-core)"/>
+        </g>
+        <g transform="translate(132 82)">
+          <circle cx="0" cy="-5" r="3.8" fill="var(--mascot-white)"/>
+          <circle cx="4.8" cy="-1.5" r="3.8" fill="var(--mascot-white)"/>
+          <circle cx="3" cy="4" r="3.8" fill="var(--mascot-white)"/>
+          <circle cx="-3" cy="4" r="3.8" fill="var(--mascot-white)"/>
+          <circle cx="-4.8" cy="-1.5" r="3.8" fill="var(--mascot-white)"/>
+          <circle cx="0" cy="0" r="1.8" fill="var(--sakura-petal-core)"/>
+        </g>
+        <!-- Falling Petals -->
+        <ellipse cx="44" cy="138" rx="6" ry="3.2" transform="rotate(-28 44 138)" fill="var(--sakura-petal-1)"/>
+        <ellipse cx="78" cy="166" rx="5" ry="2.8" transform="rotate(22 78 166)" fill="var(--sakura-petal-3)"/>
+        <ellipse cx="236" cy="146" rx="5.5" ry="3" transform="rotate(-18 236 146)" fill="var(--sakura-petal-1)"/>
+        <ellipse cx="198" cy="184" rx="5" ry="2.8" transform="rotate(35 198 184)" fill="var(--sakura-petal-3)"/>
+        <ellipse cx="102" cy="204" rx="5" ry="2.6" transform="rotate(10 102 204)" fill="var(--sakura-petal-1)"/>
+        <ellipse cx="182" cy="208" rx="5.5" ry="2.8" transform="rotate(-12 182 208)" fill="var(--sakura-petal-1)"/>
+      </svg>
+    </div>
+  </header>
+
+  <!-- AUDIO MUSIC PICKER BAR -->
+  <section class="audio-bar-desktop" aria-label="Pemain Muzik Latar">
+    <div class="audio-left">
+      <span class="audio-label">Muzik Latar</span>
+      <select id="music-style-select" class="pill-select" style="width:auto; min-height:38px; padding-top:4px; padding-bottom:4px;" onchange="changeMusicStyle(this.value)" aria-label="Pilih gaya muzik latar">
+        <option value="tradisional">1. Muzik Jepun Tradisional &amp; Tenang</option>
+        <option value="kontemporari">2. Muzik Jepun Tradisional Kontemporari</option>
+        <option value="anime">3. Muzik Jepun Ala Anime</option>
+        <option value="rancak">4. Muzik Jepun Rancak</option>
+        <option value="rawak">5. Muzik Rawak</option>
+      </select>
+      <span id="music-now-playing" style="font-size:0.82rem; font-weight:700; color:var(--secondary);">Sedia dimainkan</span>
+    </div>
+    <div class="audio-right">
+      <button type="button" id="btn-music-play" class="btn btn-primary btn-sm" onclick="toggleMusic()">
+        <span id="music-play-text">▶ Main Muzik</span>
+      </button>
+      <div class="volume-wrap">
+        <label for="music-volume" class="audio-label" style="margin:0;">Vol</label>
+        <input id="music-volume" class="volume-slider" type="range" min="0" max="100" value="45" oninput="setMusicVolume(this.value)" aria-label="Pelaras kelantangan muzik">
+        <span id="music-vol-pct" style="font-size:0.78rem; font-weight:700; min-width:32px; text-align:right;">45%</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRIMARY NAVIGATION -->
+  <nav class="main-nav" role="tablist" aria-label="Menu Utama">
+    <button type="button" role="tab" id="tab-setup" class="nav-pill" aria-selected="true" onclick="switchTab('setup')">
+      <span>Mula Kuiz</span>
+    </button>
+    <button type="button" role="tab" id="tab-leaderboard" class="nav-pill" aria-selected="false" onclick="switchTab('leaderboard')">
+      <span>Papan Pendahulu Top 10</span>
+    </button>
+    <button type="button" role="tab" id="tab-teacher" class="nav-pill" aria-selected="false" onclick="switchTab('teacher')">
+      <span>Ruang Guru</span>
+    </button>
+  </nav>
+
+  <!-- =========================================================
+       VIEW 1: STUDENT SETUP & QUIZ LAUNCH
+       ========================================================= -->
+  <section id="view-setup" class="view-section active">
+    <div class="card">
+      <h2 class="section-heading">1. Maklumat <em>Murid</em></h2>
+      <p class="section-sub">Nama Penuh dan No. Kad Pengenalan dirahsiakan daripada paparan awam. Hanya Nama Samaran akan dipaparkan di Papan Pendahulu.</p>
+      <div class="form-grid">
+        <div class="field-group">
+          <label class="field-label" for="inp-fullname">Nama Penuh <span class="private-tag">Sulit</span></label>
+          <input id="inp-fullname" class="pill-input" type="text" placeholder="Contoh: Nur Aisyah binti Ahmad" autocomplete="name">
+        </div>
+        <div class="field-group">
+          <label class="field-label" for="inp-nokp">No. Kad Pengenalan <span class="private-tag">Sulit</span></label>
+          <input id="inp-nokp" class="pill-input" type="text" inputmode="numeric" placeholder="Contoh: 120315035421">
+        </div>
+        <div class="field-group">
+          <label class="field-label" for="inp-tingkatan">Tingkatan</label>
+          <select id="inp-tingkatan" class="pill-select" onchange="updatePoolStats()">
+            <option value="T1">Tingkatan 1 (T1)</option>
+            <option value="T2">Tingkatan 2 (T2)</option>
+            <option value="T3">Tingkatan 3 (T3)</option>
+          </select>
+        </div>
+        <div class="field-group">
+          <label class="field-label" for="inp-kelas">Kelas</label>
+          <input id="inp-kelas" class="pill-input" type="text" placeholder="Contoh: 1 Bestari / 2 Cekal">
+        </div>
+        <div class="field-group">
+          <label class="field-label" for="inp-nickname">Nama Samaran / Fun Name</label>
+          <input id="inp-nickname" class="pill-input" type="text" maxlength="20" placeholder="Contoh: SakuraNinja">
+        </div>
+      </div>
+    </div>
+
+    <div class="card card-grape">
+      <h2 class="section-heading">2. Pilih Pasukan <em>Pulau Jepun</em></h2>
+      <p class="section-sub">Pilih salah satu daripada empat pulau utama Jepun bersama maskot rasminya!</p>
+      <div class="team-grid" id="team-grid">
+
+        <!-- KYUSHU: KUMAMON (Full body black bear, waving pose, red cheeks & happi sash) -->
+        <button type="button" class="team-card" data-team="Kyushu" aria-pressed="true" onclick="selectTeam('Kyushu')">
+          <div class="team-mascot-box">
+            <svg viewBox="0 0 120 124" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <ellipse cx="60" cy="116" rx="34" ry="6" fill="var(--primary-container)"/>
+              <!-- Ears -->
+              <circle cx="32" cy="24" r="11" fill="var(--mascot-black)"/>
+              <circle cx="32" cy="24" r="5" fill="var(--mascot-white)"/>
+              <circle cx="88" cy="24" r="11" fill="var(--mascot-black)"/>
+              <circle cx="88" cy="24" r="5" fill="var(--mascot-white)"/>
+              <!-- Left Arm Waving High -->
+              <path d="M31 62 C18 48 16 32 25 28 C33 25 38 40 41 56 Z" fill="var(--mascot-black)"/>
+              <circle cx="24" cy="31" r="6.5" fill="var(--mascot-black)"/>
+              <!-- Right Arm Holding Little Camera/Fan -->
+              <path d="M88 64 C102 68 106 82 97 87 C89 91 83 80 80 71 Z" fill="var(--mascot-black)"/>
+              <!-- Legs -->
+              <ellipse cx="45" cy="106" rx="11" ry="10" fill="var(--mascot-black)"/>
+              <ellipse cx="75" cy="106" rx="11" ry="10" fill="var(--mascot-black)"/>
+              <ellipse cx="45" cy="112" rx="8" ry="4" fill="var(--mascot-red)"/>
+              <ellipse cx="75" cy="112" rx="8" ry="4" fill="var(--mascot-red)"/>
+              <!-- Torso -->
+              <ellipse cx="60" cy="80" rx="28" ry="26" fill="var(--mascot-black)"/>
+              <!-- Red Festival Sash -->
+              <path d="M35 84 Q60 92 85 84 L83 93 Q60 100 37 93 Z" fill="var(--mascot-red)"/>
+              <circle cx="60" cy="91" r="4.5" fill="var(--mascot-gold)"/>
+              <!-- Head -->
+              <ellipse cx="60" cy="43" rx="31" ry="26" fill="var(--mascot-black)"/>
+              <!-- Muzzle -->
+              <ellipse cx="60" cy="49" rx="12" ry="9" fill="var(--mascot-white)"/>
+              <ellipse cx="60" cy="45" rx="4.2" ry="2.8" fill="var(--mascot-black)"/>
+              <path d="M54 52 Q60 56 66 52" stroke="var(--mascot-black)" stroke-width="2.2" stroke-linecap="round"/>
+              <!-- Eyes & Brows -->
+              <ellipse cx="46" cy="37" rx="4.8" ry="5.5" fill="var(--mascot-white)"/>
+              <circle cx="46.5" cy="37.5" r="2.6" fill="var(--mascot-black)"/>
+              <ellipse cx="74" cy="37" rx="4.8" ry="5.5" fill="var(--mascot-white)"/>
+              <circle cx="73.5" cy="37.5" r="2.6" fill="var(--mascot-black)"/>
+              <path d="M41 29 Q46 26 51 29" stroke="var(--mascot-white)" stroke-width="2.2" stroke-linecap="round"/>
+              <path d="M69 29 Q74 26 79 29" stroke="var(--mascot-white)" stroke-width="2.2" stroke-linecap="round"/>
+              <!-- Rosy Red Cheeks -->
+              <circle cx="36" cy="48" r="6.5" fill="var(--mascot-red)"/>
+              <circle cx="84" cy="48" r="6.5" fill="var(--mascot-red)"/>
+              <!-- Mini Kyushu Star Fan -->
+              <circle cx="99" cy="76" r="9" fill="var(--mascot-red)"/>
+              <circle cx="99" cy="76" r="4" fill="var(--mascot-gold)"/>
+            </svg>
+          </div>
+          <span class="team-island">Kyushu</span>
+          <span class="team-mascot-name">Kumamon <span class="jp" lang="ja">くまモン</span></span>
+          <span class="team-tag">Pulau Selatan</span>
+        </button>
+
+        <!-- HONSHU: HIKONYAN (Full body white samurai cat, tall horned kabuto helmet, red collar bell, sword) -->
+        <button type="button" class="team-card" data-team="Honshu" aria-pressed="false" onclick="selectTeam('Honshu')">
+          <div class="team-mascot-box">
+            <svg viewBox="0 0 120 124" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <ellipse cx="60" cy="116" rx="34" ry="6" fill="var(--primary-container)"/>
+              <!-- Tail -->
+              <path d="M84 94 C100 92 104 76 96 72 C90 70 86 80 82 86" stroke="var(--mascot-white)" stroke-width="7" stroke-linecap="round"/>
+              <path d="M84 94 C100 92 104 76 96 72" stroke="var(--outline-variant)" stroke-width="1.5" stroke-linecap="round"/>
+              <!-- Body -->
+              <ellipse cx="60" cy="84" rx="25" ry="23" fill="var(--mascot-white)" stroke="var(--outline-variant)" stroke-width="2"/>
+              <!-- Legs -->
+              <ellipse cx="47" cy="108" rx="9" ry="7.5" fill="var(--mascot-white)" stroke="var(--outline-variant)" stroke-width="2"/>
+              <ellipse cx="73" cy="108" rx="9" ry="7.5" fill="var(--mascot-white)" stroke="var(--outline-variant)" stroke-width="2"/>
+              <!-- Arms -->
+              <ellipse cx="32" cy="80" rx="8" ry="12" transform="rotate(24 32 80)" fill="var(--mascot-white)" stroke="var(--outline-variant)" stroke-width="2"/>
+              <ellipse cx="88" cy="80" rx="8" ry="12" transform="rotate(-24 88 80)" fill="var(--mascot-white)" stroke="var(--outline-variant)" stroke-width="2"/>
+              <!-- Toy Katana Held -->
+              <path d="M26 84 L14 54" stroke="var(--mascot-gold)" stroke-width="3.5" stroke-linecap="round"/>
+              <circle cx="24" cy="79" r="3.5" fill="var(--mascot-red)"/>
+              <!-- Head -->
+              <ellipse cx="60" cy="52" rx="26" ry="22" fill="var(--mascot-white)" stroke="var(--outline-variant)" stroke-width="2"/>
+              <!-- Red Samurai Kabuto Helmet & Big Gold Horns -->
+              <path d="M32 45 C32 22 88 22 88 45 Z" fill="var(--mascot-red)"/>
+              <path d="M30 44 L90 44 L86 50 L34 50 Z" fill="var(--mascot-red)"/>
+              <!-- Crescent Golden Horns -->
+              <path d="M60 28 C48 16 32 10 26 4 C34 18 48 24 56 30 Z" fill="var(--mascot-gold)"/>
+              <path d="M60 28 C72 16 88 10 94 4 C86 18 72 24 64 30 Z" fill="var(--mascot-gold)"/>
+              <circle cx="60" cy="30" r="5" fill="var(--mascot-gold)"/>
+              <!-- Cat Face -->
+              <circle cx="49" cy="52" r="2.8" fill="var(--on-surface)"/>
+              <circle cx="71" cy="52" r="2.8" fill="var(--on-surface)"/>
+              <ellipse cx="42" cy="57" rx="4.5" ry="2.5" fill="var(--sakura-petal-1)"/>
+              <ellipse cx="78" cy="57" rx="4.5" ry="2.5" fill="var(--sakura-petal-1)"/>
+              <path d="M56 57 Q60 61 64 57" stroke="var(--on-surface)" stroke-width="2" stroke-linecap="round"/>
+              <path d="M38 54 L31 53 M38 58 L31 59 M82 54 L89 53 M82 58 L89 59" stroke="var(--outline)" stroke-width="1.5" stroke-linecap="round"/>
+              <!-- Red Neck Ribbon & Gold Bell -->
+              <path d="M40 69 Q60 75 80 69 L78 74 Q60 80 42 74 Z" fill="var(--mascot-red)"/>
+              <circle cx="60" cy="76" r="5.5" fill="var(--mascot-gold)"/>
+            </svg>
+          </div>
+          <span class="team-island">Honshu</span>
+          <span class="team-mascot-name">Hikonyan <span class="jp" lang="ja">ひこにゃん</span></span>
+          <span class="team-tag">Pulau Utama</span>
+        </button>
+
+        <!-- SHIKOKU: BARI-SAN (Plump round yellow chick body, golden Imabari crown, blue/white belly band, orange feet, holding mini boat) -->
+        <button type="button" class="team-card" data-team="Shikoku" aria-pressed="false" onclick="selectTeam('Shikoku')">
+          <div class="team-mascot-box">
+            <svg viewBox="0 0 120 124" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <ellipse cx="60" cy="116" rx="36" ry="6" fill="var(--primary-container)"/>
+              <!-- Orange Webbed Feet -->
+              <path d="M46 104 L42 114 L52 114 Z" fill="var(--mascot-orange)"/>
+              <path d="M74 104 L68 114 L78 114 Z" fill="var(--mascot-orange)"/>
+              <!-- Flapping Wings -->
+              <ellipse cx="22" cy="72" rx="11" ry="7" transform="rotate(-22 22 72)" fill="var(--mascot-yellow)" stroke="var(--mascot-gold)" stroke-width="1.5"/>
+              <ellipse cx="98" cy="70" rx="11" ry="7" transform="rotate(25 98 70)" fill="var(--mascot-yellow)" stroke="var(--mascot-gold)" stroke-width="1.5"/>
+              <!-- Egg-Shaped Plump Chick Body -->
+              <path d="M24 72 C24 38 40 24 60 24 C80 24 96 38 96 72 C96 98 80 108 60 108 C40 108 24 98 24 72 Z" fill="var(--mascot-yellow)"/>
+              <!-- Imabari Golden Crown -->
+              <path d="M44 26 L46 12 L54 19 L60 10 L66 19 L74 12 L76 26 Z" fill="var(--mascot-gold)" stroke="var(--mascot-orange)" stroke-width="1.5"/>
+              <circle cx="60" cy="20" r="2.5" fill="var(--mascot-blue)"/>
+              <!-- Traditional Haramaki Belly Warmer -->
+              <path d="M25 78 Q60 86 95 78 L93 93 Q60 101 27 93 Z" fill="var(--mascot-blue)"/>
+              <path d="M26 83 Q60 91 94 83" stroke="var(--mascot-white)" stroke-width="3" stroke-dasharray="6 5"/>
+              <!-- Chick Eyes & Beak -->
+              <circle cx="48" cy="48" r="3.4" fill="var(--on-surface)"/>
+              <circle cx="72" cy="48" r="3.4" fill="var(--on-surface)"/>
+              <circle cx="38" cy="54" r="4.5" fill="var(--sakura-petal-1)"/>
+              <circle cx="82" cy="54" r="4.5" fill="var(--sakura-petal-1)"/>
+              <path d="M54 53 L66 53 L60 62 Z" fill="var(--mascot-orange)"/>
+              <!-- Mini Wooden Boat Accessory -->
+              <path d="M88 64 L110 64 L106 72 L92 72 Z" fill="var(--sakura-bark)"/>
+              <path d="M99 54 L99 64 L107 62 Z" fill="var(--mascot-white)"/>
+            </svg>
+          </div>
+          <span class="team-island">Shikoku</span>
+          <span class="team-mascot-name">Bari-san <span class="jp" lang="ja">バリィさん</span></span>
+          <span class="team-tag">Pulau Jambatan</span>
+        </button>
+
+        <!-- HOKKAIDO: MELON KUMA (Chunky melon-green bear body, netted cantaloupe hood & T-stem, cozy scarf, snow boots) -->
+        <button type="button" class="team-card" data-team="Hokkaido" aria-pressed="false" onclick="selectTeam('Hokkaido')">
+          <div class="team-mascot-box">
+            <svg viewBox="0 0 120 124" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <ellipse cx="60" cy="116" rx="34" ry="6" fill="var(--primary-container)"/>
+              <!-- T-shaped Melon Stem -->
+              <path d="M60 16 L60 7 M52 7 L68 7" stroke="var(--mascot-green)" stroke-width="4.5" stroke-linecap="round"/>
+              <!-- Bear Ears on Melon Hood -->
+              <circle cx="34" cy="24" r="9" fill="var(--mascot-melon)"/>
+              <circle cx="86" cy="24" r="9" fill="var(--mascot-melon)"/>
+              <!-- Arms -->
+              <ellipse cx="29" cy="78" rx="9" ry="14" transform="rotate(18 29 78)" fill="var(--mascot-green)"/>
+              <ellipse cx="91" cy="78" rx="9" ry="14" transform="rotate(-18 91 78)" fill="var(--mascot-green)"/>
+              <!-- Snow Boots / Legs -->
+              <rect x="40" y="96" width="14" height="16" rx="6" fill="var(--mascot-orange)"/>
+              <rect x="66" y="96" width="14" height="16" rx="6" fill="var(--mascot-orange)"/>
+              <!-- Torso -->
+              <ellipse cx="60" cy="82" rx="25" ry="23" fill="var(--mascot-green)"/>
+              <ellipse cx="60" cy="84" rx="15" ry="15" fill="var(--mascot-melon-rind)"/>
+              <!-- Cozy Hokkaido Winter Scarf -->
+              <path d="M38 64 Q60 72 82 64 L80 73 Q60 80 40 73 Z" fill="var(--mascot-orange)"/>
+              <path d="M70 70 L76 88 L67 89 L64 72 Z" fill="var(--mascot-orange)"/>
+              <!-- Melon Head -->
+              <ellipse cx="60" cy="41" rx="29" ry="24" fill="var(--mascot-melon)"/>
+              <!-- Melon Netting Lines -->
+              <path d="M36 30 Q60 22 84 30 M33 42 Q60 36 87 42 M46 19 L42 60 M74 19 L78 60" stroke="var(--mascot-melon-rind)" stroke-width="1.5" opacity="0.65"/>
+              <!-- Friendly Cheerful Grin & Eyes -->
+              <circle cx="48" cy="36" r="3.4" fill="var(--on-surface)"/>
+              <circle cx="72" cy="36" r="3.4" fill="var(--on-surface)"/>
+              <circle cx="49" cy="35" r="1.1" fill="var(--mascot-white)"/>
+              <circle cx="73" cy="35" r="1.1" fill="var(--mascot-white)"/>
+              <ellipse cx="60" cy="43" rx="6" ry="3.5" fill="var(--mascot-orange)"/>
+              <path d="M44 49 Q60 60 76 49 Z" fill="var(--mascot-red)"/>
+              <path d="M49 50 L52 54 L55 50 M65 50 L68 54 L71 50" fill="var(--mascot-white)"/>
+              <!-- Tiny Snowball Held -->
+              <circle cx="96" cy="72" r="7.5" fill="var(--mascot-white)" stroke="var(--tertiary)" stroke-width="2"/>
+            </svg>
+          </div>
+          <span class="team-island">Hokkaido</span>
+          <span class="team-mascot-name">Melon Kuma <span class="jp" lang="ja">メロンくま</span></span>
+          <span class="team-tag">Pulau Utara</span>
+        </button>
+
+      </div>
+    </div>
+
+    <div class="card card-sky">
+      <h2 class="section-heading">3. Pilih <em>Mod Kuiz</em> (10 Soalan)</h2>
+      <p class="section-sub" id="pool-status-text">Bank soalan aktif: 32 Kosa Kata &amp; 32 Tatabahasa (sistem anti-ulang automatik).</p>
+      <div class="mode-grid">
+        <button type="button" class="mode-card" data-mode="Kosa Kata" aria-pressed="true" onclick="selectMode('Kosa Kata')">
+          <div class="mode-title">
+            <span>Kosa Kata</span>
+            <span class="team-tag">32+ Soalan</span>
+          </div>
+          <div class="mode-desc">Perkataan baharu, objek bilik darjah, makanan, tempat dan budaya Jepun daripada buku teks.</div>
+        </button>
+        <button type="button" class="mode-card" data-mode="Tatabahasa" aria-pressed="false" onclick="selectMode('Tatabahasa')">
+          <div class="mode-title">
+            <span>Tatabahasa</span>
+            <span class="team-tag">32+ Soalan</span>
+          </div>
+          <div class="mode-desc">Partikel (<span class="jp" lang="ja">は・が・を・に・で</span>), pola ayat, konjugasi kata kerja dan ayat alasan.</div>
+        </button>
+        <button type="button" class="mode-card" data-mode="Campuran" aria-pressed="false" onclick="selectMode('Campuran')">
+          <div class="mode-title">
+            <span>Campuran</span>
+            <span class="team-tag">64+ Soalan</span>
+          </div>
+          <div class="mode-desc">Gabungan seimbang Kosa Kata dan Tatabahasa untuk menguji penguasaan menyeluruh.</div>
+        </button>
+      </div>
+
+      <div id="setup-error-msg" class="inline-msg error" style="margin-top:var(--space-md);" role="alert"></div>
+
+      <div style="margin-top:var(--space-lg); display:flex; flex-wrap:wrap; gap:var(--space-sm); align-items:center; justify-content:space-between;">
+        <span style="font-size:0.88rem; color:var(--on-surface-variant); font-weight:600;">
+          Jawapan betul = <strong>100 mata</strong> + bonus kombo (<strong>+20 mata</strong> setiap kombo berturut-turut).
+        </span>
+        <button type="button" class="btn btn-primary" onclick="startQuiz()">
+          <span>Mula Jawab 10 Soalan →</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       VIEW 2: ZERO-SCROLL MOBILE QUIZ ARENA
+       ========================================================= -->
+  <section id="view-arena" class="view-section">
+    <div id="arena-active-panel" class="arena-shell">
+      <div class="arena-hud">
+        <div class="hud-pills">
+          <span class="hud-stat" id="hud-progress">1 / 10</span>
+          <span class="hud-stat highlight" id="hud-score">0 pts</span>
+          <span class="hud-stat" id="hud-combo">Kombo x0</span>
+        </div>
+        <div class="hud-actions">
+          <button type="button" id="btn-furigana-arena" class="icon-pill-btn" aria-pressed="true" onclick="toggleFurigana()">
+            <span id="furigana-label-arena">Furigana ON</span>
+          </button>
+          <button type="button" id="btn-music-arena" class="icon-pill-btn" aria-pressed="false" onclick="toggleMusic()">
+            <span id="music-label-arena">Muzik</span>
+          </button>
+          <button type="button" class="icon-pill-btn" onclick="exitQuizEarly()">Tamat</button>
+        </div>
+      </div>
+
+      <div class="progress-track" aria-hidden="true">
+        <div id="arena-progress-fill" class="progress-fill"></div>
+      </div>
+
+      <div class="arena-question-card">
+        <div class="q-meta-row">
+          <span id="q-cat-pill" class="q-cat-pill">T1 · Kosa Kata</span>
+          <span id="q-player-pill" class="q-player-pill">SakuraNinja · Kyushu</span>
+        </div>
+        <p id="q-prompt-text" class="q-prompt"></p>
+      </div>
+
+      <div id="options-grid" class="options-grid">
+        <button type="button" class="opt-btn" onclick="submitAnswer(0)">
+          <span class="opt-key">A</span>
+          <span class="opt-text" id="opt-text-0"></span>
+        </button>
+        <button type="button" class="opt-btn" onclick="submitAnswer(1)">
+          <span class="opt-key">B</span>
+          <span class="opt-text" id="opt-text-1"></span>
+        </button>
+        <button type="button" class="opt-btn" onclick="submitAnswer(2)">
+          <span class="opt-key">C</span>
+          <span class="opt-text" id="opt-text-2"></span>
+        </button>
+        <button type="button" class="opt-btn" onclick="submitAnswer(3)">
+          <span class="opt-key">D</span>
+          <span class="opt-text" id="opt-text-3"></span>
+        </button>
+      </div>
+
+      <div id="arena-feedback-bar" class="arena-feedback-bar">
+        <div class="feedback-copy">
+          <span id="feedback-title" class="feedback-title">Pilih satu jawapan di atas</span>
+          <span id="feedback-note" class="feedback-note">Tip: Gunakan butang Furigana jika mahu menguji bacaan Kanji.</span>
+        </div>
+        <button type="button" id="btn-next-question" class="btn btn-primary btn-sm" disabled onclick="nextQuestion()">
+          <span>Soalan Seterusnya →</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- RESULT SUMMARY PANEL -->
+    <div id="arena-result-panel" class="result-card" style="display:none;">
+      <span class="team-tag" id="res-team-badge">Pasukan Kyushu</span>
+      <h2 class="section-heading" style="margin:0;">Tahniah, <em id="res-nickname">Murid</em>!</h2>
+      <p id="res-subtext" class="section-sub" style="margin:0;">Pusingan 10 soalan selesai.</p>
+
+      <div class="result-stats-row">
+        <div class="stat-tile">
+          <span class="stat-label">Markah Akhir</span>
+          <span class="stat-val" id="res-score">0</span>
+        </div>
+        <div class="stat-tile">
+          <span class="stat-label">Jawapan Betul</span>
+          <span class="stat-val" id="res-correct">0/10</span>
+        </div>
+        <div class="stat-tile">
+          <span class="stat-label">Kombo Maks</span>
+          <span class="stat-val" id="res-combo">0</span>
+        </div>
+      </div>
+
+      <div id="res-sync-msg" class="inline-msg info show"></div>
+
+      <div style="display:flex; flex-wrap:wrap; gap:var(--space-sm); justify-content:center;">
+        <button type="button" class="btn btn-primary" onclick="playAgain()">Main Lagi (Soalan Baharu)</button>
+        <button type="button" class="btn btn-secondary" onclick="finishToLeaderboard()">Lihat Top 10</button>
+        <button type="button" class="btn btn-soft" onclick="exitQuizEarly()">Tukar Murid / Mod</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       VIEW 3: PUBLIC TOP 10 LEADERBOARD
+       ========================================================= -->
+  <section id="view-leaderboard" class="view-section">
+    <div class="card card-grape">
+      <div style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:var(--space-sm); margin-bottom:var(--space-md);">
+        <div>
+          <h2 class="section-heading">Kedudukan 4 <em>Pasukan Pulau</em></h2>
+          <p class="section-sub" style="margin:0;">Jumlah markah terkumpul mengikut pasukan pulau Jepun.</p>
+        </div>
+        <button type="button" class="btn btn-soft btn-sm" onclick="syncFromGoogleSheet()">
+          <span>↻ Segerak Google Sheet</span>
+        </button>
+      </div>
+      <div class="team-standings-grid" id="team-standings-grid"></div>
+      <div id="lb-sync-status" class="inline-msg info" style="margin-top:var(--space-sm);"></div>
+    </div>
+
+    <div class="card">
+      <div style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:end; gap:var(--space-md); margin-bottom:var(--space-md);">
+        <div>
+          <h2 class="section-heading">Papan Pendahulu <em>Top 10</em></h2>
+          <p class="section-sub" style="margin:0;">Hanya Nama Samaran, Pasukan, Mod dan Markah dipaparkan demi privasi murid.</p>
+        </div>
+        <div class="field-group" style="min-width:180px;">
+          <label class="field-label" for="lb-tingkatan-filter">Tapis Tingkatan</label>
+          <select id="lb-tingkatan-filter" class="pill-select" onchange="renderLeaderboard()">
+            <option value="T1">Tingkatan 1</option>
+            <option value="T2">Tingkatan 2</option>
+            <option value="T3">Tingkatan 3</option>
+            <option value="ALL">Semua Tingkatan</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="table-scroll">
+        <table class="data-table" id="lb-table">
+          <thead>
+            <tr>
+              <th>Kedudukan</th>
+              <th>Nama Samaran</th>
+              <th>Pasukan</th>
+              <th>Tingkatan</th>
+              <th>Mod</th>
+              <th>Markah</th>
+            </tr>
+          </thead>
+          <tbody id="lb-tbody"></tbody>
+        </table>
+      </div>
+      <div id="lb-empty" class="empty-state" style="display:none;">
+        <strong>Belum ada rekod untuk tingkatan ini.</strong>
+        <span>Jadilah murid pertama menamatkan kuiz untuk muncul di Top 10!</span>
+        <button type="button" class="btn btn-primary btn-sm" onclick="switchTab('setup')">Mula Kuiz Sekarang</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       VIEW 4: RUANG GURU (PIN 1351)
+       ========================================================= -->
+  <section id="view-teacher" class="view-section">
+    <!-- PIN Gate -->
+    <div id="teacher-pin-gate" class="card">
+      <div class="pin-gate">
+        <h2 class="section-heading">Ruang <em>AMAN 先生</em></h2>
+        <p class="section-sub" style="margin:0;">Masukkan kod PIN guru untuk melihat rekod penuh murid, mengeksport CSV Excel dan mengurus pautan Google Sheet.</p>
+        <div class="field-group" style="text-align:left;">
+          <label class="field-label" for="inp-teacher-pin">Kod PIN Guru</label>
+          <input id="inp-teacher-pin" class="pill-input" type="password" inputmode="numeric" maxlength="6" placeholder="Masukkan PIN 4 digit" onkeydown="if(event.key==='Enter') unlockTeacherPanel()">
+        </div>
+        <div id="pin-error-msg" class="inline-msg error" role="alert"></div>
+        <button type="button" class="btn btn-primary" onclick="unlockTeacherPanel()">Buka Ruang Guru</button>
+      </div>
+    </div>
+
+    <!-- Unlocked Teacher Console -->
+    <div id="teacher-console" style="display:none; gap:var(--space-lg);">
+      <div class="card card-sky">
+        <div style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:var(--space-sm); margin-bottom:var(--space-md);">
+          <div>
+            <h2 class="section-heading">Tetapan <em>Google Sheet</em> (Apps Script)</h2>
+            <p class="section-sub" style="margin:0;">Urus pautan Web App Google Apps Script (`DEFAULT_SHEET_URL`) untuk simpanan &amp; penyegerakan langsung.</p>
+          </div>
+          <button type="button" class="btn btn-soft btn-sm" onclick="lockTeacherPanel()">Kunci Ruang Guru</button>
+        </div>
+
+        <div class="filter-bar">
+          <div class="field-group" style="flex:2 1 280px;">
+            <label class="field-label" for="inp-sheet-url">Pautan Web App Google Apps Script (DEFAULT_SHEET_URL)</label>
+            <input id="inp-sheet-url" class="pill-input" type="url" placeholder="Tampal pautan Web App Google Apps Script di sini">
+          </div>
+          <button type="button" class="btn btn-primary btn-sm" onclick="saveSheetUrl()">Simpan Pautan</button>
+          <button type="button" class="btn btn-secondary btn-sm" onclick="syncFromGoogleSheet()">Segerak Sekarang</button>
+        </div>
+        <div id="teacher-sheet-msg" class="inline-msg info" style="margin-top:var(--space-sm);"></div>
+
+        <details style="margin-top:var(--space-md);">
+          <summary style="cursor:pointer; font-weight:700; color:var(--secondary);">Lihat Contoh Skrip Google Apps Script (11 Medan Bahasa Melayu)</summary>
+          <pre class="code-block" style="margin-top:var(--space-sm);">function doPost(e) {
+  var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+  var d = JSON.parse(e.postData.contents);
+  sheet.appendRow([
+    d.tarikh, d.namaPenuh, d.noKp, d.tingkatan, d.kelas,
+    d.namaSamaran, d.pasukan, d.mod, d.markah, d.betul, d.komboMaks
+  ]);
+  return ContentService.createTextOutput(JSON.stringify({status:'ok'}))
+    .setMimeType(ContentService.MimeType.JSON);
+}
+function doGet() {
+  var rows = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet().getDataRange().getValues();
+  var headers = ['tarikh','namaPenuh','noKp','tingkatan','kelas','namaSamaran','pasukan','mod','markah','betul','komboMaks'];
+  var out = rows.slice(1).map(function(r){
+    var obj = {};
+    headers.forEach(function(h,i){ obj[h] = r[i]; });
+    return obj;
+  });
+  return ContentService.createTextOutput(JSON.stringify(out))
+    .setMimeType(ContentService.MimeType.JSON);
+}</pre>
+        </details>
+      </div>
+
+      <div class="card">
+        <div style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:var(--space-sm); margin-bottom:var(--space-md);">
+          <div>
+            <h2 class="section-heading">Rekod Penuh <em>Murid</em></h2>
+            <p class="section-sub" id="teacher-count-sub" style="margin:0;">Memaparkan 0 rekod murid.</p>
+          </div>
+          <div style="display:flex; flex-wrap:wrap; gap:var(--space-sm);">
+            <button type="button" class="btn btn-primary btn-sm" onclick="exportTeacherCSV()">Muat Turun Excel (.csv UTF-8 BOM)</button>
+            <button type="button" id="btn-clear-records" class="btn btn-soft btn-sm" onclick="clearAllRecords(this)">Padam Rekod Tempatan</button>
+          </div>
+        </div>
+
+        <div class="filter-bar" style="margin-bottom:var(--space-md);">
+          <div class="field-group">
+            <label class="field-label" for="t-filter-tingkatan">Tingkatan</label>
+            <select id="t-filter-tingkatan" class="pill-select" onchange="renderTeacherTable()">
+              <option value="ALL">Semua Tingkatan</option>
+              <option value="T1">Tingkatan 1</option>
+              <option value="T2">Tingkatan 2</option>
+              <option value="T3">Tingkatan 3</option>
+            </select>
+          </div>
+          <div class="field-group">
+            <label class="field-label" for="t-filter-pasukan">Pasukan</label>
+            <select id="t-filter-pasukan" class="pill-select" onchange="renderTeacherTable()">
+              <option value="ALL">Semua Pasukan</option>
+              <option value="Kyushu">Kyushu (Kumamon)</option>
+              <option value="Honshu">Honshu (Hikonyan)</option>
+              <option value="Shikoku">Shikoku (Bari-san)</option>
+              <option value="Hokkaido">Hokkaido (Melon Kuma)</option>
+            </select>
+          </div>
+          <div class="field-group" style="flex:2 1 220px;">
+            <label class="field-label" for="t-filter-search">Carian (Nama / No. KP / Kelas / Samaran)</label>
+            <input id="t-filter-search" class="pill-input" type="text" placeholder="Taip kata kunci carian..." oninput="renderTeacherTable()">
+          </div>
+        </div>
+
+        <div class="table-scroll">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>tarikh</th>
+                <th>namaPenuh</th>
+                <th>noKp</th>
+                <th>tingkatan</th>
+                <th>kelas</th>
+                <th>namaSamaran</th>
+                <th>pasukan</th>
+                <th>mod</th>
+                <th>markah</th>
+                <th>betul</th>
+                <th>komboMaks</th>
+              </tr>
+            </thead>
+            <tbody id="teacher-tbody"></tbody>
+          </table>
+        </div>
+        <div id="teacher-empty" class="empty-state" style="display:none;">
+          <strong>Belum ada rekod murid ditemui.</strong>
+          <span>Rekod akan muncul apabila murid menamatkan pusingan kuiz atau selepas penyegerakan Google Sheet.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="page-footer">
+    Kandungan soalan dirujuk daripada Buku Teks KSSM Bahasa Jepun Menengah Rendah (Tingkatan 1–3, Telaga Biru Sdn. Bhd.) · Dibina khas untuk murid SMK ZAINAB &amp; AMAN <span class="jp" lang="ja">先生</span>.
+  </footer>
+</div>
+
+<api-shim></api-shim>
+<script>
+/* =========================================================================
+   1. CONFIGURATION & DEFAULT SHEET URL
+   ========================================================================= */
+const DEFAULT_SHEET_URL = 'https://script.google.com/macros/s/AKfycbxZWf0kS2drRpImKLmMCqfZA-mm1c-JrRxKmDiBlWBI74_6RS3DdDfdix7-uxhN6CeE/exec';
+const TEACHER_PIN = '1351';
+
+/* =========================================================================
+   2. FURIGANA HELPER: Converts {漢字|かんじ} -> <ruby>漢字<rt>かんじ</rt></ruby>
+   ========================================================================= */
+function renderJpMarkup(str) {
+  const safe = String(str || '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;');
+  const withRuby = safe.replace(/\{([^|{}]+)\|([^{}]+)\}/g, '<ruby>$1<rt>$2</rt></ruby>');
+  return withRuby.replace(/\[\[([^\]]+)\]\]/g, '<span class="jp" lang="ja">$1</span>');
+}
+
+/* =========================================================================
+   3. KSSM QUESTION BANK (192 QUESTIONS: 32 PER TINGKATAN x KATEGORI)
+   ========================================================================= */
+const QUESTION_BANK = [
+  /* ===================== TINGKATAN 1: KOSA KATA (32) ===================== */
+  { id:`t1k01`, level:`T1`, cat:`kosa`, q:`Apakah maksud ucapan [[{おはよう|おはよう}ございます]]?`, opts:[`Selamat pagi`, `Selamat tengah hari`, `Selamat malam`, `Selamat tinggal`], ans:0, exp:`Ohayou gozaimasu digunakan untuk ucapan selamat pagi secara sopan.` },
+  { id:`t1k02`, level:`T1`, cat:`kosa`, q:`Apakah maksud [[{こんにちは|こんにちは}]]?`, opts:[`Selamat tengah hari / Hai`, `Selamat pagi`, `Terima kasih`, `Maafkan saya`], ans:0, exp:`Konnichiwa ialah ucapan selamat tengah hari atau sapaan siang.` },
+  { id:`t1k03`, level:`T1`, cat:`kosa`, q:`Ucapan [[{こんばんは|こんばんは}]] diucapkan pada waktu bila?`, opts:[`Waktu malam`, `Waktu subuh`, `Waktu pagi`, `Waktu rehat sekolah`], ans:0, exp:`Konbanwa bermaksud selamat malam apabila bertemu pada waktu malam.` },
+  { id:`t1k04`, level:`T1`, cat:`kosa`, q:`Apakah maksud [[すみません]] dalam perbualan Bab 3: [[すみません、ここはどこですか。]]?`, opts:[`Maafkan saya / Tumpang tanya`, `Tahniah`, `Sila masuk`, `Jumpa lagi`], ans:0, exp:`Sumimasen digunakan untuk meminta perhatian atau memohon maaf dengan sopan.` },
+  { id:`t1k05`, level:`T1`, cat:`kosa`, q:`Apakah maksud perkataan [[{じむしつ|じむしつ}]]?`, opts:[`Pejabat sekolah`, `Perpustakaan`, `Bilik kesihatan`, `Makmal sains`], ans:0, exp:`Jimushitsu bermaksud pejabat am / pejabat sekolah.` },
+  { id:`t1k06`, level:`T1`, cat:`kosa`, q:`Bilik manakah yang dipanggil [[{としょかん|としょかん}]]?`, opts:[`Perpustakaan`, `Kantin`, `Bilik guru`, `Asrama`], ans:0, exp:`Toshokan ialah perpustakaan tempat meminjam dan membaca buku.` },
+  { id:`t1k07`, level:`T1`, cat:`kosa`, q:`Apakah maksud [[{ほけんしつ|ほけんしつ}]]?`, opts:[`Bilik rawatan / kesihatan`, `Bilik komputer`, `Bilik darjah`, `Surau`], ans:0, exp:`Hokenshitsu ialah bilik kesihatan atau bilik rawatan murid di sekolah.` },
+  { id:`t1k08`, level:`T1`, cat:`kosa`, q:`Tempat guru berkumpul dan membuat kerja iaitu [[{しょくいんしつ|しょくいんしつ}]] bermaksud...`, opts:[`Bilik guru`, `Bilik mesyuarat`, `Pejabat`, `Kantin`], ans:0, exp:`Shokuinshitsu ialah bilik guru / kakitangan sekolah.` },
+  { id:`t1k09`, level:`T1`, cat:`kosa`, q:`Apakah maksud [[{きょうしつ|きょうしつ}]]?`, opts:[`Bilik darjah`, `Padang`, `Tandas`, `Dewan`], ans:0, exp:`Kyoushitsu bermaksud bilik darjah atau kelas pembelajaran.` },
+  { id:`t1k10`, level:`T1`, cat:`kosa`, q:`Di manakah murid makan bersama-sama di sekolah? Pilih [[{しょくどう|しょくどう}]].`, opts:[`Kantin / Dewan makan`, `Makmal`, `Asrama`, `Perpustakaan`], ans:0, exp:`Shokudou ialah kantin atau dewan makan.` },
+  { id:`t1k11`, level:`T1`, cat:`kosa`, q:`Apakah maksud [[{じっけんしつ|じっけんしつ}]]?`, opts:[`Makmal`, `Bilik muzik`, `Bilik sukan`, `Stor buku`], ans:0, exp:`Jikkenshitsu ialah makmal sains tempat menjalankan eksperimen.` },
+  { id:`t1k12`, level:`T1`, cat:`kosa`, q:`Apakah maksud [[{れいはいしつ|れいはいしつ}]] dalam senarai tempat sekolah Bab 3?`, opts:[`Surau / Bilik solat`, `Dewan kuliah`, `Bilik komputer`, `Padang`], ans:0, exp:`Reihaishitsu bermaksud surau atau ruang beribadat.` },
+  { id:`t1k13`, level:`T1`, cat:`kosa`, q:`Perkataan [[{りょう|りょう}]] merujuk kepada...`, opts:[`Asrama`, `Padang`, `Pejabat`, `Perpustakaan`], ans:0, exp:`Ryou ialah asrama tempat penginapan murid.` },
+  { id:`t1k14`, level:`T1`, cat:`kosa`, q:`Apakah maksud [[グランド]] dalam Bahasa Melayu?`, opts:[`Padang`, `Bilik darjah`, `Kantin`, `Tingkat bawah`], ans:0, exp:`Gurando (padang / ground) ialah padang sekolah.` },
+  { id:`t1k15`, level:`T1`, cat:`kosa`, q:`Apakah maksud [[{とけい|とけい}]]?`, opts:[`Jam`, `Papan putih`, `Beg`, `Kunci`], ans:0, exp:`Tokei bermaksud jam dinding atau jam tangan.` },
+  { id:`t1k16`, level:`T1`, cat:`kosa`, q:`Objek manakah yang disebut [[{じしょ|じしょ}]]?`, opts:[`Kamus`, `Buku nota`, `Kalkulator`, `Payung`], ans:0, exp:`Jisho ialah kamus (contoh: Nihongo no jisho).` },
+  { id:`t1k17`, level:`T1`, cat:`kosa`, q:`Apakah maksud [[{けいさんき|けいさんき}]]?`, opts:[`Kalkulator`, `Komputer`, `Sapu tangan`, `Tong sampah`], ans:0, exp:`Keisanki bermaksud mesin kira atau kalkulator.` },
+  { id:`t1k18`, level:`T1`, cat:`kosa`, q:`Apakah maksud [[{かさ|かさ}]]?`, opts:[`Payung`, `Kunci`, `Beg sekolah`, `Kasut`], ans:0, exp:`Kasa bermaksud payung.` },
+  { id:`t1k19`, level:`T1`, cat:`kosa`, q:`Apakah maksud [[{かぎ|かぎ}]]?`, opts:[`Kunci`, `Kamus`, `Jam`, `Buku`], ans:0, exp:`Kagi bermaksud kunci.` },
+  { id:`t1k20`, level:`T1`, cat:`kosa`, q:`Apakah maksud [[ごみばこ]]?`, opts:[`Tong sampah`, `Kotak pensel`, `Rak buku`, `Papan putih`], ans:0, exp:`Gomibako bermaksud tong sampah.` },
+  { id:`t1k21`, level:`T1`, cat:`kosa`, q:`Apakah maksud [[ハンカチ]]?`, opts:[`Sapu tangan`, `Buku nota`, `Beg`, `Jam`], ans:0, exp:`Hankachi (daripada handkerchief) ialah sapu tangan.` },
+  { id:`t1k22`, level:`T1`, cat:`kosa`, q:`Apakah maksud [[かばん]]?`, opts:[`Beg`, `Buku`, `Kunci`, `Kasut`], ans:0, exp:`Kaban ialah beg sekolah atau beg tangan.` },
+  { id:`t1k23`, level:`T1`, cat:`kosa`, q:`Apakah maksud [[{くつ|くつ}]]?`, opts:[`Kasut`, `Stokin`, `Baju`, `Topi`], ans:0, exp:`Kutsu bermaksud kasut.` },
+  { id:`t1k24`, level:`T1`, cat:`kosa`, q:`Apakah maksud [[{ふでばこ|ふでばこ}]]?`, opts:[`Kotak pensel`, `Buku teks`, `Meja tulis`, `Papan hitam`], ans:0, exp:`Fudebako ialah kotak pensel.` },
+  { id:`t1k25`, level:`T1`, cat:`kosa`, q:`Apakah maksud [[{先生|せんせい}]]?`, opts:[`Guru / Cikgu`, `Murid`, `Rakan`, `Pengetua`], ans:0, exp:`Sensei bermaksud guru atau pengajar.` },
+  { id:`t1k26`, level:`T1`, cat:`kosa`, q:`Apakah maksud [[{友|とも}だち]]?`, opts:[`Kawan / Rakan`, `Abang`, `Adik`, `Jiran`], ans:0, exp:`Tomodachi bermaksud kawan atau sahabat.` },
+  { id:`t1k27`, level:`T1`, cat:`kosa`, q:`Siapakah [[{父|ちち}]]?`, opts:[`Bapa saya`, `Ibu saya`, `Datuk saya`, `Abang saya`], ans:0, exp:`Chichi ialah bapa saya (untuk bercakap kepada orang lain).` },
+  { id:`t1k28`, level:`T1`, cat:`kosa`, q:`Siapakah [[{母|はは}]]?`, opts:[`Ibu saya`, `Kakak saya`, `Nenek saya`, `Makcik saya`], ans:0, exp:`Haha ialah ibu saya.` },
+  { id:`t1k29`, level:`T1`, cat:`kosa`, q:`Apakah maksud [[お{姉|ねえ}さん]]?`, opts:[`Kakak`, `Adik perempuan`, `Ibu`, `Kawan`], ans:0, exp:`Oneesan bermaksud kakak (panggilan mesra atau untuk kakak orang lain).` },
+  { id:`t1k30`, level:`T1`, cat:`kosa`, q:`Apakah maksud [[{名前|なまえ}]]?`, opts:[`Nama`, `Umur`, `Kelas`, `Sekolah`], ans:0, exp:`Namae bermaksud nama.` },
+  { id:`t1k31`, level:`T1`, cat:`kosa`, q:`Apakah maksud [[{日本語|にほんご}]]?`, opts:[`Bahasa Jepun`, `Bahasa Melayu`, `Negara Jepun`, `Orang Jepun`], ans:0, exp:`Nihongo bermaksud Bahasa Jepun (-go merujuk kepada bahasa).` },
+  { id:`t1k32`, level:`T1`, cat:`kosa`, q:`Apakah maksud [[{お兄|にい}さん]] atau [[あに]]?`, opts:[`Abang`, `Bapa`, `Datuk`, `Kawan lelaki`], ans:0, exp:`Ani / Oniisan bermaksud abang.` },
+
+  /* ===================== TINGKATAN 1: TATABAHASA (32) ===================== */
+  { id:`t1g01`, level:`T1`, cat:`tatabahasa`, q:`Lengkapkan ayat: [[わたし ___ クマルです。]]`, opts:[`[[は]]`, `[[を]]`, `[[に]]`, `[[へ]]`], ans:0, exp:`Partikel は (wa) menandakan topik/subjek ayat.` },
+  { id:`t1g02`, level:`T1`, cat:`tatabahasa`, q:`Pilih partikel kepunyaan yang betul: [[これは {日本語|にほんご} ___ ノートです。]]`, opts:[`[[の]]`, `[[は]]`, `[[が]]`, `[[も]]`], ans:0, exp:`Partikel の menghubungkan dua kata nama (buku nota Bahasa Jepun).` },
+  { id:`t1g03`, level:`T1`, cat:`tatabahasa`, q:`Bagaimanakah menyebut Tingkat 1 dalam Bahasa Jepun?`, opts:[`[[いっかい]]`, `[[いちかい]]`, `[[にかい]]`, `[[ろっかい]]`], ans:0, exp:`Tingkat 1 mengalami perubahan bunyi menjadi いっかい (ikkai).` },
+  { id:`t1g04`, level:`T1`, cat:`tatabahasa`, q:`Bagaimanakah menyebut Tingkat 3 dengan betul?`, opts:[`[[さんがい]]`, `[[さんかい]]`, `[[さっかい]]`, `[[よんかい]]`], ans:0, exp:`Tingkat 3 disebut さんがい (sangai) dengan bunyi g.` },
+  { id:`t1g05`, level:`T1`, cat:`tatabahasa`, q:`Bagaimanakah menyebut Tingkat 6 dalam Bahasa Jepun?`, opts:[`[[ろっかい]]`, `[[ろくかい]]`, `[[ろっがい]]`, `[[ななかい]]`], ans:0, exp:`Tingkat 6 disebut ろっかい (rokkai).` },
+  { id:`t1g06`, level:`T1`, cat:`tatabahasa`, q:`Soalan untuk menanya "Tingkat berapa?" ialah...`, opts:[`[[{何|なん}かいですか。]]`, `[[{何|なに}かいですか。]]`, `[[だれですか。]]`, `[[どこですか。]]`], ans:0, exp:`Sebelum pengukur tingkat (-kai), 何 dibaca sebagai なん (nan).` },
+  { id:`t1g07`, level:`T1`, cat:`tatabahasa`, q:`Pilih kata tanya tempat yang betul: [[すみません、トイレは ___ ですか。]]`, opts:[`[[どこ]]`, `[[だれ]]`, `[[どれ]]`, `[[いつ]]`], ans:0, exp:`どこ digunakan untuk menanya lokasi atau tempat (di mana).` },
+  { id:`t1g08`, level:`T1`, cat:`tatabahasa`, q:`Benda itu berada jauh dari kedua-dua penutur dan pendengar. Apakah kata tunjuk tempatnya?`, opts:[`[[あそこ]]`, `[[ここ]]`, `[[そこ]]`, `[[どこ]]`], ans:0, exp:`あそこ bermaksud "di sana" (jauh daripada kedua-dua pihak).` },
+  { id:`t1g09`, level:`T1`, cat:`tatabahasa`, q:`Benda itu dekat dengan orang yang bercakap. Pilih kata tunjuk yang betul: [[___ は {先生|せんせい}の {辞書|じしょ}です。]]`, opts:[`[[これ]]`, `[[それ]]`, `[[あれ]]`, `[[どれ]]`], ans:0, exp:`これ bermaksud "ini" (dekat dengan penutur).` },
+  { id:`t1g10`, level:`T1`, cat:`tatabahasa`, q:`Benda itu dekat dengan pendengar. Lengkapkan: [[___ は {何|なん}の ノートですか。]]`, opts:[`[[それ]]`, `[[これ]]`, `[[あれ]]`, `[[ここ]]`], ans:0, exp:`それ bermaksud "itu" (dekat dengan pendengar).` },
+  { id:`t1g11`, level:`T1`, cat:`tatabahasa`, q:`Pilih bentuk yang perlu diikuti oleh kata nama: [[___ {人|ひと}は {父|ちち}の {友|とも}だちです。]]`, opts:[`[[この]]`, `[[これ]]`, `[[ここ]]`, `[[だれ]]`], ans:0, exp:`この/その/あの/どの mesti diikuti terus oleh kata nama seperti 人 (hito).` },
+  { id:`t1g12`, level:`T1`, cat:`tatabahasa`, q:`Pilih ayat tanya untuk menanya "Yang manakah kasut Takashi?":`, opts:[`[[たかしさんの くつは どれですか。]]`, `[[たかしさんの くつは どのですか。]]`, `[[たかしさんの くつは だれですか。]]`, `[[たかしさんの くつは どこですか。]]`], ans:0, exp:`どれ (yang mana satu) berdiri sendiri tanpa kata nama selepasnya.` },
+  { id:`t1g13`, level:`T1`, cat:`tatabahasa`, q:`Lengkapkan ayat tanya untuk memilih orang: [[{日本語|にほんご}の {先生|せんせい}は ___ {人|ひと}ですか。]]`, opts:[`[[どの]]`, `[[どれ]]`, `[[どこ]]`, `[[だれ]]`], ans:0, exp:`どの digunakan sebelum kata nama 人 (orang yang mana satu).` },
+  { id:`t1g14`, level:`T1`, cat:`tatabahasa`, q:`Apakah kata tanya untuk menanya pemilik sesuatu? [[あれは ___ の かさですか。]]`, opts:[`[[だれ]]`, `[[どこ]]`, `[[どれ]]`, `[[なん]]`], ans:0, exp:`だれの bermaksud "kepunyaan siapa".` },
+  { id:`t1g15`, level:`T1`, cat:`tatabahasa`, q:`Apakah bentuk negatif yang sopan bagi [[マレーシア{人|じん}です]]?`, opts:[`[[マレーシア{人|じん}では ありません。]]`, `[[マレーシア{人|じん}ません。]]`, `[[マレーシア{人|じん}ないです。]]`, `[[マレーシア{人|じん}でした。]]`], ans:0, exp:`Bentuk negatif bagi kata nama + です ialah kata nama + では ありません.` },
+  { id:`t1g16`, level:`T1`, cat:`tatabahasa`, q:`Bentuk penafian yang ringkas dalam jawapan: [[その かばんは わたしの ___ 。]]`, opts:[`[[では ありません]]`, `[[の ありません]]`, `[[を ありません]]`, `[[も ありません]]`], ans:0, exp:`"Bukan milik saya" ialah わたしの では ありません.` },
+  { id:`t1g17`, level:`T1`, cat:`tatabahasa`, q:`Menurut NOTA Bab 3, dalam perbualan jawapan kepada [[この{人|ひと}は だれですか。]], bahagian manakah boleh digugurkan?`, opts:[`Subjek / KGNT ([[この{人|ひと}は]])`, `Kata nama ([[{友|とも}だち]])`, `Partikel ([[の]])`, `Pengakhiran ([[です]])`], ans:0, exp:`Dalam perbualan, subjek boleh digugurkan dan terus menjawab 「父の 友だちです。」.` },
+  { id:`t1g18`, level:`T1`, cat:`tatabahasa`, q:`Bagaimana menyebut "1 orang" dalam Bahasa Jepun?`, opts:[`[[ひとり]]`, `[[いちにん]]`, `[[ふたり]]`, `[[ひとつ]]`], ans:0, exp:`Bilangan orang bagi 1 dan 2 ialah ひとり (1 orang) dan ふたり (2 orang).` },
+  { id:`t1g19`, level:`T1`, cat:`tatabahasa`, q:`Bagaimana menyebut "2 orang" dengan betul?`, opts:[`[[ふたり]]`, `[[ににん]]`, `[[ふたつ]]`, `[[さんにん]]`], ans:0, exp:`2 orang ialah ふたり (futari).` },
+  { id:`t1g20`, level:`T1`, cat:`tatabahasa`, q:`Bagaimana menyebut "5 orang"?`, opts:[`[[ごにん]]`, `[[いつつ]]`, `[[ごひゃく]]`, `[[よにん]]`], ans:0, exp:`Selepas 2 orang, pengukur orang menggunakan -にん (さんにん, よにん, ごにん).` },
+  { id:`t1g21`, level:`T1`, cat:`tatabahasa`, q:`Pengukur objek umum bagi "3 buah / 3 biji" ialah...`, opts:[`[[みっつ]]`, `[[さんつ]]`, `[[さんにん]]`, `[[ふたつ]]`], ans:0, exp:`Pengukur umum Jepun asli ialah ひとつ (1), ふたつ (2), みっつ (3).` },
+  { id:`t1g22`, level:`T1`, cat:`tatabahasa`, q:`Pengukur objek umum bagi "10 buah" ialah...`, opts:[`[[とお]]`, `[[じゅうつ]]`, `[[じゅうにん]]`, `[[ここのつ]]`], ans:0, exp:`10 bagi pengukur umum ialah とお (too).` },
+  { id:`t1g23`, level:`T1`, cat:`tatabahasa`, q:`Bagaimanakah membaca "umur 13 tahun" ([[13{歳|さい}]])?`, opts:[`[[じゅうさんさい]]`, `[[じゅうみっつ]]`, `[[じゅうさんがい]]`, `[[じゅうさんにん]]`], ans:0, exp:`Umur menggunakan pengukur -さい, jadi 13 tahun ialah じゅうさんさい.` },
+  { id:`t1g24`, level:`T1`, cat:`tatabahasa`, q:`Bagaimana membaca waktu "pukul 9" ([[9{時|じ}]])?`, opts:[`[[くじ]]`, `[[きゅうじ]]`, `[[くふん]]`, `[[ここのじ]]`], ans:0, exp:`Pukul 9 dibaca sebagai くじ (kuji), bukan kyuujii.` },
+  { id:`t1g25`, level:`T1`, cat:`tatabahasa`, q:`Bagaimana membaca "pukul 6:45" dengan betul?`, opts:[`[[ろくじ よんじゅうごふん]]`, `[[ろくじ よんじゅうごぷん]]`, `[[ろっじ よんじゅうごふん]]`, `[[ろくじ しじゅうごふん]]`], ans:0, exp:`6:45 dibaca ろくじ よんじゅうごふん.` },
+  { id:`t1g26`, level:`T1`, cat:`tatabahasa`, q:`Apakah maksud hari [[{水曜日|すいようび}]]?`, opts:[`Hari Rabu`, `Hari Selasa`, `Hari Khamis`, `Hari Ahad`], ans:0, exp:`Suiyoubi ialah hari Rabu (水 = air).` },
+  { id:`t1g27`, level:`T1`, cat:`tatabahasa`, q:`Apakah bacaan tarikh "7 Julai" ([[7{月|がつ}7{日|か}]])?`, opts:[`[[しちがつ なのか]]`, `[[なながつ ななにち]]`, `[[しちがつ ななにち]]`, `[[くがつ なのか]]`], ans:0, exp:`Bulan 7 ialah しちがつ dan hari ke-7 ialah なのか.` },
+  { id:`t1g28`, level:`T1`, cat:`tatabahasa`, q:`Pilih bacaan yang betul bagi [[{何|なに}いろですか]] ("Warna apa?")`, opts:[`[[なにいろですか]]`, `[[なんいろですか]]`, `[[だれいろですか]]`, `[[どこいろですか]]`], ans:0, exp:`Berdasarkan jadual Kanji Bab 3, 「シャツは 何いろですか。」 dibaca なにいろ.` },
+  { id:`t1g29`, level:`T1`, cat:`tatabahasa`, q:`Apakah bacaan bagi [[{名前|なまえ}は {何|なん}ですか。]]?`, opts:[`[[なんですか]]`, `[[なにですか]]`, `[[どれですか]]`, `[[どこですか]]`], ans:0, exp:`Di hadapan です, 何 dibaca sebagai なん (nan desu ka).` },
+  { id:`t1g30`, level:`T1`, cat:`tatabahasa`, q:`Susun ayat yang betul: "Pejabat berada di tingkat 2".`, opts:[`[[{事務室|じむしつ}は 2かいです。]]`, `[[2かいを {事務室|じむしつ}です。]]`, `[[{事務室|じむしつ}が 2かいをです。]]`, `[[2かいの {事務室|じむしつ}は。]]`], ans:0, exp:`Pola ayat KN は KGNT です menghasilkan 「じむしつは ２かいです。」.` },
+  { id:`t1g31`, level:`T1`, cat:`tatabahasa`, q:`Pilih jawapan yang betul bagi [[アミンさんは 1{年生|ねんせい}ですか。]] jika dia memang Tingkatan 1:`, opts:[`[[はい、そうです。]]`, `[[いいえ、ちがいます。]]`, `[[はい、ありません。]]`, `[[いいえ、そうです。]]`], ans:0, exp:`Untuk mengesahkan penyataan yang betul, gunakan 「はい、そうです。」.` },
+  { id:`t1g32`, level:`T1`, cat:`tatabahasa`, q:`Apakah maksud partikel [[も]] dalam [[わたしも せいとです。]]?`, opts:[`Juga`, `Tetapi`, `Dari`, `Hingga`], ans:0, exp:`Partikel も bermaksud "juga" dan menggantikan は.` },
+
+  /* ===================== TINGKATAN 2: KOSA KATA (32) ===================== */
+  { id:`t2k01`, level:`T2`, cat:`kosa`, q:`Apakah maksud [[{電車|でんしゃ}]] dalam perkataan baharu Bab 4?`, opts:[`Kereta api elektrik`, `Bas`, `Basikal`, `Kereta`], ans:0, exp:`Densha bermaksud kereta api elektrik / komuter.` },
+  { id:`t2k02`, level:`T2`, cat:`kosa`, q:`Apakah maksud [[{自転車|じてんしゃ}]]?`, opts:[`Basikal`, `Kereta`, `Motosikal`, `Kereta api`], ans:0, exp:`Jitensha bermaksud basikal.` },
+  { id:`t2k03`, level:`T2`, cat:`kosa`, q:`Apakah maksud [[{車|くるま}]]?`, opts:[`Kereta`, `Bas`, `Kapal terbang`, `Kapal`], ans:0, exp:`Kuruma bermaksud kereta.` },
+  { id:`t2k04`, level:`T2`, cat:`kosa`, q:`Apakah maksud [[くだもの]]?`, opts:[`Buah-buahan`, `Sayur-sayuran`, `Roti`, `Nasi`], ans:0, exp:`Kudamono ialah buah-buahan.` },
+  { id:`t2k05`, level:`T2`, cat:`kosa`, q:`Apakah maksud [[やさい]]?`, opts:[`Sayur-sayuran`, `Buah-buahan`, `Ikan`, `Daging`], ans:0, exp:`Yasai bermaksud sayur-sayuran.` },
+  { id:`t2k06`, level:`T2`, cat:`kosa`, q:`Minuman manakah yang disebut [[{牛乳|ぎゅうにゅう}]]?`, opts:[`Susu lembu`, `Teh hitam`, `Kopi`, `Jus`], ans:0, exp:`Gyuunyuu bermaksud susu (biasanya susu lembu).` },
+  { id:`t2k07`, level:`T2`, cat:`kosa`, q:`Apakah maksud [[こうちゃ]]?`, opts:[`Teh hitam / Teh O`, `Kopi`, `Jus buah`, `Air kosong`], ans:0, exp:`Koucha ialah teh hitam (teh gaya Barat).` },
+  { id:`t2k08`, level:`T2`, cat:`kosa`, q:`Apakah maksud [[{手紙|てがみ}]]?`, opts:[`Surat`, `Lagu`, `Akhbar`, `Diari`], ans:0, exp:`Tegami bermaksud surat.` },
+  { id:`t2k09`, level:`T2`, cat:`kosa`, q:`Apakah maksud [[{歌|うた}]]?`, opts:[`Lagu`, `Filem`, `Tarian`, `Buku`], ans:0, exp:`Uta bermaksud lagu.` },
+  { id:`t2k10`, level:`T2`, cat:`kosa`, q:`Apakah maksud [[デパート]]?`, opts:[`Kompleks beli-belah`, `Perpustakaan`, `Restoran`, `Stesen`], ans:0, exp:`Depaato (department store) ialah kompleks beli-belah.` },
+  { id:`t2k11`, level:`T2`, cat:`kosa`, q:`Apakah maksud [[{新聞|しんぶん}]]?`, opts:[`Surat khabar`, `Diari`, `Setem`, `Komik`], ans:0, exp:`Shinbun bermaksud surat khabar.` },
+  { id:`t2k12`, level:`T2`, cat:`kosa`, q:`Apakah maksud [[{日記|にっき}]]?`, opts:[`Diari`, `Surat khabar`, `Kamus`, `Surat`], ans:0, exp:`Nikki bermaksud diari.` },
+  { id:`t2k13`, level:`T2`, cat:`kosa`, q:`Apakah maksud [[きって]]?`, opts:[`Setem`, `Tiket`, `Wang`, `Sampul surat`], ans:0, exp:`Kitte bermaksud setem pos.` },
+  { id:`t2k14`, level:`T2`, cat:`kosa`, q:`Apakah maksud [[{朝|あさ}ごはん]]?`, opts:[`Sarapan pagi`, `Makan tengah hari`, `Makan malam`, `Minum petang`], ans:0, exp:`Asagohan ialah sarapan pagi (朝 = pagi, ごはん = hidangan).` },
+  { id:`t2k15`, level:`T2`, cat:`kosa`, q:`Apakah maksud [[{昼|ひる}ごはん]]?`, opts:[`Makan tengah hari`, `Sarapan pagi`, `Makan malam`, `Kudapan`], ans:0, exp:`Hirugohan ialah makan tengah hari.` },
+  { id:`t2k16`, level:`T2`, cat:`kosa`, q:`Apakah maksud kata kerja [[おきます]] dalam rutin harian?`, opts:[`Bangun tidur`, `Tidur`, `Mandi`, `Pulang`], ans:0, exp:`Okimasu bermaksud bangun dari tidur.` },
+  { id:`t2k17`, level:`T2`, cat:`kosa`, q:`Apakah maksud kata kerja [[ねます]]?`, opts:[`Tidur`, `Bangun`, `Rehat`, `Belajar`], ans:0, exp:`Nemasu bermaksud tidur.` },
+  { id:`t2k18`, level:`T2`, cat:`kosa`, q:`Apakah maksud kata kerja [[{休|やす}みます]]?`, opts:[`Berehat / Bercuti`, `Bekerja`, `Berlari`, `Berenang`], ans:0, exp:`Yasumimasu bermaksud berehat atau tidak hadir/cuti.` },
+  { id:`t2k19`, level:`T2`, cat:`kosa`, q:`Apakah maksud [[{掃除|そうじ}を します]]?`, opts:[`Mengemas / Membersihkan`, `Memasak`, `Membeli-belah`, `Menulis`], ans:0, exp:`Souji wo shimasu bermaksud membersihkan ruang atau mengemas bilik.` },
+  { id:`t2k20`, level:`T2`, cat:`kosa`, q:`Apakah maksud [[{泳|およ}ぎます]]?`, opts:[`Berenang`, `Berjalan`, `Menari`, `Menyanyi`], ans:0, exp:`Oyogimasu bermaksud berenang (contoh: プールで およぎます).` },
+  { id:`t2k21`, level:`T2`, cat:`kosa`, q:`Apakah maksud [[{料理|りょうり}]]?`, opts:[`Masakan / Memasak`, `Muzik`, `Lukisan`, `Sukan`], ans:0, exp:`Ryouri bermaksud masakan atau hidangan.` },
+  { id:`t2k22`, level:`T2`, cat:`kosa`, q:`Apakah maksud [[{音楽|おんがく}]]?`, opts:[`Muzik`, `Filem`, `Tarian`, `Sukan`], ans:0, exp:`Ongaku bermaksud muzik.` },
+  { id:`t2k23`, level:`T2`, cat:`kosa`, q:`Apakah maksud [[{映画|えいが}]]?`, opts:[`Filem / Wayang`, `Televisyen`, `Gambar`, `Majalah`], ans:0, exp:`Eiga bermaksud filem atau wayang gambar.` },
+  { id:`t2k24`, level:`T2`, cat:`kosa`, q:`Apakah maksud [[おどり]]?`, opts:[`Tarian`, `Lagu`, `Permainan`, `Perayaan`], ans:0, exp:`Odori bermaksud tarian (contoh: 日本の おどり).` },
+  { id:`t2k25`, level:`T2`, cat:`kosa`, q:`Apakah nama budaya berkelah di bawah pohon sakura pada musim bunga ([[{春|はる}]])?`, opts:[`Hanami ([[{花見|はなみ}]])`, `Obon`, `Oshogatsu`, `Tanabata`], ans:0, exp:`Hanami ialah budaya berkumpul dan berkelah di bawah pokok sakura.` },
+  { id:`t2k26`, level:`T2`, cat:`kosa`, q:`Perayaan Salji Sapporo (Sapporo Yuki Matsuri) diadakan di pulau mana?`, opts:[`Pulau Hokkaido`, `Pulau Kyushu`, `Pulau Shikoku`, `Pulau Okinawa`], ans:0, exp:`Sapporo Yuki Matsuri terkenal dengan ukiran ais di Pulau Hokkaido.` },
+  { id:`t2k27`, level:`T2`, cat:`kosa`, q:`Dalam perayaan Gion Matsuri di Kyoto, apakah nama kuil mudah alih seberat satu tan yang diarak?`, opts:[`Omikoshi`, `Ofuro`, `Kendama`, `Koban`], ans:0, exp:`Omikoshi ialah kuil mudah alih yang ditarik mengelilingi bandar Gion.` },
+  { id:`t2k28`, level:`T2`, cat:`kosa`, q:`Apakah permainan tradisional Jepun yang menyerupai permainan batu seremban di Malaysia?`, opts:[`Otedama`, `Beigoma`, `Kendama`, `Sumo`], ans:0, exp:`Otedama menggunakan lima atau tujuh biji uncang kain (Ojami) seperti batu seremban.` },
+  { id:`t2k29`, level:`T2`, cat:`kosa`, q:`Apakah permainan tradisional gasing Jepun yang disebut dalam buku teks?`, opts:[`Beigoma`, `Otedama`, `Hanami`, `Ofuro`], ans:0, exp:`Beigoma ialah gasing tradisional Jepun yang dililit tali tanpa paku.` },
+  { id:`t2k30`, level:`T2`, cat:`kosa`, q:`Apakah maksud [[{お正月|おしょうがつ}]] yang disambut pada 1 Januari di Jepun?`, opts:[`Perayaan Tahun Baharu`, `Perayaan Musim Luruh`, `Perayaan Bunga Api`, `Hari Guru`], ans:0, exp:`Oshogatsu ialah sambutan tahun baharu pada 1 Januari.` },
+  { id:`t2k31`, level:`T2`, cat:`kosa`, q:`Apakah maksud [[おふろ]]?`, opts:[`Tab mandi air panas tradisional Jepun`, `Bilik makan Jepun`, `Taman bunga`, `Tikar jerami`], ans:0, exp:`Ofuro ialah tab mandi tradisional Jepun untuk berendam air panas.` },
+  { id:`t2k32`, level:`T2`, cat:`kosa`, q:`Apakah maksud [[{家族|かぞく}]]?`, opts:[`Keluarga`, `Rakan sekelas`, `Penduduk`, `Tetamu`], ans:0, exp:`Kazoku bermaksud ahli keluarga.` },
+
+  /* ===================== TINGKATAN 2: TATABAHASA (32) ===================== */
+  { id:`t2g01`, level:`T2`, cat:`tatabahasa`, q:`Lengkapkan ayat dengan partikel masa: [[わたしは {毎朝|まいあさ} 6{時|じ} ___ おきます。]]`, opts:[`[[に]]`, `[[を]]`, `[[で]]`, `[[へ]]`], ans:0, exp:`Masa spesifik seperti pukul 6 (6時に) menggunakan partikel に.` },
+  { id:`t2g02`, level:`T2`, cat:`tatabahasa`, q:`Partikel manakah digunakan untuk alat pengangkutan? [[{自転車|じてんしゃ} ___ {学校|がっこう}へ {行|い}きます。]]`, opts:[`[[で]]`, `[[を]]`, `[[に]]`, `[[が]]`], ans:0, exp:`Partikel で menandakan cara atau kenderaan yang digunakan.` },
+  { id:`t2g03`, level:`T2`, cat:`tatabahasa`, q:`Pilih partikel arah tujuan: [[デパート ___ {行|い}きます。]]`, opts:[`[[へ]]`, `[[を]]`, `[[で]]`, `[[が]]`], ans:0, exp:`Partikel へ (dibaca 'e') menunjukkan arah atau destinasi pergerakan.` },
+  { id:`t2g04`, level:`T2`, cat:`tatabahasa`, q:`Partikel objek bagi kata kerja transitif: [[{朝|あさ}ごはん ___ たべます。]]`, opts:[`[[を]]`, `[[は]]`, `[[に]]`, `[[で]]`], ans:0, exp:`Partikel を menandakan objek yang menerima perbuatan (makan sarapan).` },
+  { id:`t2g05`, level:`T2`, cat:`tatabahasa`, q:`Partikel tempat berlakunya sesuatu aktiviti: [[{友|とも}だちと {教室|きょうしつ} ___ べんきょうを します。]]`, opts:[`[[で]]`, `[[へ]]`, `[[を]]`, `[[に]]`], ans:0, exp:`Partikel で menandakan lokasi tempat sesuatu tindakan/aktiviti berlaku.` },
+  { id:`t2g06`, level:`T2`, cat:`tatabahasa`, q:`Partikel "bersama dengan siapa": [[たかしさん ___ しょくどうで たべました。]]`, opts:[`[[と]]`, `[[を]]`, `[[に]]`, `[[へ]]`], ans:0, exp:`Partikel と bermaksud "bersama" apabila melakukan aktiviti dengan seseorang.` },
+  { id:`t2g07`, level:`T2`, cat:`tatabahasa`, q:`Pilih pasangan partikel julat masa "dari ... hingga ...": [[{午前|ごぜん}10{時|じ} ___ 12{時|じ} ___ べんきょうしました。]]`, opts:[`[[から]] ... [[まで]]`, `[[まで]] ... [[から]]`, `[[に]] ... [[で]]`, `[[と]] ... [[も]]`], ans:0, exp:`から bermaksud "dari" dan まで bermaksud "hingga".` },
+  { id:`t2g08`, level:`T2`, cat:`tatabahasa`, q:`Apakah maksud [[10{時半|じはん}]]?`, opts:[`Pukul 10:30`, `Pukul 10:15`, `Pukul 10:45`, `10 jam setengah`], ans:0, exp:`半 (han) bermaksud setengah (30 minit), jadi 10時半 ialah 10:30.` },
+  { id:`t2g09`, level:`T2`, cat:`tatabahasa`, q:`Apakah bentuk masa lampau (past tense) bagi [[みます]] ("menonton")?`, opts:[`[[みました]]`, `[[みません]]`, `[[みませんでした]]`, `[[みって]]`], ans:0, exp:`-ます bertukar kepada -ました untuk perbuatan yang telah berlaku.` },
+  { id:`t2g10`, level:`T2`, cat:`tatabahasa`, q:`Apakah bentuk negatif masa lampau bagi [[よみます]] ("tidak membaca semalam")?`, opts:[`[[よみませんでした]]`, `[[よみません]]`, `[[よみました]]`, `[[よまない]]`], ans:0, exp:`Negatif masa lampau sopan ialah -ませんでした.` },
+  { id:`t2g11`, level:`T2`, cat:`tatabahasa`, q:`Lengkapkan ayat diari Bab 4: [[デパートで ひるごはんを たべました。___ 、いろいろな ものを かいました。]]`, opts:[`[[そして]]`, `[[だれ]]`, `[[あまり]]`, `[[どこ]]`], ans:0, exp:`そして (dan kemudian) menyambungkan dua ayat tindakan secara berturutan.` },
+  { id:`t2g12`, level:`T2`, cat:`tatabahasa`, q:`Apakah maksud [[それから]] dalam penceritaan rutin harian?`, opts:[`Selepas itu`, `Sebelum itu`, `Oleh sebab itu`, `Kadang-kadang`], ans:0, exp:`それから bermaksud "selepas itu" untuk urutan peristiwa.` },
+  { id:`t2g13`, level:`T2`, cat:`tatabahasa`, q:`Lengkapkan pola kegemaran: [[{父|ちち}は {音楽|おんがく} ___ {好|す}きです。]]`, opts:[`[[が]]`, `[[を]]`, `[[へ]]`, `[[で]]`], ans:0, exp:`Kata adjektif 好きです (suka) menggunakan partikel が di hadapannya.` },
+  { id:`t2g14`, level:`T2`, cat:`tatabahasa`, q:`Bagaimanakah menyatakan "kurang suka sukan" dengan tepat?`, opts:[`[[スポーツが あまり {好|す}きでは ありません。]]`, `[[スポーツが とても {好|す}きでは ありません。]]`, `[[スポーツを あまり {好|す}きです。]]`, `[[スポーツが ときどき {好|す}きです。]]`], ans:0, exp:`あまり sentiasa berpasangan dengan bentuk negatif (あまり 好きでは ありません).` },
+  { id:`t2g15`, level:`T2`, cat:`tatabahasa`, q:`Lengkapkan: [[アミンさんの お{姉|ねえ}さんは {料理|りょうり} ___ じょうずです。]]`, opts:[`[[が]]`, `[[を]]`, `[[に]]`, `[[へ]]`], ans:0, exp:`じょうずです (pandai/mahir) dan へたです (tidak mahir) mengambil partikel が.` },
+  { id:`t2g16`, level:`T2`, cat:`tatabahasa`, q:`Apakah maksud [[わたしは {日本|にほん}の おどりが へたです。]]?`, opts:[`Saya tidak pandai menari tarian Jepun.`, `Saya sangat mahir menari tarian Jepun.`, `Saya tidak suka tarian Jepun.`, `Saya sedang belajar tarian Jepun.`], ans:0, exp:`へたです bermaksud kurang mahir / tidak pandai.` },
+  { id:`t2g17`, level:`T2`, cat:`tatabahasa`, q:`Bagaimana mengajak rakan menonton filem bersama pada hari Ahad?`, opts:[`[[{日曜日|にちようび}に いっしょに {映画|えいが}を {見|み}ませんか。]]`, `[[{日曜日|にちようび}に いっしょに {映画|えいが}を {見|み}ました。]]`, `[[{日曜日|にちようび}に いっしょに {映画|えいが}を {見|み}ません。]]`, `[[{日曜日|にちようび}に いっしょに {映画|えいが}が {見|み}ます。]]`], ans:0, exp:`Bentuk 「〜ませんか」 digunakan untuk mengajak seseorang dengan sopan.` },
+  { id:`t2g18`, level:`T2`, cat:`tatabahasa`, q:`Bagaimana membalas ajakan dengan setuju? [[ええ、___ 。]]`, opts:[`[[{見|み}ましょう / たべましょう]]`, `[[{見|み}ません]]`, `[[{見|み}ませんでした]]`, `[[では ありません]]`], ans:0, exp:`Bentuk 「〜ましょう」 bermaksud "Mari kita..." sebagai persetujuan positif.` },
+  { id:`t2g19`, level:`T2`, cat:`tatabahasa`, q:`Apakah maksud kata kekerapan [[ときどき]] dalam [[ときどき プールで およぎます。]]?`, opts:[`Kadang-kadang`, `Setiap hari`, `Setiap pagi`, `Tidak pernah`], ans:0, exp:`ときどき bermaksud kadang-kadang.` },
+  { id:`t2g20`, level:`T2`, cat:`tatabahasa`, q:`Apakah maksud [[{毎日|まいにち}]]?`, opts:[`Setiap hari`, `Setiap pagi`, `Setiap minggu`, `Hari ini`], ans:0, exp:`毎日 (mainichi) bermaksud setiap hari.` },
+  { id:`t2g21`, level:`T2`, cat:`tatabahasa`, q:`Apakah maksud [[{毎朝|まいあさ}]]?`, opts:[`Setiap pagi`, `Pagi ini`, `Esok pagi`, `Semalam`], ans:0, exp:`毎朝 (maiasa) bermaksud setiap pagi.` },
+  { id:`t2g22`, level:`T2`, cat:`tatabahasa`, q:`Pilih bacaan yang betul bagi "7:20 pagi":`, opts:[`[[しちじ にじゅっぷん]]`, `[[ななじ にじゅうぶん]]`, `[[くじ にじゅっぷん]]`, `[[しちじ にじゅうふん]]`], ans:0, exp:`7 jam ialah しちじ dan 20 minit ialah にじゅっぷん.` },
+  { id:`t2g23`, level:`T2`, cat:`tatabahasa`, q:`Apakah maksud [[{午前|ごぜん}]] dan [[{午後|ごご}]]?`, opts:[`Pagi (AM) dan Petang/Malam (PM)`, `Semalam dan Esok`, `Awal dan Lewat`, `Dari dan Hingga`], ans:0, exp:`午前 (gozen) ialah sebelum tengah hari (AM) dan 午後 (gogo) selepas tengah hari (PM).` },
+  { id:`t2g24`, level:`T2`, cat:`tatabahasa`, q:`Kata kerja manakah bermaksud "pulang ke rumah / asrama"? [[4{時|じ}に {寮|りょう}へ ___ 。]]`, opts:[`[[かえりました]]`, `[[はじまりました]]`, `[[のみました]]`, `[[おきました]]`], ans:0, exp:`かえりました (pulang) berpasangan dengan へ menuju ke tempat asal.` },
+  { id:`t2g25`, level:`T2`, cat:`tatabahasa`, q:`Kata kerja manakah sesuai untuk waktu kelas bermula? [[クラスは 8{時|じ}に ___ 。]]`, opts:[`[[はじまります]]`, `[[かえります]]`, `[[かきます]]`, `[[たべます]]`], ans:0, exp:`はじまります bermaksud bermula.` },
+  { id:`t2g26`, level:`T2`, cat:`tatabahasa`, q:`"Saya pulang ke rumah pada waktu malam bersama keluarga." Pilih partikel yang betul: [[よるは うち ___ かぞく ___ やすみます。]]`, opts:[`[[で]] ... [[と]]`, `[[へ]] ... [[を]]`, `[[を]] ... [[に]]`, `[[が]] ... [[で]]`], ans:0, exp:`うちで (di rumah) dan かぞくと (bersama keluarga).` },
+  { id:`t2g27`, level:`T2`, cat:`tatabahasa`, q:`Apakah maksud ayat [[きょうは {学校|がっこう}は {休|やす}みです。]]?`, opts:[`Hari ini sekolah bercuti.`, `Hari ini sekolah ada ujian.`, `Semalam sekolah bercuti.`, `Esok sekolah bermula.`], ans:0, exp:`休みです (yasumi desu) bermaksud cuti / hari rehat.` },
+  { id:`t2g28`, level:`T2`, cat:`tatabahasa`, q:`Pilih perkataan yang betul bagi "tidak minum kopi": [[コーヒーを ___ 。]]`, opts:[`[[のみません]]`, `[[たべません]]`, `[[ききません]]`, `[[かきません]]`], ans:0, exp:`のみません ialah bentuk negatif bagi のみます (minum).` },
+  { id:`t2g29`, level:`T2`, cat:`tatabahasa`, q:`Lengkapkan: [[{土曜日|どようび}に {サッカー|サッカー}を ___ 。]] ("Mari bermain bola sepak")`, opts:[`[[しましょう]]`, `[[しますか]]`, `[[しりません]]`, `[[しました]]`], ans:0, exp:`Ajakan aktif bagi します ialah しましょう.` },
+  { id:`t2g30`, level:`T2`, cat:`tatabahasa`, q:`Pilih ayat yang betul tatabahasanya:`, opts:[`[[すしを たべませんか。]]`, `[[すしは たべませんか。]]`, `[[すしに たべませんか。]]`, `[[すしで たべませんか。]]`], ans:0, exp:`Objek makanan bagi たべます menggunakan partikel を.` },
+  { id:`t2g31`, level:`T2`, cat:`tatabahasa`, q:`Apakah maksud [[{大変|たいへん} {好|す}きです]] / [[とても {好|す}きです]]?`, opts:[`Sangat suka`, `Kurang suka`, `Tidak suka`, `Mahir sekali`], ans:0, exp:`とても menerangkan tahap yang sangat tinggi (sangat suka).` },
+  { id:`t2g32`, level:`T2`, cat:`tatabahasa`, q:`Dalam ayat [[1{時|じ}50{分|ぷん}]], bagaimanakah membaca 50 minit?`, opts:[`[[ごじゅっぷん]]`, `[[ごじゅうふん]]`, `[[ごじゅうぷん]]`, `[[いつじゅっぷん]]`], ans:0, exp:`Angka puluhan seperti 10, 20, 30, 40, 50 minit menggunakan bunyi -じゅっぷん.` },
+
+  /* ===================== TINGKATAN 3: KOSA KATA (32) ===================== */
+  { id:`t3k01`, level:`T3`, cat:`kosa`, q:`Apakah maksud [[{博物館|はくぶつかん}]] (Bab 9)?`, opts:[`Muzium`, `Balai seni`, `Bank`, `Kafe`], ans:0, exp:`Hakubutsukan bermaksud muzium.` },
+  { id:`t3k02`, level:`T3`, cat:`kosa`, q:`Apakah maksud [[{美術館|びじゅつかん}]]?`, opts:[`Galeri / Balai seni`, `Muzium sejarah`, `Dewan`, `Perpustakaan`], ans:0, exp:`Bijutsukan bermaksud galeri seni atau balai seni lukis.` },
+  { id:`t3k03`, level:`T3`, cat:`kosa`, q:`Apakah maksud [[きっさてん]]?`, opts:[`Kedai kopi / Kafe`, `Bank`, `Dewan`, `Klinik`], ans:0, exp:`Kissaten ialah kedai kopi atau kafe.` },
+  { id:`t3k04`, level:`T3`, cat:`kosa`, q:`Apakah maksud [[{銀行|ぎんこう}]]?`, opts:[`Bank`, `Pejabat pos`, `Kedai buku`, `Hospital`], ans:0, exp:`Ginkou bermaksud bank.` },
+  { id:`t3k05`, level:`T3`, cat:`kosa`, q:`Apakah maksud [[{海|うみ}]] dan [[{川|かわ}]]?`, opts:[`Laut dan Sungai`, `Gunung dan Hutan`, `Awan dan Hujan`, `Tasik dan Pulau`], ans:0, exp:`Umi bermaksud laut manakala Kawa bermaksud sungai.` },
+  { id:`t3k06`, level:`T3`, cat:`kosa`, q:`Apakah maksud [[{写真|しゃしん}を とります]]?`, opts:[`Mengambil gambar`, `Melukis gambar`, `Meminjam buku`, `Mandi pancuran`], ans:0, exp:`Shashin wo torimasu bermaksud mengambil foto/gambar.` },
+  { id:`t3k07`, level:`T3`, cat:`kosa`, q:`Apakah maksud [[シャワーを あびます]]?`, opts:[`Mandi (pancuran)`, `Berenang`, `Berjalan kaki`, `Berlari`], ans:0, exp:`Shawaa wo abimasu bermaksud mandi menggunakan pancuran air.` },
+  { id:`t3k08`, level:`T3`, cat:`kosa`, q:`Apakah maksud kata kerja [[かります]]?`, opts:[`Meminjam`, `Memulangkan`, `Menghantar`, `Menggunakan`], ans:0, exp:`Karimasu bermaksud meminjam (contoh: perpustakaan).` },
+  { id:`t3k09`, level:`T3`, cat:`kosa`, q:`Dalam arahan ujian Bab 9: [[かみを {出|だ}して ください。]], apakah maksud [[{出|だ}します]]?`, opts:[`Menyerahkan / Menghantar`, `Menyimpan`, `Menulis`, `Membaca`], ans:0, exp:`Dashimasu bermaksud mengeluarkan atau menyerahkan kertas jawapan.` },
+  { id:`t3k10`, level:`T3`, cat:`kosa`, q:`Apakah maksud [[{歩|ある}きます]]?`, opts:[`Berjalan kaki`, `Berlari`, `Berenang`, `Melompat`], ans:0, exp:`Arukimasu bermaksud berjalan kaki.` },
+  { id:`t3k11`, level:`T3`, cat:`kosa`, q:`Apakah maksud [[{走|はし}ります]]?`, opts:[`Berlari`, `Berjalan`, `Bercakap`, `Berhenti`], ans:0, exp:`Hashirimasu bermaksud berlari.` },
+  { id:`t3k12`, level:`T3`, cat:`kosa`, q:`Apakah pasangan makna bagi [[かんたん]] dan [[むずかしい]]?`, opts:[`Mudah dan Susah`, `Selamat dan Bahaya`, `Cepat dan Lambat`, `Panas dan Sejuk`], ans:0, exp:`Kantan (mudah/senang) berlawanan dengan Muzukashii (susah/sukar).` },
+  { id:`t3k13`, level:`T3`, cat:`kosa`, q:`Apakah maksud [[{危|あぶ}ない]]?`, opts:[`Berbahaya`, `Selamat`, `Cepat`, `Tebal`], ans:0, exp:`Abunai bermaksud berbahaya.` },
+  { id:`t3k14`, level:`T3`, cat:`kosa`, q:`Apakah maksud [[あんぜん]]?`, opts:[`Selamat (aman)`, `Berbahaya`, `Sukar`, `Nipis`], ans:0, exp:`Anzen bermaksud selamat / terjamin keselamatannya.` },
+  { id:`t3k15`, level:`T3`, cat:`kosa`, q:`Apakah maksud [[はやい]] dan [[おそい]]?`, opts:[`Cepat dan Lambat`, `Tebal dan Nipis`, `Sejuk dan Panas`, `Mudah dan Sukar`], ans:0, exp:`Hayai bermaksud cepat/awal manakala Osoi bermaksud lambat/lewat.` },
+  { id:`t3k16`, level:`T3`, cat:`kosa`, q:`Apakah maksud [[うすい]] (kata sifat bagi buku/kertas)?`, opts:[`Nipis`, `Tebal`, `Sejuk`, `Panas`], ans:0, exp:`Usui bermaksud nipis (berlawanan dengan atsui = tebal).` },
+  { id:`t3k17`, level:`T3`, cat:`kosa`, q:`Apakah maksud [[{寒|さむ}い]]?`, opts:[`Sejuk (cuaca)`, `Panas (cuaca)`, `Sedap`, `Berat`], ans:0, exp:`Samui bermaksud cuaca sejuk.` },
+  { id:`t3k18`, level:`T3`, cat:`kosa`, q:`Apakah maksud [[えんぴつ]] dan [[ボールペン]]?`, opts:[`Pensel dan Pen mata bulat`, `Pembaris dan Pemadam`, `Kamus dan Buku teks`, `Kertas dan Gunting`], ans:0, exp:`Enpitsu ialah pensel dan Boorupen ialah pen mata bulat.` },
+  { id:`t3k19`, level:`T3`, cat:`kosa`, q:`Apakah kegunaan kertas [[げんこうようし]] (*Genko youshi*) yang mempunyai 200 hingga 400 petak?`, opts:[`Menulis karangan Bahasa Jepun`, `Membungkus hadiah`, `Melukis komik warna`, `Mencetak gambar`], ans:0, exp:`Genko youshi ialah kertas berpetak khas untuk menulis esei Bahasa Jepun (1 huruf dalam 1 petak).` },
+  { id:`t3k20`, level:`T3`, cat:`kosa`, q:`Ikatan hadiah manakah yang boleh dirungkai untuk peristiwa gembira yang diharapkan berulang (seperti kelahiran bayi)?`, opts:[`[[はなむすび]]`, `[[むすびきり]]`, `[[おみこし]]`, `[[よこづな]]`], ans:0, exp:`Hanamusubi boleh dirungkai dan digunakan untuk peristiwa gembira yang diharap berulang.` },
+  { id:`t3k21`, level:`T3`, cat:`kosa`, q:`Ikatan hadiah manakah yang merupakan simpul mati untuk peristiwa seperti perkahwinan atau kematian?`, opts:[`[[むすびきり]]`, `[[はなむすび]]`, `[[あわじむすび]]`, `[[おにぎり]]`], ans:0, exp:`Musubikiri ialah simpul mati yang tidak dirungkai.` },
+  { id:`t3k22`, level:`T3`, cat:`kosa`, q:`Ikatan hadiah manakah melambangkan hubungan baik yang berpanjangan sesama manusia?`, opts:[`[[あわじむすび]]`, `[[はなむすび]]`, `[[むすびきり]]`, `[[すもう]]`], ans:0, exp:`Awajimusubi ialah simbol hubungan baik yang berpanjangan.` },
+  { id:`t3k23`, level:`T3`, cat:`kosa`, q:`Dalam sukan Sumo, apakah nama kedudukan tertinggi dalam ranking ahli gusti Sumo?`, opts:[`Yokozuna`, `Sumobeya`, `Omikoshi`, `Otedama`], ans:0, exp:`Yokozuna ialah gelaran tertinggi selepas melalui lapan peringkat sumo.` },
+  { id:`t3k24`, level:`T3`, cat:`kosa`, q:`Apakah nama rumah tempat latihan ahli Sumo berlatih?`, opts:[`Sumobeya`, `Genko youshi`, `Toshokan`, `Kissaten`], ans:0, exp:`Sumobeya ialah tempat pelatih sumo tinggal dan berlatih.` },
+  { id:`t3k25`, level:`T3`, cat:`kosa`, q:`Dalam cerita rakyat [[おむすびころりん]], apakah benda yang jatuh bergolek ke dalam lubang tikus?`, opts:[`Bebola nasi ([[おにぎり / おむすび]])`, `Buah pisang kaki`, `Syiling emas`, `Kotak kayu`], ans:0, exp:`Onigiri (omusubi) orang tua itu terlepas lalu bergolek masuk ke dalam lubang.` },
+  { id:`t3k26`, level:`T3`, cat:`kosa`, q:`Apakah hadiah yang diberikan oleh tikus-tikus kepada orang tua yang jujur dalam cerita [[おむすびころりん]]?`, opts:[`Kotak berisi syiling emas ([[こばん]])`, `Gasing kayu`, `Payung kertas`, `Baju sutera`], ans:0, exp:`Kotak berat itu berisi banyak syiling emas (koban).` },
+  { id:`t3k27`, level:`T3`, cat:`kosa`, q:`Apakah maksud perkataan [[けんこう]] dalam [[けんこうの ために 何を しますか。]]?`, opts:[`Kesihatan`, `Kecantikan`, `Kejayaan`, `Kebersihan`], ans:0, exp:`Kenkou bermaksud kesihatan ("Apakah yang kamu lakukan demi kesihatan?").` },
+  { id:`t3k28`, level:`T3`, cat:`kosa`, q:`Apakah maksud Kanji [[{水|みず}]]?`, opts:[`Air`, `Api`, `Pokok`, `Wang`], ans:0, exp:`Kanji 水 (mizu) bermaksud air.` },
+  { id:`t3k29`, level:`T3`, cat:`kosa`, q:`Apakah maksud Kanji [[お{金|かね}]]?`, opts:[`Wang / Duit`, `Emas sahaja`, `Pokok`, `Kawan`], ans:0, exp:`Okane bermaksud wang atau duit.` },
+  { id:`t3k30`, level:`T3`, cat:`kosa`, q:`Apakah maksud Kanji [[{木|き}]]?`, opts:[`Pokok / Kayu`, `Batu`, `Air`, `Bulan`], ans:0, exp:`Kanji 木 (ki) bermaksud pokok atau kayu.` },
+  { id:`t3k31`, level:`T3`, cat:`kosa`, q:`Apakah maksud [[{試験|しけん} / テスト]]?`, opts:[`Ujian / Peperiksaan`, `Kerja rumah`, `Latihan sukan`, `Lawatan`], ans:0, exp:`Tesuto / Shiken bermaksud ujian atau peperiksaan.` },
+  { id:`t3k32`, level:`T3`, cat:`kosa`, q:`Apakah maksud [[{週間|しゅうかん}]] dalam kata nama masa?`, opts:[`Minggu (tempoh)`, `Bulan`, `Tahun`, `Jam`], ans:0, exp:`Shuukan digunakan untuk mengira bilangan minggu (contoh: 1週間 = 1 minggu).` },
+
+  /* ===================== TINGKATAN 3: TATABAHASA (32) ===================== */
+  { id:`t3g01`, level:`T3`, cat:`tatabahasa`, q:`Apakah fungsi [[から]] di akhir klausa pertama dalam [[あぶないです ___ 、{外|そと}で あそんでは いけません。]]?`, opts:[`Menjelaskan sebab / alasan ("kerana")`, `Menunjukkan tempat ("dari")`, `Menunjukkan masa ("sejak")`, `Menunjukkan alat ("dengan")`], ans:0, exp:`Ayat + から menjelaskan sebab atau alasan sesuatu larangan/tindakan.` },
+  { id:`t3g02`, level:`T3`, cat:`tatabahasa`, q:`Lengkapkan larangan: [[テスト{中|ちゅう}に {辞書|じしょ}を ___ いけません。]] ("Tidak boleh melihat kamus")`, opts:[`[[{見|み}ては]]`, `[[{見|み}ても]]`, `[[{見|み}たり]]`, `[[{見|み}ます]]`], ans:0, exp:`Pola larangan ialah Kata Kerja bentuk-て + は いけません.` },
+  { id:`t3g03`, level:`T3`, cat:`tatabahasa`, q:`Pilih bentuk yang betul untuk kebenaran ("Boleh berehat"): [[テストが おわりましたから、___ いいです。]]`, opts:[`[[{休|やす}んでも]]`, `[[{休|やす}んでは]]`, `[[{休|やす}みて]]`, `[[{休|やす}みました]]`], ans:0, exp:`Pola kebenaran ialah bentuk-て + も いいです (やすみます → やすんで + も いいです).` },
+  { id:`t3g04`, level:`T3`, cat:`tatabahasa`, q:`"Sila tulis jawapan dengan pensel." Pilih perkataan yang betul: [[こたえを えんぴつで ___ ください。]]`, opts:[`[[かいて]]`, `[[かきて]]`, `[[かって]]`, `[[かんで]]`], ans:0, exp:`Kata kerja かきます berubah bentuk-て menjadi かいて.` },
+  { id:`t3g05`, level:`T3`, cat:`tatabahasa`, q:`"Tidak boleh menggunakan pen mata bulat." Lengkapkan: [[ボールペンを ___ いけません。]]`, opts:[`[[つかっては]]`, `[[つかいては]]`, `[[つかっても]]`, `[[つかった]]`], ans:0, exp:`つかいます → つかって (bentuk-て) + は いけません.` },
+  { id:`t3g06`, level:`T3`, cat:`tatabahasa`, q:`"Tidak boleh pergi ke tandas semasa ujian." Lengkapkan: [[トイレへ ___ いけません。]]`, opts:[`[[{行|い}っては]]`, `[[{行|い}いては]]`, `[[{行|い}っても]]`, `[[{行|い}きます]]`], ans:0, exp:`Pengecualian khas: いきます berubah bentuk-て menjadi いって.` },
+  { id:`t3g07`, level:`T3`, cat:`tatabahasa`, q:`"Selepas ujian tamat, sila serahkan kertas." Pilih penyambung urutan yang betul: [[テストが おわっ ___ 、かみを だして ください。]]`, opts:[`[[てから]]`, `[[ても]]`, `[[ては]]`, `[[たり]]`], ans:0, exp:`Kata Kerja bentuk-て + から bermaksud "selepas melakukan...".` },
+  { id:`t3g08`, level:`T3`, cat:`tatabahasa`, q:`"Jangan bercakap dengan kawan sebelah." Lengkapkan: [[となりの {友|とも}だちと ___ いけません。]]`, opts:[`[[はなしては]]`, `[[はなっても]]`, `[[はなして]]`, `[[はなした]]`], ans:0, exp:`はなします → はなして + は いけません.` },
+  { id:`t3g09`, level:`T3`, cat:`tatabahasa`, q:`"Sila masukkan buku teks ke bawah meja." Lengkapkan: [[きょうかしょを つくえの {下|した}に ___ ください。]]`, opts:[`[[{入|い}れて]]`, `[[{入|い}れって]]`, `[[{入|い}って]]`, `[[{入|い}れました]]`], ans:0, exp:`いれます (Kumpulan 2) gugurkan ます dan tambah て → いれて.` },
+  { id:`t3g10`, level:`T3`, cat:`tatabahasa`, q:`"Sila tulis nama anda dalam huruf Katakana." Lengkapkan: [[{名前|なまえ}は カタカナ ___ かいて ください。]]`, opts:[`[[で]]`, `[[を]]`, `[[へ]]`, `[[が]]`], ans:0, exp:`Partikel で digunakan untuk alat atau jenis tulisan (Katakana / pensel).` },
+  { id:`t3g11`, level:`T3`, cat:`tatabahasa`, q:`Apakah maksud ayat [[あした テストが ありますから、こんばん はやく ねます。]]?`, opts:[`Kerana esok ada ujian, malam ini saya tidur awal.`, `Selepas ujian esok, saya akan tidur lewat.`, `Walaupun ada ujian, saya tidak boleh tidur.`, `Esok ada ujian tetapi malam ini saya bermain.`], ans:0, exp:`から menandakan sebab: "Kerana esok ada ujian, malam ini tidur awal."` },
+  { id:`t3g12`, level:`T3`, cat:`tatabahasa`, q:`Pilih kata kerja keberadaan bagi makhluk bernyawa ("Abang sekarang berada di Tokyo"): [[あには {今|いま} とうきょうに ___ 。]]`, opts:[`[[います]]`, `[[あります]]`, `[[です]]`, `[[します]]`], ans:0, exp:`Untuk manusia dan haiwan, keberadaan menggunakan います.` },
+  { id:`t3g13`, level:`T3`, cat:`tatabahasa`, q:`Pilih kata kerja keberadaan bagi benda tidak bernyawa ("Di dalam kotak ada banyak duit syiling emas"): [[はこの {中|なか}に こばんが たくさん ___ 。]]`, opts:[`[[ありました / 入っていました]]`, `[[いました]]`, `[[おきました]]`, `[[ねました]]`], ans:0, exp:`Untuk benda tidak bernyawa seperti duit syiling, gunakan あります / ありました.` },
+  { id:`t3g14`, level:`T3`, cat:`tatabahasa`, q:`Dalam cerita rakyat: [[あなの {中|なか}には ねずみが たくさん ___ 。]] ("Di dalam lubang ada banyak tikus")`, opts:[`[[いました]]`, `[[ありました]]`, `[[しました]]`, `[[いきました]]`], ans:0, exp:`Tikus (ねずみ) ialah haiwan bernyawa, jadi gunakan いました.` },
+  { id:`t3g15`, level:`T3`, cat:`tatabahasa`, q:`Apakah fungsi pola [[〜たり 〜たり します]] dalam [[うたを きいたり、おどったり しました。]]?`, opts:[`Menyenaraikan beberapa aktiviti yang dilakukan (mendengar lagu, menari, dll.)`, `Melarang dua perbuatan serentak`, `Memberi alasan sebab dan akibat`, `Meminta kebenaran guru`], ans:0, exp:`Bentuk-たり 〜たり します menyenaraikan contoh-contoh aktiviti yang dilakukan.` },
+  { id:`t3g16`, level:`T3`, cat:`tatabahasa`, q:`Apakah maksud [[〜の ために]] dalam [[けんこうの ために {毎日|まいにち} サッカーを します。]]?`, opts:[`Demi / Untuk tujuan`, `Kerana terpaksa`, `Selepas selesai`, `Sebelum tidur`], ans:0, exp:`Kata Nama + の ために bermaksud "demi / untuk kepentingan...".` },
+  { id:`t3g17`, level:`T3`, cat:`tatabahasa`, q:`Apakah maksud [[〜ことが できました]] dalam [[しあわせに くらす ことが できました。]]?`, opts:[`Dapat / Berjaya hidup bahagia`, `Tidak boleh hidup bahagia`, `Mesti hidup bahagia`, `Suka hidup bahagia`], ans:0, exp:`Kata Kerja bentuk kamus + ことが できました bermaksud "telah dapat / berjaya...".` },
+  { id:`t3g18`, level:`T3`, cat:`tatabahasa`, q:`Apakah maksud ayat [[テストは 15{分|ふん}だけです。]]?`, opts:[`Ujian hanya selama 15 minit sahaja.`, `Ujian bermula pada pukul 15:00.`, `Ada 15 soalan dalam ujian ini.`, `Ujian ditangguhkan 15 minit.`], ans:0, exp:`だけ bermaksud "sahaja / cuma" (15 minit sahaja).` },
+  { id:`t3g19`, level:`T3`, cat:`tatabahasa`, q:`Apakah maksud [[その{間|あいだ}]] dalam [[その{間|あいだ}、トイレへ {行|い}っては いけません。]]?`, opts:[`Sepanjang tempoh itu`, `Selepas waktu itu`, `Sebelum itu`, `Di sebelah itu`], ans:0, exp:`その間 (sono aida) bermaksud "dalam tempoh / sepanjang masa itu".` },
+  { id:`t3g20`, level:`T3`, cat:`tatabahasa`, q:`Bentuk-て bagi kata kerja [[とります]] ("mengambil gambar") ialah...`, opts:[`[[とって]]`, `[[とりて]]`, `[[といて]]`, `[[とんで]]`], ans:0, exp:`Kata kerja berakhir dengan -ります bertukar menjadi -って (とって).` },
+  { id:`t3g21`, level:`T3`, cat:`tatabahasa`, q:`Bentuk-て bagi kata kerja [[およぎます]] ("berenang") ialah...`, opts:[`[[およいで]]`, `[[およいて]]`, `[[およって]]`, `[[およんで]]`], ans:0, exp:`Kata kerja berakhir dengan -ぎます bertukar menjadi -いで (およいで).` },
+  { id:`t3g22`, level:`T3`, cat:`tatabahasa`, q:`Bentuk-て bagi kata kerja [[あびます]] ("mandi pancuran") ialah...`, opts:[`[[あびて]]`, `[[あびって]]`, `[[あんで]]`, `[[あびんで]]`], ans:0, exp:`あびます ialah Kumpulan 2, maka hanya tukar ます kepada て → あびて.` },
+  { id:`t3g23`, level:`T3`, cat:`tatabahasa`, q:`Bentuk-て bagi kata kerja [[かります]] ("meminjam") ialah...`, opts:[`[[かりて]]`, `[[かって]]`, `[[かりって]]`, `[[かいて]]`], ans:0, exp:`かります ialah kata kerja Kumpulan 2 (walaupun bunyi -り), jadi bentuk-て ialah かりて.` },
+  { id:`t3g24`, level:`T3`, cat:`tatabahasa`, q:`Bentuk-て bagi kata kerja [[たべます]] ("makan") ialah...`, opts:[`[[たべて]]`, `[[たべって]]`, `[[たんで]]`, `[[たべいて]]`], ans:0, exp:`たべます (Kumpulan 2) menjadi たべて.` },
+  { id:`t3g25`, level:`T3`, cat:`tatabahasa`, q:`Lengkapkan ayat kebenaran: [[きょうかしょを {見|み} ___ いいですか。]] ("Bolehkah saya melihat buku teks?")`, opts:[`[[ても]]`, `[[ては]]`, `[[てから]]`, `[[たり]]`], ans:0, exp:`Untuk bertanya izin secara sopan, gunakan 「〜ても いいですか」.` },
+  { id:`t3g26`, level:`T3`, cat:`tatabahasa`, q:`Bagaimanakah menolak permintaan kebenaran dengan sopan? [[いいえ、___ 。]]`, opts:[`[[{見|み}ては いけません]]`, `[[{見|み}ても いいです]]`, `[[{見|み}て ください]]`, `[[{見|み}ましょう]]`], ans:0, exp:`Jawapan negatif kepada 「〜ても いいですか」 ialah 「いいえ、〜ては いけません」.` },
+  { id:`t3g27`, level:`T3`, cat:`tatabahasa`, q:`Apakah maksud [[お{礼|れい}を {言|い}いました]] dalam cerita rakyat [[おむすびころりん]]?`, opts:[`Mengucapkan terima kasih`, `Meminta maaf`, `Memberi amaran`, `Mengajak menari`], ans:0, exp:`Orei wo iimashita bermaksud mengucapkan terima kasih.` },
+  { id:`t3g28`, level:`T3`, cat:`tatabahasa`, q:`Apakah maksud [[もって いるだけで、わくわくします。]]?`, opts:[`Hanya memegangnya sahaja sudah rasa teruja.`, `Kerana terlalu berat, ia terus terjatuh.`, `Selepas membukanya, mereka terus pulang.`, `Tidak boleh memegang kotak itu lama-lama.`], ans:0, exp:`〜だけで bermaksud "hanya dengan..." dan わくわくします bermaksud teruja.` },
+  { id:`t3g29`, level:`T3`, cat:`tatabahasa`, q:`Apakah fungsi [[たら]] dalam [[うちに かえったら おばあさんに はなしを しました。]]?`, opts:[`"Apabila / Setelah" sampai di rumah`, `"Kerana" tidak mahu pulang`, `"Jangan" pulang ke rumah`, `"Mungkin" akan pulang`], ans:0, exp:`Kata Kerja bentuk lampau + ら (かえったら) bermaksud "apabila / setelah pulang".` },
+  { id:`t3g30`, level:`T3`, cat:`tatabahasa`, q:`Pilih terjemahan yang tepat bagi [[ここに {名前|なまえ}を かいても いいですか。]]`, opts:[`Bolehkah saya menulis nama di sini?`, `Jangan tulis nama di sini.`, `Sila padam nama di sini.`, `Mengapa perlu menulis nama di sini?`], ans:0, exp:`〜ても いいですか meminta izin ("Bolehkah saya menulis nama di sini?").` },
+  { id:`t3g31`, level:`T3`, cat:`tatabahasa`, q:`Pilih partikel yang betul: [[つくえの ___ に ノートが あります。]] ("Di atas meja ada buku nota.")`, opts:[`[[{上|うえ}]]`, `[[{下|した}]]`, `[[{中|なか}]]`, `[[{外|そと}]]`], ans:0, exp:`上 (ue) = atas, 下 (shita) = bawah, 中 (naka) = dalam, 外 (soto) = luar.` },
+  { id:`t3g32`, level:`T3`, cat:`tatabahasa`, q:`Lengkapkan ayat: [[{雨|あめ}が ふっています ___ 、かさを もって {行|い}きます。]]`, opts:[`[[から]]`, `[[ても]]`, `[[ては]]`, `[[たり]]`], ans:0, exp:`"Kerana hari sedang hujan, saya membawa payung" menggunakan から.` }
+];
+
+/* =========================================================================
+   4. WEB AUDIO SYNTHESIZER (5 JAPANESE BGM STYLES + SFX)
+   ========================================================================= */
+const MusicEngine = {
+  ctx: null,
+  masterGain: null,
+  isPlaying: false,
+  timerId: null,
+  step: 0,
+  selectedStyle: 'tradisional',
+  activeResolvedStyle: 'tradisional',
+  volume: 0.45,
+
+  ensureContext() {
+    if (!this.ctx) {
+      const AudioCtx = window.AudioContext || window.webkitAudioContext;
+      if (!AudioCtx) return false;
+      this.ctx = new AudioCtx();
+      this.masterGain = this.ctx.createGain();
+      this.masterGain.gain.value = this.volume;
+      this.masterGain.connect(this.ctx.destination);
+    }
+    if (this.ctx.state === 'suspended') {
+      this.ctx.resume();
+    }
+    return true;
+  },
+
+  setVolume(val) {
+    this.volume = Math.max(0, Math.min(1, Number(val) / 100));
+    if (this.masterGain && this.ctx) {
+      this.masterGain.gain.setTargetAtTime(this.volume, this.ctx.currentTime, 0.03);
+    }
+  },
+
+  playTone(freq, duration, type, gainPeak, delaySec, filterFreq) {
+    if (!this.ctx || !this.masterGain || freq <= 0) return;
+    const now = this.ctx.currentTime + (delaySec || 0);
+    const osc = this.ctx.createOscillator();
+    const filter = this.ctx.createBiquadFilter();
+    const env = this.ctx.createGain();
+
+    osc.type = type || 'triangle';
+    osc.frequency.setValueAtTime(freq, now);
+
+    filter.type = 'lowpass';
+    filter.frequency.setValueAtTime(filterFreq || 2200, now);
+
+    env.gain.setValueAtTime(0.0001, now);
+    env.gain.linearRampToValueAtTime(gainPeak, now + 0.018);
+    env.gain.exponentialRampToValueAtTime(0.0001, now + duration);
+
+    osc.connect(filter);
+    filter.connect(env);
+    env.connect(this.masterGain);
+
+    osc.start(now);
+    osc.stop(now + duration + 0.03);
+  },
+
+  playDrum(kind, gainPeak) {
+    if (!this.ctx || !this.masterGain) return;
+    const now = this.ctx.currentTime;
+    const osc = this.ctx.createOscillator();
+    const env = this.ctx.createGain();
+
+    if (kind === 'taiko') {
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(128, now);
+      osc.frequency.exponentialRampToValueAtTime(52, now + 0.22);
+      env.gain.setValueAtTime(gainPeak, now);
+      env.gain.exponentialRampToValueAtTime(0.0001, now + 0.26);
+      osc.connect(env);
+      env.connect(this.masterGain);
+      osc.start(now);
+      osc.stop(now + 0.28);
+    } else if (kind === 'ka') {
+      osc.type = 'triangle';
+      osc.frequency.setValueAtTime(840, now);
+      osc.frequency.exponentialRampToValueAtTime(340, now + 0.06);
+      env.gain.setValueAtTime(gainPeak * 0.6, now);
+      env.gain.exponentialRampToValueAtTime(0.0001, now + 0.08);
+      osc.connect(env);
+      env.connect(this.masterGain);
+      osc.start(now);
+      osc.stop(now + 0.09);
+    } else {
+      // Soft hi-hat noise burst
+      const bufSize = Math.floor(this.ctx.sampleRate * 0.05);
+      const buf = this.ctx.createBuffer(1, bufSize, this.ctx.sampleRate);
+      const data = buf.getChannelData(0);
+      for (let i = 0; i < bufSize; i++) data[i] = Math.random() * 2 - 1;
+      const noise = this.ctx.createBufferSource();
+      noise.buffer = buf;
+      const hp = this.ctx.createBiquadFilter();
+      hp.type = 'highpass';
+      hp.frequency.value = 5000;
+      const nEnv = this.ctx.createGain();
+      nEnv.gain.setValueAtTime(gainPeak * 0.35, now);
+      nEnv.gain.exponentialRampToValueAtTime(0.0001, now + 0.05);
+      noise.connect(hp);
+      hp.connect(nEnv);
+      nEnv.connect(this.masterGain);
+      noise.start(now);
+    }
+  },
+
+  tick() {
+    if (!this.isPlaying) return;
+    const style = this.activeResolvedStyle;
+    const s = this.step;
+
+    if (style === 'tradisional') {
+      // Hirajoshi / Yo calm koto & shakuhachi pad
+      const melody = [293.66, 0, 329.63, 392.00, 440.00, 0, 587.33, 440.00, 392.00, 0, 329.63, 293.66, 246.94, 0, 293.66, 0];
+      const pad = [146.83, 0, 0, 0, 196.00, 0, 0, 0, 146.83, 0, 0, 0, 110.00, 0, 0, 0];
+      const note = melody[s % melody.length];
+      const bass = pad[s % pad.length];
+      if (note > 0) this.playTone(note, 0.72, 'triangle', 0.22, 0, 1750);
+      if (bass > 0) this.playTone(bass, 1.8, 'sine', 0.14, 0, 650);
+    } else if (style === 'kontemporari') {
+      // Modern Kyoto chill lofi pentatonic groove
+      const arp = [392.00, 440.00, 523.25, 659.25, 587.33, 523.25, 440.00, 392.00, 329.63, 392.00, 440.00, 587.33, 523.25, 440.00, 392.00, 329.63];
+      const chords = [[196.00, 246.94, 293.66], [174.61, 220.00, 261.63], [164.81, 196.00, 246.94], [146.83, 196.00, 220.00]];
+      this.playTone(arp[s % arp.length], 0.36, 'triangle', 0.16, 0, 2400);
+      if (s % 4 === 0) {
+        const ch = chords[Math.floor(s / 4) % chords.length];
+        ch.forEach(f => this.playTone(f, 0.9, 'sine', 0.08, 0, 1100));
+        this.playDrum('taiko', 0.16);
+      } else if (s % 4 === 2) {
+        this.playDrum('hat', 0.14);
+      }
+    } else if (style === 'anime') {
+      // Uplifting bright J-Pop / Anime OP progression (F - G - Em - Am)
+      const lead = [523.25, 659.25, 783.99, 659.25, 587.33, 783.99, 880.00, 783.99, 659.25, 587.33, 523.25, 587.33, 659.25, 783.99, 1046.50, 783.99];
+      const bass = [174.61, 174.61, 196.00, 196.00, 164.81, 164.81, 220.00, 220.00];
+      this.playTone(lead[s % lead.length], 0.24, 'square', 0.075, 0, 2200);
+      this.playTone(bass[Math.floor(s / 2) % bass.length], 0.22, 'sawtooth', 0.09, 0, 700);
+      if (s % 2 === 0) this.playDrum('taiko', 0.16);
+      if (s % 2 === 1) this.playDrum('hat', 0.18);
+    } else if (style === 'rancak') {
+      // Matsuri Taiko Festival
+      const flute = [587.33, 659.25, 783.99, 0, 880.00, 783.99, 659.25, 587.33, 783.99, 880.00, 1174.66, 0, 880.00, 783.99, 659.25, 587.33];
+      const f = flute[s % flute.length];
+      if (f > 0) this.playTone(f, 0.2, 'triangle', 0.18, 0, 3000);
+      if (s % 4 === 0 || s % 4 === 2) this.playDrum('taiko', 0.26);
+      if (s % 4 === 1 || s % 4 === 3) this.playDrum('ka', 0.2);
+      if (s === 14 || s === 15) this.playDrum('ka', 0.22);
+    }
+
+    this.step++;
+  },
+
+  resolveStyle(choice) {
+    if (choice !== 'rawak') return choice;
+    const pool = ['tradisional', 'kontemporari', 'anime', 'rancak'];
+    return pool[Math.floor(Math.random() * pool.length)];
+  },
+
+  styleDisplayName(slug) {
+    const names = {
+      tradisional: 'Tradisional & Tenang',
+      kontemporari: 'Tradisional Kontemporari',
+      anime: 'Ala Anime',
+      rancak: 'Jepun Rancak'
+    };
+    return names[slug] || slug;
+  },
+
+  start() {
+    if (!this.ensureContext()) return;
+    this.stopLoopOnly();
+    this.activeResolvedStyle = this.resolveStyle(this.selectedStyle);
+    const intervals = { tradisional: 440, kontemporari: 310, anime: 215, rancak: 195 };
+    const ms = intervals[this.activeResolvedStyle] || 300;
+    this.isPlaying = true;
+    this.step = 0;
+    this.tick();
+    this.timerId = setInterval(() => this.tick(), ms);
+    updateMusicUI();
+  },
+
+  stopLoopOnly() {
+    if (this.timerId) {
+      clearInterval(this.timerId);
+      this.timerId = null;
+    }
+  },
+
+  stop() {
+    this.stopLoopOnly();
+    this.isPlaying = false;
+    updateMusicUI();
+  },
+
+  toggle() {
+    if (this.isPlaying) this.stop();
+    else this.start();
+  },
+
+  playSfx(kind) {
+    if (!this.ensureContext()) return;
+    if (kind === 'correct') {
+      this.playTone(587.33, 0.14, 'triangle', 0.24, 0, 3200);
+      this.playTone(880.00, 0.24, 'triangle', 0.24, 0.09, 3400);
+    } else if (kind === 'wrong') {
+      this.playTone(220.00, 0.18, 'sawtooth', 0.12, 0, 750);
+      this.playTone(185.00, 0.24, 'sawtooth', 0.12, 0.1, 650);
+    } else if (kind === 'finish') {
+      [523.25, 659.25, 783.99, 1046.50].forEach((n, idx) => {
+        this.playTone(n, 0.3, 'triangle', 0.2, idx * 0.08, 3400);
+      });
+    }
+  }
+};
+
+/* =========================================================================
+   5. APPLICATION STATE (PERSISTED VIA notebookAppApi)
+   ========================================================================= */
+const APP_STATE = {
+  furiganaOn: true,
+  sheetUrl: DEFAULT_SHEET_URL,
+  seenByPool: {},
+  records: [],
+  studentDraft: {
+    namaPenuh: '',
+    noKp: '',
+    tingkatan: 'T1',
+    kelas: '',
+    namaSamaran: '',
+    pasukan: 'Kyushu',
+    mod: 'Kosa Kata'
+  },
+  teacherUnlocked: false
+};
+
+const QUIZ_SESSION = {
+  active: false,
+  questions: [],
+  index: 0,
+  score: 0,
+  correctCount: 0,
+  combo: 0,
+  maxCombo: 0,
+  answered: false,
+  student: null
+};
+
+async function persistAppState() {
+  if (window.notebookAppApi && typeof window.notebookAppApi.setAppState === 'function') {
+    try {
+      await window.notebookAppApi.setAppState({
+        furiganaOn: APP_STATE.furiganaOn,
+        sheetUrl: APP_STATE.sheetUrl,
+        seenByPool: APP_STATE.seenByPool,
+        records: APP_STATE.records,
+        studentDraft: APP_STATE.studentDraft
+      });
+    } catch (e) {
+      // Safe fallback inside preview
+    }
+  }
+}
+
+/* =========================================================================
+   6. HEADER, FURIGANA & MUSIC UI HANDLERS
+   ========================================================================= */
+function toggleFurigana() {
+  APP_STATE.furiganaOn = !APP_STATE.furiganaOn;
+  applyFuriganaUI();
+  persistAppState();
+}
+
+function applyFuriganaUI() {
+  if (APP_STATE.furiganaOn) {
+    document.body.classList.remove('furigana-off');
+  } else {
+    document.body.classList.add('furigana-off');
+  }
+  const btnMain = document.getElementById('btn-furigana-main');
+  const lblMain = document.getElementById('furigana-label-main');
+  const btnArena = document.getElementById('btn-furigana-arena');
+  const lblArena = document.getElementById('furigana-label-arena');
+  const pressed = APP_STATE.furiganaOn ? 'true' : 'false';
+
+  if (btnMain) btnMain.setAttribute('aria-pressed', pressed);
+  if (lblMain) lblMain.textContent = APP_STATE.furiganaOn ? 'Furigana: ON' : 'Furigana: OFF';
+  if (btnArena) btnArena.setAttribute('aria-pressed', pressed);
+  if (lblArena) lblArena.textContent = APP_STATE.furiganaOn ? 'Furigana ON' : 'Furigana OFF';
+}
+
+function changeMusicStyle(val) {
+  MusicEngine.selectedStyle = val;
+  if (MusicEngine.isPlaying) {
+    MusicEngine.start();
+  } else {
+    updateMusicUI();
+  }
+}
+
+function toggleMusic() {
+  MusicEngine.toggle();
+}
+
+function setMusicVolume(val) {
+  MusicEngine.setVolume(val);
+  const pct = document.getElementById('music-vol-pct');
+  if (pct) pct.textContent = `${val}%`;
+}
+
+function updateMusicUI() {
+  const playText = document.getElementById('music-play-text');
+  const nowPlaying = document.getElementById('music-now-playing');
+  const btnArena = document.getElementById('btn-music-arena');
+  const lblArena = document.getElementById('music-label-arena');
+
+  if (MusicEngine.isPlaying) {
+    if (playText) playText.textContent = '⏸ Henti Muzik';
+    const label = MusicEngine.styleDisplayName(MusicEngine.activeResolvedStyle);
+    if (nowPlaying) nowPlaying.textContent = MusicEngine.selectedStyle === 'rawak' ? `Rawak: ${label}` : `Sedang main: ${label}`;
+    if (btnArena) btnArena.setAttribute('aria-pressed', 'true');
+    if (lblArena) lblArena.textContent = 'Muzik ON';
+  } else {
+    if (playText) playText.textContent = '▶ Main Muzik';
+    if (nowPlaying) nowPlaying.textContent = 'Dijeda';
+    if (btnArena) btnArena.setAttribute('aria-pressed', 'false');
+    if (lblArena) lblArena.textContent = 'Muzik OFF';
+  }
+}
+
+/* =========================================================================
+   7. NAVIGATION & SETUP SELECTIONS
+   ========================================================================= */
+function switchTab(tabName) {
+  const tabs = ['setup', 'leaderboard', 'teacher'];
+  tabs.forEach(t => {
+    const btn = document.getElementById(`tab-${t}`);
+    const sec = document.getElementById(`view-${t}`);
+    const isMatch = (t === tabName);
+    if (btn) btn.setAttribute('aria-selected', isMatch ? 'true' : 'false');
+    if (sec) sec.classList.toggle('active', isMatch);
+  });
+  const arenaSec = document.getElementById('view-arena');
+  if (arenaSec) arenaSec.classList.remove('active');
+  document.body.classList.remove('in-quiz');
+
+  if (tabName === 'leaderboard') renderLeaderboard();
+  if (tabName === 'teacher' && APP_STATE.teacherUnlocked) renderTeacherTable();
+}
+
+function selectTeam(teamName) {
+  APP_STATE.studentDraft.pasukan = teamName;
+  document.querySelectorAll('.team-card').forEach(card => {
+    card.setAttribute('aria-pressed', card.dataset.team === teamName ? 'true' : 'false');
+  });
+}
+
+function selectMode(modeName) {
+  APP_STATE.studentDraft.mod = modeName;
+  document.querySelectorAll('.mode-card').forEach(card => {
+    card.setAttribute('aria-pressed', card.dataset.mode === modeName ? 'true' : 'false');
+  });
+}
+
+function updatePoolStats() {
+  const tingkatanSel = document.getElementById('inp-tingkatan');
+  const lvl = tingkatanSel ? tingkatanSel.value : 'T1';
+  APP_STATE.studentDraft.tingkatan = lvl;
+  const kCount = QUESTION_BANK.filter(q => q.level === lvl && q.cat === 'kosa').length;
+  const gCount = QUESTION_BANK.filter(q => q.level === lvl && q.cat === 'tatabahasa').length;
+  const seenK = (APP_STATE.seenByPool[`${lvl}_Kosa Kata`] || []).length;
+  const seenG = (APP_STATE.seenByPool[`${lvl}_Tatabahasa`] || []).length;
+
+  const statusEl = document.getElementById('pool-status-text');
+  if (statusEl) {
+    statusEl.textContent = `Bank ${lvl}: ${kCount} Kosa Kata (${seenK} pernah dijawab) & ${gCount} Tatabahasa (${seenG} pernah dijawab) dengan sistem anti-ulang.`;
+  }
+}
+
+/* =========================================================================
+   8. ANTI-REPEAT QUESTION BUILDER & QUIZ ARENA ENGINE
+   ========================================================================= */
+function shuffleArray(arr) {
+  const copy = arr.slice();
+  for (let i = copy.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    const tmp = copy[i];
+    copy[i] = copy[j];
+    copy[j] = tmp;
+  }
+  return copy;
+}
+
+function pickAntiRepeatQuestions(level, mode, count) {
+  const poolKey = `${level}_${mode}`;
+  let candidates = QUESTION_BANK.filter(q => q.level === level);
+  if (mode === 'Kosa Kata') candidates = candidates.filter(q => q.cat === 'kosa');
+  else if (mode === 'Tatabahasa') candidates = candidates.filter(q => q.cat === 'tatabahasa');
+
+  const seenSet = new Set(APP_STATE.seenByPool[poolKey] || []);
+  let unseen = candidates.filter(q => !seenSet.has(q.id));
+
+  let chosen = [];
+  if (unseen.length >= count) {
+    chosen = shuffleArray(unseen).slice(0, count);
+  } else {
+    // Take all remaining unseen first, then reset pool and top up from remaining candidates
+    chosen = shuffleArray(unseen);
+    const chosenIds = new Set(chosen.map(q => q.id));
+    const rest = shuffleArray(candidates.filter(q => !chosenIds.has(q.id)));
+    chosen = chosen.concat(rest.slice(0, count - chosen.length));
+    APP_STATE.seenByPool[poolKey] = [];
+  }
+
+  const updatedSeen = new Set(APP_STATE.seenByPool[poolKey] || []);
+  chosen.forEach(q => updatedSeen.add(q.id));
+  APP_STATE.seenByPool[poolKey] = Array.from(updatedSeen);
+
+  // Shuffle option order per question so answer position varies
+  return chosen.map(q => {
+    const indexedOpts = q.opts.map((text, idx) => ({ text, isCorrect: idx === q.ans }));
+    const shuffledOpts = shuffleArray(indexedOpts);
+    return {
+      id: q.id,
+      level: q.level,
+      cat: q.cat,
+      q: q.q,
+      opts: shuffledOpts.map(o => o.text),
+      ans: shuffledOpts.findIndex(o => o.isCorrect),
+      exp: q.exp
+    };
+  });
+}
+
+function showSetupError(msg) {
+  const box = document.getElementById('setup-error-msg');
+  if (!box) return;
+  if (!msg) {
+    box.classList.remove('show');
+    box.textContent = '';
+  } else {
+    box.textContent = msg;
+    box.classList.add('show');
+  }
+}
+
+function startQuiz() {
+  const fullEl = document.getElementById('inp-fullname');
+  const nokpEl = document.getElementById('inp-nokp');
+  const tingEl = document.getElementById('inp-tingkatan');
+  const kelasEl = document.getElementById('inp-kelas');
+  const nickEl = document.getElementById('inp-nickname');
+
+  const namaPenuh = fullEl ? fullEl.value.trim() : '';
+  const noKp = nokpEl ? nokpEl.value.trim() : '';
+  const tingkatan = tingEl ? tingEl.value : 'T1';
+  const kelas = kelasEl ? kelasEl.value.trim() : '';
+  const namaSamaran = nickEl ? nickEl.value.trim() : '';
+
+  if (!namaPenuh || !noKp || !kelas || !namaSamaran) {
+    showSetupError('Sila lengkapkan Nama Penuh, No. Kad Pengenalan, Kelas dan Nama Samaran sebelum memulakan kuiz.');
+    return;
+  }
+  showSetupError('');
+
+  APP_STATE.studentDraft = {
+    namaPenuh,
+    noKp,
+    tingkatan,
+    kelas,
+    namaSamaran,
+    pasukan: APP_STATE.studentDraft.pasukan || 'Kyushu',
+    mod: APP_STATE.studentDraft.mod || 'Kosa Kata'
+  };
+
+  const questions = pickAntiRepeatQuestions(tingkatan, APP_STATE.studentDraft.mod, 10);
+  persistAppState();
+
+  QUIZ_SESSION.active = true;
+  QUIZ_SESSION.questions = questions;
+  QUIZ_SESSION.index = 0;
+  QUIZ_SESSION.score = 0;
+  QUIZ_SESSION.correctCount = 0;
+  QUIZ_SESSION.combo = 0;
+  QUIZ_SESSION.maxCombo = 0;
+  QUIZ_SESSION.answered = false;
+  QUIZ_SESSION.student = Object.assign({}, APP_STATE.studentDraft);
+
+  document.querySelectorAll('.view-section').forEach(s => s.classList.remove('active'));
+  const arenaSec = document.getElementById('view-arena');
+  const activePanel = document.getElementById('arena-active-panel');
+  const resultPanel = document.getElementById('arena-result-panel');
+  if (arenaSec) arenaSec.classList.add('active');
+  if (activePanel) activePanel.style.display = 'grid';
+  if (resultPanel) resultPanel.style.display = 'none';
+  document.body.classList.add('in-quiz');
+
+  renderCurrentQuestion();
+}
+
+function renderCurrentQuestion() {
+  const q = QUIZ_SESSION.questions[QUIZ_SESSION.index];
+  if (!q) return;
+
+  QUIZ_SESSION.answered = false;
+
+  const hudProg = document.getElementById('hud-progress');
+  const hudScore = document.getElementById('hud-score');
+  const hudCombo = document.getElementById('hud-combo');
+  const fill = document.getElementById('arena-progress-fill');
+  const catPill = document.getElementById('q-cat-pill');
+  const playerPill = document.getElementById('q-player-pill');
+  const promptEl = document.getElementById('q-prompt-text');
+
+  if (hudProg) hudProg.textContent = `${QUIZ_SESSION.index + 1} / ${QUIZ_SESSION.questions.length}`;
+  if (hudScore) hudScore.textContent = `${QUIZ_SESSION.score} pts`;
+  if (hudCombo) hudCombo.textContent = `Kombo x${QUIZ_SESSION.combo}`;
+  if (fill) fill.style.width = `${((QUIZ_SESSION.index + 1) / QUIZ_SESSION.questions.length) * 100}%`;
+  if (catPill) catPill.textContent = `${q.level} · ${q.cat === 'kosa' ? 'Kosa Kata' : 'Tatabahasa'}`;
+  if (playerPill && QUIZ_SESSION.student) {
+    playerPill.textContent = `${QUIZ_SESSION.student.namaSamaran} · ${QUIZ_SESSION.student.pasukan}`;
+  }
+  if (promptEl) promptEl.innerHTML = renderJpMarkup(q.q);
+
+  const optionBtns = document.querySelectorAll('#options-grid .opt-btn');
+  optionBtns.forEach((btn, idx) => {
+    btn.disabled = false;
+    btn.classList.remove('is-correct', 'is-wrong');
+    const txtEl = document.getElementById(`opt-text-${idx}`);
+    if (txtEl) txtEl.innerHTML = renderJpMarkup(q.opts[idx] || '');
+  });
+
+  const fbBar = document.getElementById('arena-feedback-bar');
+  const fbTitle = document.getElementById('feedback-title');
+  const fbNote = document.getElementById('feedback-note');
+  const nextBtn = document.getElementById('btn-next-question');
+  if (fbBar) fbBar.classList.remove('state-correct', 'state-wrong');
+  if (fbTitle) fbTitle.textContent = 'Pilih satu jawapan di atas';
+  if (fbNote) fbNote.textContent = 'Setiap jawapan betul berturut-turut menambah bonus kombo.';
+  if (nextBtn) {
+    nextBtn.disabled = true;
+    nextBtn.textContent = QUIZ_SESSION.index === QUIZ_SESSION.questions.length - 1 ? 'Lihat Keputusan →' : 'Soalan Seterusnya →';
+  }
+}
+
+function submitAnswer(chosenIdx) {
+  if (QUIZ_SESSION.answered) return;
+  const q = QUIZ_SESSION.questions[QUIZ_SESSION.index];
+  if (!q) return;
+
+  QUIZ_SESSION.answered = true;
+  const isCorrect = (chosenIdx === q.ans);
+
+  const optionBtns = document.querySelectorAll('#options-grid .opt-btn');
+  optionBtns.forEach((btn, idx) => {
+    btn.disabled = true;
+    if (idx === q.ans) btn.classList.add('is-correct');
+    else if (idx === chosenIdx && !isCorrect) btn.classList.add('is-wrong');
+  });
+
+  const fbBar = document.getElementById('arena-feedback-bar');
+  const fbTitle = document.getElementById('feedback-title');
+  const fbNote = document.getElementById('feedback-note');
+  const nextBtn = document.getElementById('btn-next-question');
+
+  if (isCorrect) {
+    QUIZ_SESSION.correctCount++;
+    QUIZ_SESSION.combo++;
+    if (QUIZ_SESSION.combo > QUIZ_SESSION.maxCombo) QUIZ_SESSION.maxCombo = QUIZ_SESSION.combo;
+    const gained = 100 + (QUIZ_SESSION.combo - 1) * 20;
+    QUIZ_SESSION.score += gained;
+    MusicEngine.playSfx('correct');
+
+    if (fbBar) fbBar.classList.add('state-correct');
+    if (fbTitle) fbTitle.textContent = `Betul! +${gained} mata (Kombo x${QUIZ_SESSION.combo})`;
+  } else {
+    QUIZ_SESSION.combo = 0;
+    MusicEngine.playSfx('wrong');
+
+    if (fbBar) fbBar.classList.add('state-wrong');
+    if (fbTitle) fbTitle.textContent = `Kurang tepat — Jawapan betul: ${['A', 'B', 'C', 'D'][q.ans]}`;
+  }
+
+  if (fbNote) fbNote.textContent = q.exp;
+  if (nextBtn) nextBtn.disabled = false;
+
+  const hudScore = document.getElementById('hud-score');
+  const hudCombo = document.getElementById('hud-combo');
+  if (hudScore) hudScore.textContent = `${QUIZ_SESSION.score} pts`;
+  if (hudCombo) hudCombo.textContent = `Kombo x${QUIZ_SESSION.combo}`;
+}
+
+function nextQuestion() {
+  if (!QUIZ_SESSION.answered) return;
+  if (QUIZ_SESSION.index < QUIZ_SESSION.questions.length - 1) {
+    QUIZ_SESSION.index++;
+    renderCurrentQuestion();
+  } else {
+    completeQuizRound();
+  }
+}
+
+async function completeQuizRound() {
+  QUIZ_SESSION.active = false;
+  MusicEngine.playSfx('finish');
+
+  const activePanel = document.getElementById('arena-active-panel');
+  const resultPanel = document.getElementById('arena-result-panel');
+  if (activePanel) activePanel.style.display = 'none';
+  if (resultPanel) resultPanel.style.display = 'grid';
+
+  const st = QUIZ_SESSION.student;
+  const nowStr = new Date().toLocaleString('ms-MY', {
+    year: 'numeric', month: '2-digit', day: '2-digit',
+    hour: '2-digit', minute: '2-digit'
+  });
+
+  const newRecord = {
+    tarikh: nowStr,
+    namaPenuh: st.namaPenuh,
+    noKp: st.noKp,
+    tingkatan: st.tingkatan,
+    kelas: st.kelas,
+    namaSamaran: st.namaSamaran,
+    pasukan: st.pasukan,
+    mod: st.mod,
+    markah: QUIZ_SESSION.score,
+    betul: `${QUIZ_SESSION.correctCount}/10`,
+    komboMaks: QUIZ_SESSION.maxCombo
+  };
+
+  APP_STATE.records.unshift(newRecord);
+  await persistAppState();
+
+  const teamBadge = document.getElementById('res-team-badge');
+  const resNick = document.getElementById('res-nickname');
+  const resSub = document.getElementById('res-subtext');
+  const resScore = document.getElementById('res-score');
+  const resCorrect = document.getElementById('res-correct');
+  const resCombo = document.getElementById('res-combo');
+  const resSync = document.getElementById('res-sync-msg');
+
+  if (teamBadge) teamBadge.textContent = `Pasukan ${st.pasukan}`;
+  if (resNick) resNick.textContent = st.namaSamaran;
+  if (resSub) resSub.textContent = `${st.tingkatan} (${st.kelas}) · Mod ${st.mod}`;
+  if (resScore) resScore.textContent = String(QUIZ_SESSION.score);
+  if (resCorrect) resCorrect.textContent = `${QUIZ_SESSION.correctCount}/10`;
+  if (resCombo) resCombo.textContent = `x${QUIZ_SESSION.maxCombo}`;
+
+  const activeUrl = (APP_STATE.sheetUrl || DEFAULT_SHEET_URL || '').trim();
+  if (activeUrl) {
+    if (resSync) resSync.textContent = 'Menghantar markah ke Google Sheet...';
+    const ok = await postRecordToGoogleSheet(activeUrl, newRecord);
+    if (resSync) {
+      resSync.className = ok ? 'inline-msg success show' : 'inline-msg info show';
+      resSync.textContent = ok
+        ? 'Markah berjaya disimpan ke papan pendahulu & Google Sheet!'
+        : 'Markah disimpan secara tempatan (pautan Google Sheet tidak dapat dicapai dari mod pratonton).';
+    }
+  } else if (resSync) {
+    resSync.className = 'inline-msg success show';
+    resSync.textContent = 'Markah berjaya direkodkan ke Papan Pendahulu!';
+  }
+}
+
+function playAgain() {
+  startQuiz();
+}
+
+function finishToLeaderboard() {
+  const filterEl = document.getElementById('lb-tingkatan-filter');
+  if (filterEl && QUIZ_SESSION.student) {
+    filterEl.value = QUIZ_SESSION.student.tingkatan;
+  }
+  switchTab('leaderboard');
+}
+
+function exitQuizEarly() {
+  QUIZ_SESSION.active = false;
+  switchTab('setup');
+  updatePoolStats();
+}
+
+/* =========================================================================
+   9. GOOGLE SHEET SYNC & PUBLIC LEADERBOARD
+   ========================================================================= */
+async function postRecordToGoogleSheet(url, record) {
+  try {
+    const resp = await fetch(url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify(record)
+    });
+    return resp.ok;
+  } catch (e) {
+    return false;
+  }
+}
+
+async function syncFromGoogleSheet() {
+  const activeUrl = (APP_STATE.sheetUrl || DEFAULT_SHEET_URL || '').trim();
+  const lbMsg = document.getElementById('lb-sync-status');
+  const tMsg = document.getElementById('teacher-sheet-msg');
+
+  if (!activeUrl) {
+    const msg = 'Tiada pautan Web App Google Apps Script ditetapkan lagi. Guru boleh menetapkannya di Ruang Guru.';
+    if (lbMsg) { lbMsg.textContent = msg; lbMsg.className = 'inline-msg info show'; }
+    if (tMsg) { tMsg.textContent = msg; tMsg.className = 'inline-msg info show'; }
+    return;
+  }
+
+  try {
+    const resp = await fetch(activeUrl);
+    if (!resp.ok) throw new Error('HTTP error');
+    const data = await resp.json();
+    if (Array.isArray(data)) {
+      const normalized = data.filter(r => r && r.namaSamaran).map(r => ({
+        tarikh: String(r.tarikh || ''),
+        namaPenuh: String(r.namaPenuh || ''),
+        noKp: String(r.noKp || ''),
+        tingkatan: String(r.tingkatan || 'T1'),
+        kelas: String(r.kelas || ''),
+        namaSamaran: String(r.namaSamaran || ''),
+        pasukan: String(r.pasukan || 'Kyushu'),
+        mod: String(r.mod || 'Campuran'),
+        markah: Number(r.markah) || 0,
+        betul: String(r.betul || ''),
+        komboMaks: Number(r.komboMaks) || 0
+      }));
+      APP_STATE.records = normalized;
+      await persistAppState();
+      renderLeaderboard();
+      if (APP_STATE.teacherUnlocked) renderTeacherTable();
+      const okMsg = `Berjaya disegerakkan: ${normalized.length} rekod dimuatkan daripada Google Sheet.`;
+      if (lbMsg) { lbMsg.textContent = okMsg; lbMsg.className = 'inline-msg success show'; }
+      if (tMsg) { tMsg.textContent = okMsg; tMsg.className = 'inline-msg success show'; }
+    }
+  } catch (e) {
+    const errMsg = 'Penyegerakan terus gagal atau disekat oleh persekitaran pratonton. Memaparkan rekod tempatan semasa.';
+    if (lbMsg) { lbMsg.textContent = errMsg; lbMsg.className = 'inline-msg error show'; }
+    if (tMsg) { tMsg.textContent = errMsg; tMsg.className = 'inline-msg error show'; }
+  }
+}
+
+function renderLeaderboard() {
+  // Team totals across all records
+  const teams = [
+    { id: 'Kyushu', label: 'Kyushu · Kumamon' },
+    { id: 'Honshu', label: 'Honshu · Hikonyan' },
+    { id: 'Shikoku', label: 'Shikoku · Bari-san' },
+    { id: 'Hokkaido', label: 'Hokkaido · Melon Kuma' }
+  ];
+  const standingsGrid = document.getElementById('team-standings-grid');
+  if (standingsGrid) {
+    standingsGrid.innerHTML = teams.map(t => {
+      const total = APP_STATE.records
+        .filter(r => r.pasukan === t.id)
+        .reduce((sum, r) => sum + (Number(r.markah) || 0), 0);
+      return `<div class="team-score-pill">
+        <span class="team-score-name">${t.label}</span>
+        <span class="team-score-pts">${total.toLocaleString('ms-MY')}</span>
+      </div>`;
+    }).join('');
+  }
+
+  const filterEl = document.getElementById('lb-tingkatan-filter');
+  const selectedLvl = filterEl ? filterEl.value : 'T1';
+  const filtered = APP_STATE.records
+    .filter(r => selectedLvl === 'ALL' || r.tingkatan === selectedLvl)
+    .slice()
+    .sort((a, b) => (Number(b.markah) || 0) - (Number(a.markah) || 0))
+    .slice(0, 10);
+
+  const tbody = document.getElementById('lb-tbody');
+  const emptyBox = document.getElementById('lb-empty');
+  const tableEl = document.getElementById('lb-table');
+
+  if (!tbody) return;
+  if (filtered.length === 0) {
+    tbody.innerHTML = '';
+    if (tableEl) tableEl.style.display = 'none';
+    if (emptyBox) emptyBox.style.display = 'grid';
+    return;
+  }
+
+  if (tableEl) tableEl.style.display = 'table';
+  if (emptyBox) emptyBox.style.display = 'none';
+
+  tbody.innerHTML = filtered.map((r, idx) => {
+    const rank = idx + 1;
+    const rankCls = rank <= 3 ? `top-${rank}` : '';
+    return `<tr>
+      <td><span class="rank-badge ${rankCls}">${rank}</span></td>
+      <td><strong>${escapeHtml(r.namaSamaran)}</strong></td>
+      <td>${escapeHtml(r.pasukan)}</td>
+      <td>${escapeHtml(r.tingkatan)}</td>
+      <td>${escapeHtml(r.mod)}</td>
+      <td><strong>${Number(r.markah) || 0}</strong></td>
+    </tr>`;
+  }).join('');
+}
+
+function escapeHtml(str) {
+  return String(str || '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
+/* =========================================================================
+   10. RUANG GURU (PIN 1351, FILTERS, CSV UTF-8 BOM, SHEET URL)
+   ========================================================================= */
+function unlockTeacherPanel() {
+  const pinInput = document.getElementById('inp-teacher-pin');
+  const pinErr = document.getElementById('pin-error-msg');
+  const val = pinInput ? pinInput.value.trim() : '';
+
+  if (val !== TEACHER_PIN) {
+    if (pinErr) {
+      pinErr.textContent = 'Kod PIN tidak tepat. Sila masukkan PIN 4 digit yang sah.';
+      pinErr.classList.add('show');
+    }
+    return;
+  }
+
+  if (pinErr) pinErr.classList.remove('show');
+  if (pinInput) pinInput.value = '';
+  APP_STATE.teacherUnlocked = true;
+
+  const gate = document.getElementById('teacher-pin-gate');
+  const consoleEl = document.getElementById('teacher-console');
+  const urlInput = document.getElementById('inp-sheet-url');
+  if (gate) gate.style.display = 'none';
+  if (consoleEl) consoleEl.style.display = 'grid';
+  if (urlInput) urlInput.value = APP_STATE.sheetUrl || DEFAULT_SHEET_URL;
+  renderTeacherTable();
+}
+
+function lockTeacherPanel() {
+  APP_STATE.teacherUnlocked = false;
+  const gate = document.getElementById('teacher-pin-gate');
+  const consoleEl = document.getElementById('teacher-console');
+  if (gate) gate.style.display = 'block';
+  if (consoleEl) consoleEl.style.display = 'none';
+}
+
+async function saveSheetUrl() {
+  const urlInput = document.getElementById('inp-sheet-url');
+  const msgEl = document.getElementById('teacher-sheet-msg');
+  const val = urlInput ? urlInput.value.trim() : '';
+
+  APP_STATE.sheetUrl = val;
+  await persistAppState();
+
+  if (msgEl) {
+    msgEl.className = 'inline-msg success show';
+    msgEl.textContent = val
+      ? 'Pautan Web App Google Apps Script berjaya disimpan.'
+      : 'Pautan Google Sheet dikosongkan (mod simpanan tempatan).';
+  }
+}
+
+function getFilteredTeacherRecords() {
+  const fTing = document.getElementById('t-filter-tingkatan');
+  const fPas = document.getElementById('t-filter-pasukan');
+  const fSearch = document.getElementById('t-filter-search');
+
+  const tingVal = fTing ? fTing.value : 'ALL';
+  const pasVal = fPas ? fPas.value : 'ALL';
+  const q = fSearch ? fSearch.value.trim().toLowerCase() : '';
+
+  return APP_STATE.records.filter(r => {
+    if (tingVal !== 'ALL' && r.tingkatan !== tingVal) return false;
+    if (pasVal !== 'ALL' && r.pasukan !== pasVal) return false;
+    if (q) {
+      const hay = `${r.namaPenuh} ${r.noKp} ${r.kelas} ${r.namaSamaran} ${r.pasukan}`.toLowerCase();
+      if (!hay.includes(q)) return false;
+    }
+    return true;
+  });
+}
+
+function renderTeacherTable() {
+  const rows = getFilteredTeacherRecords();
+  const sub = document.getElementById('teacher-count-sub');
+  const tbody = document.getElementById('teacher-tbody');
+  const emptyBox = document.getElementById('teacher-empty');
+
+  if (sub) sub.textContent = `Memaparkan ${rows.length} daripada ${APP_STATE.records.length} rekod murid.`;
+  if (!tbody) return;
+
+  if (rows.length === 0) {
+    tbody.innerHTML = '';
+    if (emptyBox) emptyBox.style.display = 'grid';
+    return;
+  }
+
+  if (emptyBox) emptyBox.style.display = 'none';
+  tbody.innerHTML = rows.map(r => `<tr>
+    <td>${escapeHtml(r.tarikh)}</td>
+    <td><strong>${escapeHtml(r.namaPenuh)}</strong></td>
+    <td>${escapeHtml(r.noKp)}</td>
+    <td>${escapeHtml(r.tingkatan)}</td>
+    <td>${escapeHtml(r.kelas)}</td>
+    <td>${escapeHtml(r.namaSamaran)}</td>
+    <td>${escapeHtml(r.pasukan)}</td>
+    <td>${escapeHtml(r.mod)}</td>
+    <td><strong>${Number(r.markah) || 0}</strong></td>
+    <td>${escapeHtml(r.betul)}</td>
+    <td>${Number(r.komboMaks) || 0}</td>
+  </tr>`).join('');
+}
+
+function csvCell(val) {
+  const s = String(val === undefined || val === null ? '' : val);
+  return `"${s.replace(/"/g, '""')}"`;
+}
+
+function exportTeacherCSV() {
+  const rows = getFilteredTeacherRecords();
+  const headers = ['tarikh', 'namaPenuh', 'noKp', 'tingkatan', 'kelas', 'namaSamaran', 'pasukan', 'mod', 'markah', 'betul', 'komboMaks'];
+  const lines = [headers.join(',')];
+  rows.forEach(r => {
+    lines.push(headers.map(h => csvCell(r[h])).join(','));
+  });
+
+  // UTF-8 BOM for clean Excel display of Japanese & Malay characters
+  const csvWithBom = '\uFEFF' + lines.join('\r\n');
+  const filename = `rekod_kuiz_jepun_smk_zainab_${new Date().toISOString().slice(0, 10)}.csv`;
+
+  if (window.notebookAppApi && typeof window.notebookAppApi.triggerFileDownload === 'function') {
+    window.notebookAppApi.triggerFileDownload({
+      content: csvWithBom,
+      contentType: 'text/csv',
+      encoding: 'UTF-8',
+      filename: filename
+    });
+  } else {
+    const blob = new Blob([csvWithBom], { type: 'text/csv;charset=utf-8;' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  }
+}
+
+async function clearAllRecords(btn) {
+  if (!btn) return;
+  if (btn.dataset.armed !== 'true') {
+    btn.dataset.armed = 'true';
+    btn.textContent = 'Klik sekali lagi untuk sahkan padam';
+    setTimeout(() => {
+      if (btn.dataset.armed === 'true') {
+        btn.dataset.armed = 'false';
+        btn.textContent = 'Padam Rekod Tempatan';
+      }
+    }, 3500);
+    return;
+  }
+  btn.dataset.armed = 'false';
+  btn.textContent = 'Padam Rekod Tempatan';
+  APP_STATE.records = [];
+  await persistAppState();
+  renderTeacherTable();
+  renderLeaderboard();
+}
+
+/* =========================================================================
+   11. APP INITIALIZATION
+   ========================================================================= */
+async function initApp() {
+  if (window.notebookAppApi && typeof window.notebookAppApi.getAppState === 'function') {
+    try {
+      const saved = await window.notebookAppApi.getAppState();
+      if (saved && typeof saved === 'object') {
+        if (typeof saved.furiganaOn === 'boolean') APP_STATE.furiganaOn = saved.furiganaOn;
+        if (typeof saved.sheetUrl === 'string') APP_STATE.sheetUrl = saved.sheetUrl;
+        if (saved.seenByPool && typeof saved.seenByPool === 'object') APP_STATE.seenByPool = saved.seenByPool;
+        if (Array.isArray(saved.records)) APP_STATE.records = saved.records;
+        if (saved.studentDraft && typeof saved.studentDraft === 'object') {
+          APP_STATE.studentDraft = Object.assign(APP_STATE.studentDraft, saved.studentDraft);
+        }
+      }
+    } catch (e) {
+      // Proceed cleanly with default empty state
+    }
+  }
+
+  // Restore draft fields
+  const d = APP_STATE.studentDraft;
+  const fullEl = document.getElementById('inp-fullname');
+  const nokpEl = document.getElementById('inp-nokp');
+  const tingEl = document.getElementById('inp-tingkatan');
+  const kelasEl = document.getElementById('inp-kelas');
+  const nickEl = document.getElementById('inp-nickname');
+
+  if (fullEl && d.namaPenuh) fullEl.value = d.namaPenuh;
+  if (nokpEl && d.noKp) nokpEl.value = d.noKp;
+  if (tingEl && d.tingkatan) tingEl.value = d.tingkatan;
+  if (kelasEl && d.kelas) kelasEl.value = d.kelas;
+  if (nickEl && d.namaSamaran) nickEl.value = d.namaSamaran;
+
+  selectTeam(d.pasukan || 'Kyushu');
+  selectMode(d.mod || 'Kosa Kata');
+  applyFuriganaUI();
+  updateMusicUI();
+  updatePoolStats();
+  renderLeaderboard();
+
+  if (window.notebookAppApi && typeof window.notebookAppApi.notifyAppReady === 'function') {
+    window.notebookAppApi.notifyAppReady();
+  }
+}
+
+document.addEventListener('DOMContentLoaded', initApp);
+</script>
+</body>
+</html>
