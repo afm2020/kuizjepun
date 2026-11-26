@@ -1778,8 +1778,7 @@ function doGet() {
 /* =========================================================================
    1. CONFIGURATION & DEFAULT SHEET URL
    ========================================================================= */
-const DEFAULT_SHEET_URL = '
-https://script.google.com/macros/s/AKfycby8MqSJHCVhyiV6uGXYqgo7-_iORVQIDDS95o8tE01BOYN48RBYaxoRJ6Ml8yOifovuRg/exec';
+const DEFAULT_SHEET_URL = '';
 const TEACHER_PIN = '1351';
 
 /* =========================================================================
@@ -2252,6 +2251,16 @@ const QUIZ_SESSION = {
 };
 
 async function persistAppState() {
+  try {
+    localStorage.setItem('kuiz_app_state', JSON.stringify({
+      furiganaOn: APP_STATE.furiganaOn,
+      sheetUrl: APP_STATE.sheetUrl,
+      seenByPool: APP_STATE.seenByPool,
+      records: APP_STATE.records,
+      studentDraft: APP_STATE.studentDraft
+    }));
+  } catch (e) {}
+
   if (window.notebookAppApi && typeof window.notebookAppApi.setAppState === 'function') {
     try {
       await window.notebookAppApi.setAppState({
@@ -2261,9 +2270,7 @@ async function persistAppState() {
         records: APP_STATE.records,
         studentDraft: APP_STATE.studentDraft
       });
-    } catch (e) {
-      // Safe fallback inside preview
-    }
+    } catch (e) {}
   }
 }
 
@@ -2979,6 +2986,22 @@ async function clearAllRecords(btn) {
    11. APP INITIALIZATION
    ========================================================================= */
 async function initApp() {
+  try {
+    const localSavedRaw = localStorage.getItem('kuiz_app_state');
+    if (localSavedRaw) {
+      const localSaved = JSON.parse(localSavedRaw);
+      if (localSaved && typeof localSaved === 'object') {
+        if (typeof localSaved.furiganaOn === 'boolean') APP_STATE.furiganaOn = localSaved.furiganaOn;
+        if (typeof localSaved.sheetUrl === 'string') APP_STATE.sheetUrl = localSaved.sheetUrl;
+        if (localSaved.seenByPool && typeof localSaved.seenByPool === 'object') APP_STATE.seenByPool = localSaved.seenByPool;
+        if (Array.isArray(localSaved.records)) APP_STATE.records = localSaved.records;
+        if (localSaved.studentDraft && typeof localSaved.studentDraft === 'object') {
+          APP_STATE.studentDraft = Object.assign(APP_STATE.studentDraft, localSaved.studentDraft);
+        }
+      }
+    }
+  } catch (e) {}
+
   if (window.notebookAppApi && typeof window.notebookAppApi.getAppState === 'function') {
     try {
       const saved = await window.notebookAppApi.getAppState();
@@ -3009,6 +3032,9 @@ async function initApp() {
   if (tingEl && d.tingkatan) tingEl.value = d.tingkatan;
   if (kelasEl && d.kelas) kelasEl.value = d.kelas;
   if (nickEl && d.namaSamaran) nickEl.value = d.namaSamaran;
+
+  const urlInp = document.getElementById('inp-sheet-url');
+  if (urlInp && APP_STATE.sheetUrl) urlInp.value = APP_STATE.sheetUrl;
 
   selectTeam(d.pasukan || 'Kyushu');
   selectMode(d.mod || 'Kosa Kata');
