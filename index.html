@@ -1621,7 +1621,7 @@ body.in-quiz .page-footer {
               <th>Kedudukan</th>
               <th>Nama Samaran</th>
               <th>Pasukan</th>
-              <th>Tingkatan</th>
+              <th>Tingkatan / Kelas</th>
               <th>Mod</th>
               <th>Markah</th>
             </tr>
@@ -1778,7 +1778,7 @@ function doGet() {
 /* =========================================================================
    1. CONFIGURATION & DEFAULT SHEET URL
    ========================================================================= */
-const DEFAULT_SHEET_URL = 'https://script.google.com/macros/s/AKfycby8MqSJHCVhyiV6uGXYqgo7-_iORVQIDDS95o8tE01BOYN48RBYaxoRJ6Ml8yOifovuRg/exec';
+const DEFAULT_SHEET_URL = '';
 const TEACHER_PIN = '1351';
 
 /* =========================================================================
@@ -2797,7 +2797,7 @@ function renderLeaderboard() {
       <td><span class="rank-badge ${rankCls}">${rank}</span></td>
       <td><strong>${escapeHtml(r.namaSamaran)}</strong></td>
       <td>${escapeHtml(r.pasukan)}</td>
-      <td>${escapeHtml(r.tingkatan)}</td>
+      <td>${escapeHtml(r.kelas ? `${r.tingkatan} (${r.kelas})` : r.tingkatan)}</td>
       <td>${escapeHtml(r.mod)}</td>
       <td><strong>${Number(r.markah) || 0}</strong></td>
     </tr>`;
