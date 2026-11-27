@@ -2499,6 +2499,7 @@ function startQuiz() {
     namaPenuh,
     noKp,
     tingkatan,
+    tahapSoalan,
     kelas,
     namaSamaran,
     pasukan: APP_STATE.studentDraft.pasukan || 'Kyushu',
@@ -2654,6 +2655,7 @@ async function completeQuizRound() {
     namaPenuh: st.namaPenuh,
     noKp: st.noKp,
     tingkatan: st.tingkatan,
+    tahapSoalan: st.tahapSoalan || st.tingkatan,
     kelas: st.kelas,
     namaSamaran: st.namaSamaran,
     pasukan: st.pasukan,
@@ -2753,6 +2755,7 @@ async function syncFromGoogleSheet() {
         namaPenuh: String(r.namaPenuh || ''),
         noKp: String(r.noKp || ''),
         tingkatan: String(r.tingkatan || 'T1'),
+        tahapSoalan: String(r.tahapSoalan || r.tingkatan || 'T1'),
         kelas: String(r.kelas || ''),
         namaSamaran: String(r.namaSamaran || ''),
         pasukan: String(r.pasukan || 'Kyushu'),
@@ -2938,6 +2941,7 @@ function renderTeacherTable() {
     <td><strong>${escapeHtml(r.namaPenuh)}</strong></td>
     <td>${escapeHtml(r.noKp)}</td>
     <td>${escapeHtml(r.tingkatan)}</td>
+    <td>${escapeHtml(r.tahapSoalan || r.tingkatan)}</td>
     <td>${escapeHtml(r.kelas)}</td>
     <td>${escapeHtml(r.namaSamaran)}</td>
     <td>${escapeHtml(r.pasukan)}</td>
@@ -2955,7 +2959,7 @@ function csvCell(val) {
 
 function exportTeacherCSV() {
   const rows = getFilteredTeacherRecords();
-  const headers = ['tarikh', 'namaPenuh', 'noKp', 'tingkatan', 'kelas', 'namaSamaran', 'pasukan', 'mod', 'markah', 'betul', 'komboMaks'];
+  const headers = ['tarikh', 'namaPenuh', 'noKp', 'tingkatan', 'tahapSoalan', 'kelas', 'namaSamaran', 'pasukan', 'mod', 'markah', 'betul', 'komboMaks'];
   const lines = [headers.join(',')];
   rows.forEach(r => {
     lines.push(headers.map(h => csvCell(r[h])).join(','));
