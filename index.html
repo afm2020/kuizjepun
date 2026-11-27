@@ -1607,10 +1607,10 @@ body.in-quiz .page-footer {
           <div class="field-group" style="min-width:140px;">
             <label class="field-label" for="lb-tingkatan-filter">Tapis Tingkatan</label>
             <select id="lb-tingkatan-filter" class="pill-select" onchange="renderLeaderboard()">
+              <option value="ALL">Semua Tingkatan</option>
               <option value="T1">Tingkatan 1</option>
               <option value="T2">Tingkatan 2</option>
               <option value="T3">Tingkatan 3</option>
-              <option value="ALL">Semua Tingkatan</option>
             </select>
           </div>
           <div class="field-group" style="min-width:140px;">
@@ -2791,7 +2791,7 @@ function renderLeaderboard() {
   const filterModEl = document.getElementById('lb-mod-filter');
   const selectedMod = filterModEl ? filterModEl.value : 'ALL';
   const filtered = APP_STATE.records
-    .filter(r => (selectedLvl === 'ALL' || r.tingkatan === selectedLvl) && (selectedMod === 'ALL' || r.mod === selectedMod))
+    .filter(r => (selectedLvl === 'ALL' || r.tingkatan === selectedLvl) && (selectedMod === 'ALL' || String(r.mod || '').trim().toLowerCase() === selectedMod.toLowerCase()))
     .slice()
     .sort((a, b) => (Number(b.markah) || 0) - (Number(a.markah) || 0))
     .slice(0, 20);
