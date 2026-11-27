@@ -2495,6 +2495,9 @@ function startQuiz() {
   }
   showSetupError('');
 
+  const tahapEl = document.getElementById('inp-tahap-soalan');
+  const tahapSoalan = tahapEl ? tahapEl.value : tingkatan;
+
   APP_STATE.studentDraft = {
     namaPenuh,
     noKp,
@@ -2505,9 +2508,6 @@ function startQuiz() {
     pasukan: APP_STATE.studentDraft.pasukan || 'Kyushu',
     mod: APP_STATE.studentDraft.mod || 'Kosa Kata'
   };
-
-  const tahapEl = document.getElementById('inp-tahap-soalan');
-  const tahapSoalan = tahapEl ? tahapEl.value : tingkatan;
   const questions = pickAntiRepeatQuestions(tahapSoalan, APP_STATE.studentDraft.mod, 10);
   persistAppState();
 
