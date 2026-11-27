@@ -1613,7 +1613,7 @@ body.in-quiz .page-footer {
           <p class="section-sub" style="margin:0;">Hanya Nama Samaran, Pasukan, Mod dan Markah dipaparkan demi privasi murid.</p>
         </div>
         <div style="display:flex; flex-wrap:wrap; gap:var(--space-sm);">
-          <div class="field-group" style="min-width:140px;">
+          <div class="field-group" style="min-width:130px;">
             <label class="field-label" for="lb-tingkatan-filter">Tapis Tingkatan</label>
             <select id="lb-tingkatan-filter" class="pill-select" onchange="renderLeaderboard()">
               <option value="ALL">Semua Tingkatan</option>
@@ -1622,13 +1622,22 @@ body.in-quiz .page-footer {
               <option value="T3">Tingkatan 3</option>
             </select>
           </div>
-          <div class="field-group" style="min-width:140px;">
+          <div class="field-group" style="min-width:130px;">
             <label class="field-label" for="lb-mod-filter">Tapis Mod</label>
             <select id="lb-mod-filter" class="pill-select" onchange="renderLeaderboard()">
               <option value="ALL">Semua Mod</option>
               <option value="Kosa Kata">Kosa Kata</option>
               <option value="Tatabahasa">Tatabahasa</option>
               <option value="Campuran">Campuran</option>
+            </select>
+          </div>
+          <div class="field-group" style="min-width:140px;">
+            <label class="field-label" for="lb-tahap-filter">Tapis Tahap Soalan</label>
+            <select id="lb-tahap-filter" class="pill-select" onchange="renderLeaderboard()">
+              <option value="ALL">Semua Tahap</option>
+              <option value="T1">Soalan T1</option>
+              <option value="T2">Soalan T2</option>
+              <option value="T3">Soalan T3</option>
             </select>
           </div>
         </div>
@@ -2801,11 +2810,18 @@ function renderLeaderboard() {
   }
 
   const filterEl = document.getElementById('lb-tingkatan-filter');
-  const selectedLvl = filterEl ? filterEl.value : 'T1';
+  const selectedLvl = filterEl ? filterEl.value : 'ALL';
   const filterModEl = document.getElementById('lb-mod-filter');
   const selectedMod = filterModEl ? filterModEl.value : 'ALL';
+  const filterTahapEl = document.getElementById('lb-tahap-filter');
+  const selectedTahap = filterTahapEl ? filterTahapEl.value : 'ALL';
+
   const filtered = APP_STATE.records
-    .filter(r => (selectedLvl === 'ALL' || r.tingkatan === selectedLvl) && (selectedMod === 'ALL' || String(r.mod || '').trim().toLowerCase() === selectedMod.toLowerCase()))
+    .filter(r => 
+      (selectedLvl === 'ALL' || r.tingkatan === selectedLvl) &&
+      (selectedMod === 'ALL' || String(r.mod || '').trim().toLowerCase() === selectedMod.toLowerCase()) &&
+      (selectedTahap === 'ALL' || String(r.tahapSoalan || r.tingkatan || 'T1').trim() === selectedTahap)
+    )
     .slice()
     .sort((a, b) => (Number(b.markah) || 0) - (Number(a.markah) || 0))
     .slice(0, 20);
