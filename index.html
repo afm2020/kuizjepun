@@ -1244,11 +1244,20 @@ body.in-quiz .page-footer {
           <input id="inp-nokp" class="pill-input" type="text" inputmode="numeric" placeholder="Contoh: 120315035421">
         </div>
         <div class="field-group">
-          <label class="field-label" for="inp-tingkatan">Tingkatan</label>
-          <select id="inp-tingkatan" class="pill-select" onchange="updatePoolStats()">
-            <option value="T1">Tingkatan 1 (T1)</option>
-            <option value="T2">Tingkatan 2 (T2)</option>
-            <option value="T3">Tingkatan 3 (T3)</option>
+          <label class="field-label" for="inp-tingkatan">Tingkatan Sebenar <span class="req">*</span></label>
+          <select id="inp-tingkatan" class="pill-select" required>
+            <option value="T1">Tingkatan 1</option>
+            <option value="T2">Tingkatan 2</option>
+            <option value="T3">Tingkatan 3</option>
+          </select>
+        </div>
+
+        <div class="field-group">
+          <label class="field-label" for="inp-tahap-soalan">Tahap Soalan Kuiz <span class="req">*</span></label>
+          <select id="inp-tahap-soalan" class="pill-select" required>
+            <option value="T1">Soalan Tingkatan 1 (Bab 1–5)</option>
+            <option value="T2">Soalan Tingkatan 2 (Bab 6–10)</option>
+            <option value="T3">Soalan Tingkatan 3 (Bab 11–15)</option>
           </select>
         </div>
         <div class="field-group">
@@ -2496,7 +2505,9 @@ function startQuiz() {
     mod: APP_STATE.studentDraft.mod || 'Kosa Kata'
   };
 
-  const questions = pickAntiRepeatQuestions(tingkatan, APP_STATE.studentDraft.mod, 10);
+  const tahapEl = document.getElementById('inp-tahap-soalan');
+  const tahapSoalan = tahapEl ? tahapEl.value : tingkatan;
+  const questions = pickAntiRepeatQuestions(tahapSoalan, APP_STATE.studentDraft.mod, 10);
   persistAppState();
 
   QUIZ_SESSION.active = true;
@@ -3043,6 +3054,8 @@ async function initApp() {
   if (fullEl && d.namaPenuh) fullEl.value = d.namaPenuh;
   if (nokpEl && d.noKp) nokpEl.value = d.noKp;
   if (tingEl && d.tingkatan) tingEl.value = d.tingkatan;
+  const tahapEl = document.getElementById('inp-tahap-soalan');
+  if (tahapEl && d.tahapSoalan) tahapEl.value = d.tahapSoalan;
   if (kelasEl && d.kelas) kelasEl.value = d.kelas;
   if (nickEl && d.namaSamaran) nickEl.value = d.namaSamaran;
 
