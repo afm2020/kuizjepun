@@ -1603,14 +1603,25 @@ body.in-quiz .page-footer {
           <h2 class="section-heading">Papan Pendahulu <em>Top 20</em></h2>
           <p class="section-sub" style="margin:0;">Hanya Nama Samaran, Pasukan, Mod dan Markah dipaparkan demi privasi murid.</p>
         </div>
-        <div class="field-group" style="min-width:180px;">
-          <label class="field-label" for="lb-tingkatan-filter">Tapis Tingkatan</label>
-          <select id="lb-tingkatan-filter" class="pill-select" onchange="renderLeaderboard()">
-            <option value="T1">Tingkatan 1</option>
-            <option value="T2">Tingkatan 2</option>
-            <option value="T3">Tingkatan 3</option>
-            <option value="ALL">Semua Tingkatan</option>
-          </select>
+        <div style="display:flex; flex-wrap:wrap; gap:var(--space-sm);">
+          <div class="field-group" style="min-width:140px;">
+            <label class="field-label" for="lb-tingkatan-filter">Tapis Tingkatan</label>
+            <select id="lb-tingkatan-filter" class="pill-select" onchange="renderLeaderboard()">
+              <option value="T1">Tingkatan 1</option>
+              <option value="T2">Tingkatan 2</option>
+              <option value="T3">Tingkatan 3</option>
+              <option value="ALL">Semua Tingkatan</option>
+            </select>
+          </div>
+          <div class="field-group" style="min-width:140px;">
+            <label class="field-label" for="lb-mod-filter">Tapis Mod</label>
+            <select id="lb-mod-filter" class="pill-select" onchange="renderLeaderboard()">
+              <option value="ALL">Semua Mod</option>
+              <option value="Kosa Kata">Kosa Kata</option>
+              <option value="Tatabahasa">Tatabahasa</option>
+              <option value="Campuran">Campuran</option>
+            </select>
+          </div>
         </div>
       </div>
 
@@ -2777,8 +2788,10 @@ function renderLeaderboard() {
 
   const filterEl = document.getElementById('lb-tingkatan-filter');
   const selectedLvl = filterEl ? filterEl.value : 'T1';
+  const filterModEl = document.getElementById('lb-mod-filter');
+  const selectedMod = filterModEl ? filterModEl.value : 'ALL';
   const filtered = APP_STATE.records
-    .filter(r => selectedLvl === 'ALL' || r.tingkatan === selectedLvl)
+    .filter(r => (selectedLvl === 'ALL' || r.tingkatan === selectedLvl) && (selectedMod === 'ALL' || r.mod === selectedMod))
     .slice()
     .sort((a, b) => (Number(b.markah) || 0) - (Number(a.markah) || 0))
     .slice(0, 20);
